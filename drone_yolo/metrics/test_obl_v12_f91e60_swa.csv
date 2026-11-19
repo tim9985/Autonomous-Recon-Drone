@@ -1,0 +1,2 @@
+model,n_gt,AP50,recall@0.15,precision@0.15,fp_per_neg_frame
+v12_f91e60_swa,6438,0.5916,0.6465,0.6711,0.0

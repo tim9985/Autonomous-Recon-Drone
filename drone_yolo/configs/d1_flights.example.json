@@ -1,0 +1,5 @@
+{
+ "F03": {"dir": "data/real_flight/1116/F03/labeled", "place": "A", "empty_ok": false},
+ "F04": {"dir": "data/real_flight/1116/F04/labeled", "place": "B", "empty_ok": true},
+ "F07": {"dir": "data/real_flight/1116/F07/labeled", "place": "C", "empty_ok": false}
+}

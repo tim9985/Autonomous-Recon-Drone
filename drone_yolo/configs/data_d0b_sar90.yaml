@@ -1,0 +1,5 @@
+# D0b (11-01) 현장 적응 연습 2 — UAV-SAR 90° 150장 + v12_f91 창 1500 (1:10) · 판정 UAV-SAR 45°
+train: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/train_d0b_sar90.txt
+val: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/val_v12.txt
+nc: 1
+names: ['person']

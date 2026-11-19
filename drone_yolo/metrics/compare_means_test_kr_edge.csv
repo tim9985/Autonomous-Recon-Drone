@@ -9,3 +9,21 @@ test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v15pl_f91_swa,v15pl_f92_swa"
 test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12dg_swa,v12dg92_swa",-0.0002,-0.0003,0.0,61,구분 안 됨
 test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12mq_swa,v12mq92_swa",-0.0053,-0.006,-0.0,61,차이 있음
 test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12mqn_swa,v12mqn92_swa",-0.0052,-0.006,0.0001,61,구분 안 됨
+test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12p2_f91_swa,-0.0097,-0.0098,0.0,61,구분 안 됨
+test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12s5_f91_swa,0.0001,-0.0001,0.0002,61,구분 안 됨
+test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",-0.0032,-0.0035,0.0002,61,구분 안 됨
+test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12_f91_swa20,v12_f92_swa20,v12_f93_swa20",-0.0032,-0.0034,0.0002,61,구분 안 됨
+test_kr_edge,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep10,v12_f92_ep10,v12_f93_ep10",-0.0073,-0.0116,0.0023,61,구분 안 됨
+test_kr_edge,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep15,v12_f92_ep15,v12_f93_ep15",-0.0038,-0.0041,-0.0,61,차이 있음
+test_kr_edge,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep20,v12_f92_ep20,v12_f93_ep20",0.0,-0.0035,0.0035,61,구분 안 됨
+test_kr_edge,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep25,v12_f92_ep25,v12_f93_ep25",0.0,-0.0033,0.0035,61,구분 안 됨
+test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v16n_f91_swa,-0.0003,-0.0005,-0.0,61,차이 있음
+test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12lr5_f91_swa,0.0001,-0.0,0.0002,61,구분 안 됨
+test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v16n_f92_swa,-0.0003,-0.0005,0.0001,61,구분 안 됨
+test_kr_edge,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v16n_f92_swa15,0.0031,-0.0004,0.0034,61,구분 안 됨
+test_kr_edge,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12dg0_f91_swa,-0.0007,-0.001,-0.0,61,차이 있음
+test_kr_edge,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12dg0_f91_swa15,0.0031,-0.0004,0.0035,61,구분 안 됨
+test_kr_edge,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",rtd_v12_f91,-0.0083,-0.0124,-0.0002,61,차이 있음
+test_kr_edge,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",rtd_v12_f91_swa15,-0.0091,-0.0135,-0.0007,61,차이 있음
+test_kr_edge,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12r90_f91_swa15,0.0033,-0.0002,0.0035,61,구분 안 됨
+test_kr_edge,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12r90_f92_swa15,0.0032,-0.0002,0.0035,61,구분 안 됨

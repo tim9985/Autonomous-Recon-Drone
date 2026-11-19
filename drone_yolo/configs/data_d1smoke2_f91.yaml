@@ -1,0 +1,5 @@
+# d1smoke2_f91 (11-08 D1) — train_v12_f91 + 실기체 창 120 × ≤3 (A · B 장소 · C 는 평가 전용) · val = val_v12
+train: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/train_d1smoke2_f91.txt
+val: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/val_v12.txt
+nc: 1
+names: ['person']

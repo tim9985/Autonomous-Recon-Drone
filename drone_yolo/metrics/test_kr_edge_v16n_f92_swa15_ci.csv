@@ -1,0 +1,2 @@
+model,AP50,ci_lo,ci_hi,blocks,groups,B
+v16n_f92_swa15,0.9997,0.9995,0.9999,61,21,1000

@@ -1,0 +1,35 @@
+{
+ "tinyperson": {
+  "frames": 3201,
+  "eligible": 3201,
+  "seqs": 688,
+  "selected": 1100,
+  "windows": 1000,
+  "persons": 6471,
+  "px_median": 21.25054931640625,
+  "px_lt24": 0.574563436872199
+ },
+ "rgbt_dark_dropped": 0,
+ "rgbt": {
+  "frames": 1013,
+  "eligible": 974,
+  "seqs": 12,
+  "selected": 300,
+  "windows": 299,
+  "persons": 2768,
+  "px_median": 14.0,
+  "px_lt24": 0.9989161849710982
+ },
+ "mot": {
+  "frames": 2846,
+  "eligible": 2776,
+  "seqs": 7,
+  "selected": 805,
+  "windows": 800,
+  "persons": 11750,
+  "px_median": 57.41020202636719,
+  "px_lt24": 0.02825531914893617
+ },
+ "total_new": 2099,
+ "total_list": 19770
+}

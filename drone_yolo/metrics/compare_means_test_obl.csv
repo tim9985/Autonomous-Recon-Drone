@@ -11,3 +11,22 @@ test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v15pl_f91_swa,v15pl_f92_swa",0.0
 test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12dg_swa,v12dg92_swa",0.0157,0.0072,0.0224,48,차이 있음
 test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12mq_swa,v12mq92_swa",0.0123,0.0054,0.0211,48,차이 있음
 test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12mqn_swa,v12mqn92_swa",-0.0003,-0.009,0.0094,48,구분 안 됨
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12_f92_swa,0.0112,0.0044,0.019,48,차이 있음
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12p2_f91_swa,0.0053,-0.0051,0.016,48,구분 안 됨
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12s5_f91_swa,0.0072,0.0003,0.0162,48,차이 있음
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",0.0104,0.0058,0.0143,48,차이 있음
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12_f91_swa20,v12_f92_swa20,v12_f93_swa20",0.0083,0.0049,0.0112,48,차이 있음
+test_obl,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep10,v12_f92_ep10,v12_f93_ep10",-0.0018,-0.013,0.01,48,구분 안 됨
+test_obl,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep15,v12_f92_ep15,v12_f93_ep15",0.0025,-0.0047,0.0097,48,구분 안 됨
+test_obl,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep20,v12_f92_ep20,v12_f93_ep20",0.0119,0.0053,0.0186,48,차이 있음
+test_obl,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep25,v12_f92_ep25,v12_f93_ep25",0.0107,0.0048,0.0158,48,차이 있음
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v16n_f91_swa,0.0069,-0.0038,0.0174,48,구분 안 됨
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12lr5_f91_swa,0.0013,-0.0095,0.0085,48,구분 안 됨
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v16n_f92_swa,-0.0146,-0.0277,-0.0064,48,차이 있음
+test_obl,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v16n_f92_swa15,-0.0188,-0.0278,-0.0098,48,차이 있음
+test_obl,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12dg0_f91_swa,-0.0001,-0.0088,0.007,48,구분 안 됨
+test_obl,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12dg0_f91_swa15,0.0059,-0.0027,0.0131,48,구분 안 됨
+test_obl,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",rtd_v12_f91,0.0765,0.0556,0.0986,48,차이 있음
+test_obl,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",rtd_v12_f91_swa15,0.0844,0.0624,0.1083,48,차이 있음
+test_obl,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12r90_f91_swa15,0.0202,0.0117,0.0301,48,차이 있음
+test_obl,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12r90_f92_swa15,0.0126,0.005,0.0233,48,차이 있음

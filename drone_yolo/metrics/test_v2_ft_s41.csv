@@ -1,0 +1,2 @@
+model,n_gt,AP50,recall@0.15,precision@0.15,fp_per_neg_frame
+ft_s41,3927,0.5588,0.6081,0.7099,0.39

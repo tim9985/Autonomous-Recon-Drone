@@ -1,0 +1,5 @@
+# v12_f91 (chain_r12 · 2026-10-12) — train_v12 95 % 무작위 뽑기 시드 91 · val = val_v12
+train: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/train_v12_f91.txt
+val: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/val_v12.txt
+nc: 1
+names: ['person']

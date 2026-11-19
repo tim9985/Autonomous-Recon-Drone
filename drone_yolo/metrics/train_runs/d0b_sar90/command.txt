@@ -1,0 +1,4 @@
+# 2026-11-01 17:02:04 KST 
+/home/se/miniconda3/envs/drone/bin/python train_person.py --stage 1 --hyp configs/hyp/v6_oblique.yaml --weights runs_person/v12_f91_swa/weights/best.pt --name d0b_sar90 --epochs 10 --lr0 0.001 --warmup-epochs 1 --data configs/data_d0b_sar90.yaml
+{"amp": true, "batch": 8, "cache": "disk", "close_mosaic": 0, "data": "configs/data_d0b_sar90.yaml", "degrade": false, "degrees": 10.0, "ellipse_box": false, "epochs": 10, "fliplr": 0.5, "flipud": 0.0, "hsv_h": 0.02, "hsv_s": 0.8, "hsv_v": 0.5, "imgsz": 1280, "lr0": 0.001, "model_yaml": null, "mosaic": 1.0, "nwd": 0.0, "nwd_c": 32.0, "optimizer": "SGD", "params_M": 20.05, "patience": 100, "plots": true, "scale": 0.3, "seed": 42, "translate": 0.15, "val": true, "warmup_epochs": 1.0, "weights": "runs_person/v12_f91_swa/weights/best.pt", "workers": 8}
+

@@ -9,7 +9,9 @@ real_flight_eval.py — 실비행 녹화 평가 (11-25 최종발표 · 계획 ob
        "actors": {"이름": {"upper": "red", "pose": "lying"}, …}   출연자 옷 색 · 자세 기록 (12색 이름)
        "labels": "<YOLO 라벨 폴더>"   (프레임 이름.txt · 사람 0 · 정규화 cx cy w h) → AP50 · 재현율@0.20 (NFR-V03) · 크기별
        "actor_boxes": "<폴더>"       라벨 txt 의 6번째 칸 = 출연자 이름 → 후보 ↔ 출연자 이어 색 1순위 · 찾는 색 질의 · 등급
-       "segments": [{"i0": 0, "i1": 299, "code": "P8-O0-앞"}, …]   촬영 체크리스트 장면 (프레임 순번 · 끝 포함) → 장면 코드별 · 자세 묶음별 재현율 (P8~P10 = 누움)
+       "segments": [{"i0": 0, "i1": 299, "code": "P8-O0-앞", "marker": "K1"}, …]   ("marker" 는 좌표용 · 여럿이면 목록)
+       "markers": {"K1": [위도, 경도], …}   바닥 표시점 (드론을 표시점 위에 놓고 GPS 30 초 평균 권장) → 좌표 오차 (NFR-V04)
+       "ground_msl_m": 51.2   (선택) 이륙 전 지면에 둔 기체의 MSL 고도 = 평지 지면 높이 → 고도 MSL 인 녹화도 평지 AGL 로 계산   촬영 체크리스트 장면 (프레임 순번 · 끝 포함) → 장면 코드별 · 자세 묶음별 재현율 (P8~P10 = 누움)
   ④ 라벨 작업용 내보내기 (`--export N`): N 장마다 그림 + 모델 박스 (YOLO txt · 미리 채움) → FiftyOne · CVAT 로 고쳐 `labels` 로 씀
   출력 metrics/real_flight_<임무>.json (수치만 · git) · 그림 · 라벨은 git 밖 (사람 얼굴)
 실행  /home/se/miniconda3/envs/drone/bin/python real_flight_eval.py <녹화 임무 폴더> [--gt gt.json] [--export 10 --export-dir 경로] [--engine]
@@ -23,7 +25,7 @@ import numpy as np
 BASE = Path(__file__).resolve().parent
 V13 = BASE / "deploy" / "vision_worker" / "integration_v1_3"
 SANDBOX = Path("/home/se/sandboxes/drone-real")
-PACK = BASE / "runs_person" / "_pack_v12_real"
+PACK = Path(os.environ.get("RF_PACK", BASE / "runs_person" / "_pack_v12w_real"))   # 11-13 swa15 · 예전 = _pack_v12_real
 DEM = "/home/se/sandboxes/drone-dev/data/spatial/campus-04e1b46514574d45/terrain"
 
 
@@ -33,9 +35,10 @@ def stage_worker():
     shutil.copytree(SANDBOX / "app", st / "app", ignore=shutil.ignore_patterns("*.bak-*", "__pycache__"))
     for f in ("color.py", "record.py"):
         shutil.copy2(V13 / "app" / "vision_core" / f, st / "app" / "vision_core" / f)
-    r = subprocess.run(["patch", "-p1", "-d", str(st), "-i", str(V13 / "ingest_real.patch")], capture_output=True, text=True)
-    if r.returncode:
-        raise RuntimeError("ingest 패치 실패 (배포 판이 바뀜?) " + r.stdout[-300:])
+    if "make_colorer" not in (st / "app" / "vision_core" / "ingest.py").read_text():   # 11-13: REAL 배포 판엔 1.3 이 이미 들어감 → 그때는 그대로
+        r = subprocess.run(["patch", "-p1", "-d", str(st), "-i", str(V13 / "ingest_real.patch")], capture_output=True, text=True)
+        if r.returncode:
+            raise RuntimeError("ingest 패치 실패 (배포 판이 바뀜?) " + r.stdout[-300:])
     dev_pose = Path("/home/se/sandboxes/drone-dev/app/vision_core/pose.py")
     if dev_pose.exists():
         shutil.copy2(dev_pose, st / "app" / "vision_core" / "pose_dem.py")
@@ -97,6 +100,85 @@ def ap50(dets, gts):
             size[key][0] += hit20[f][k]; size[key][1] += 1
     return {"AP50": round(float(np.sum((mrec[idx + 1] - mrec[idx]) * mpre[idx + 1])), 4), "사람 박스": n,
             "재현율@0.20": round(sum(sum(v) for v in hit20.values()) / n, 4), "키 px 별 재현율": {k: f"{a}/{b}" for k, (a, b) in sorted(size.items())}}
+
+
+def _enu(lat0, lon0, lat, lon):
+    """표시점 기준 동 · 북 (m) — 수백 m 안 평면 근사"""
+    k = 111320.0
+    return (lon - lon0) * k * math.cos(math.radians(lat0)), (lat - lat0) * k
+
+
+def coord_eval(gt, per_frame, recs, w, P, dem, gate_m=30.0):
+    """장면 (segments.marker) 안 관측마다 발끝 광선 위치 ↔ 가장 가까운 표시점 → 수평 오차
+    원인 나누기: 카메라 방위 4방향별 평균 오차 벡터 (같은 쪽으로 밀리면 컴퍼스 · 요) · 거리별 (짐벌각) · 화면 가장자리 (화각 · 왜곡) · 고도별 (고도 기준)"""
+    import copy
+    mk = {k: tuple(v) for k, v in gt["markers"].items()}
+    flat = P.PoseGeo(w.pgeo.cam, allow_agl_flat=True, environment="REAL")
+    rows = []
+    for sg in gt["segments"]:
+        ms = sg.get("marker") or sg.get("markers")
+        if not ms:
+            continue
+        ms = [ms] if isinstance(ms, str) else list(ms)
+        for i in range(sg["i0"], min(sg["i1"], len(per_frame) - 1) + 1):
+            f, W, H, dl, *_ = per_frame[i]; pose = recs[i].get("pose")
+            if not pose or not dl:
+                continue
+            w.pgeo.cam.width, w.pgeo.cam.height = W, H; flat.cam = w.pgeo.cam
+            g = (pose.get("geographic") or {})
+            pz = copy.deepcopy(pose); agl = None
+            if g.get("altitude_datum") == "AGL":
+                agl = float(g["altitude_m"])
+            elif g.get("altitude_m") is not None and gt.get("ground_msl_m") is not None:
+                agl = float(g["altitude_m"]) - float(gt["ground_msl_m"])
+            elif dem and g.get("latitude") is not None:
+                z = dem(float(g["latitude"]), float(g["longitude"])); agl = None if z is None else float(g["altitude_m"]) - z
+            if agl is not None:
+                pz["geographic"] = dict(g, altitude_datum="AGL", altitude_m=agl)
+            try:
+                R, _, why = P.camera_rotation(pose); c = P._mv(R, w.pgeo.cam.ray(W / 2, H / 2)); head = math.degrees(math.atan2(c[1], c[0])) % 360 if not why else None
+            except Exception:
+                head = None
+            for box, conf in dl:
+                for meth, geo in (("worker", w.pgeo), ("flat", flat)):
+                    cl = geo.locate(box, pose if meth == "worker" else pz)
+                    if cl.get("lat") is None:
+                        rs = [x for x in (cl.get("reasons") or ["?"]) if not x.startswith("SOURCE:")] or cl.get("reasons") or ["?"]
+                        rows.append({"m": meth, "ok": False, "why": rs[-1].split(" ")[0]}); continue
+                    best = min(ms, key=lambda k: math.hypot(*_enu(*mk[k], cl["lat"], cl["lon"]))) if all(k in mk for k in ms) else None
+                    if best is None:
+                        continue
+                    e, n = _enu(*mk[best], cl["lat"], cl["lon"])
+                    rows.append({"m": meth, "ok": True, "err": math.hypot(e, n), "e": e, "n": n, "head": head, "range": cl.get("range_m"), "agl": agl,
+                                 "edge": abs((box[0] + box[2]) / 2 - W / 2) > 0.35 * W or box[3] > 0.9 * H, "code": sg.get("code"), "frame": i})
+    res = {}
+    for meth in ("worker", "flat"):
+        R_ = [r for r in rows if r["m"] == meth]; ok = [r for r in R_ if r["ok"]]; inn = [r for r in ok if r["err"] <= gate_m]
+        d = {"관측": len(R_), "위치 냄": len(ok), "못 냄 사유": dict(Counter(r["why"] for r in R_ if not r["ok"])),
+             f"표시점 {gate_m:.0f} m 밖 (헛탐지 · 크게 틀림)": len(ok) - len(inn)}
+        if inn:
+            E = np.array([r["err"] for r in inn])
+            d.update({"오차 m 중앙": round(float(np.median(E)), 2), "오차 m P95": round(float(np.percentile(E, 95)), 2),
+                      "15 m 이내 비율": round(float(np.mean(E <= 15)), 3), "평균 치우침 동 · 북 m": [round(float(np.mean([r["e"] for r in inn])), 2), round(float(np.mean([r["n"] for r in inn])), 2)]})
+            hb = defaultdict(list)
+            for r in inn:
+                if r["head"] is not None:
+                    hb["NESW"[int(((r["head"] + 45) % 360) // 90)]].append(r)
+            d["카메라 방위별 (치우침 동 · 북 m · 중앙 오차)"] = {k: [round(float(np.mean([x["e"] for x in v])), 1), round(float(np.mean([x["n"] for x in v])), 1), round(float(np.median([x["err"] for x in v])), 1), len(v)] for k, v in sorted(hb.items())}
+            rb = defaultdict(list)
+            for r in inn:
+                if r["range"] is not None:
+                    rb[f"{int(r['range'] // 10) * 10}~{int(r['range'] // 10) * 10 + 10} m"].append(r["err"])
+            d["거리별 중앙 오차"] = {k: [round(float(np.median(v)), 1), len(v)] for k, v in sorted(rb.items(), key=lambda x: int(x[0].split("~")[0]))}
+            d["화면 가운데 · 가장자리 중앙 오차"] = [round(float(np.median([r["err"] for r in inn if not r["edge"]] or [np.nan])), 1), round(float(np.median([r["err"] for r in inn if r["edge"]] or [np.nan])), 1)]
+            ab = defaultdict(list)
+            for r in inn:
+                if r["agl"] is not None:
+                    ab[f"{int(r['agl'] // 5) * 5}~{int(r['agl'] // 5) * 5 + 5} m"].append(r["err"])
+            d["고도별 중앙 오차"] = {k: [round(float(np.median(v)), 1), len(v)] for k, v in sorted(ab.items())}
+        res[meth] = d
+    res["읽는 법"] = "방위별 치우침이 같은 쪽 → 컴퍼스 · 요 / 거리에 비례 → 짐벌각 / 가장자리만 큼 → 화각 · 왜곡 (camera_calib) / 고도에 비례 → 고도 기준 (라이다 AGL 확인)"
+    return res
 
 
 def main():
@@ -220,6 +302,9 @@ def main():
                               "질의 일치 (자기)": round(float(np.mean(hit)), 2) if hit else None, "질의 일치 (다른 색 사람)": round(float(np.mean(others)), 2) if others else None,
                               "마지막 등급": dict(Counter(cand[c]["last"] or "관찰 3 s 미만" for c in cs))}
             out["출연자별"] = rows
+    # ③-2 좌표 (표시점 · NFR-V04 10~15 m) — 배포 worker 주장 (worker) + 평지 AGL 다시 계산 (flat · 지면 = ground_msl_m 또는 DEM)
+    if gt.get("markers") and gt.get("segments"):
+        out["좌표"] = coord_eval(gt, per_frame, recs, w, P, dem)
     # ④ 라벨 작업용 내보내기
     if a.export:
         ed = Path(a.export_dir or tempfile.mkdtemp(prefix=f"label_{root.name}_")); (ed / "images").mkdir(parents=True, exist_ok=True); (ed / "labels").mkdir(exist_ok=True)

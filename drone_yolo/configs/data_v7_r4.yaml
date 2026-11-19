@@ -1,0 +1,5 @@
+# v7_r4 (chain_v12 · 2026-09-26) — train_v7.txt · 순서 시드 23 · val = val_v6b
+train: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/train_v7_r4.txt
+val: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/val_v6b.txt
+nc: 1
+names: ['person']

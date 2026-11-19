@@ -3,7 +3,7 @@ make_d1_data.py — D1 (11-08 준비 · 실기체 데이터로 처음부터 다�
 
   입력  비행 목록 json (기본 configs/d1_flights.json) — 비행마다 라벨 고친 프레임 폴더 · 장소
           {"F03": {"dir": "data/real_flight/1110/F03/labeled", "place": "A", "empty_ok": false}, ...}
-          dir = images/*.jpg (1920×1080 원본 · 녹화 frames) + labels/*.txt (YOLO · 사람 0 · 사람이 고친 것)
+          dir = images/*.jpg (녹화 frames · 1920×1080 · **4K 녹화는 1920 폭으로 줄여 씀** — worker 가 4K 를 1920×1080 으로 줄여 탐지하므로 같은 배율 · 11-17) + labels/*.txt (YOLO 정규화 · 사람 0 · 사람이 고친 것)
           place  A · B = 학습 · **C = 평가 전용** (학습에 절대 안 들어감)
           empty_ok  true = 그 비행의 빈 라벨 프레임은 사람이 「사람 없음」 확인함 (T2 빈 장면) → 음성 창으로 씀 · false 면 빈 라벨 프레임 버림
   학습 창 (v12 규칙 그대로)  프레임 → 운용 4조각과 같은 1280×720 창 4개 (확대 없음) · 창 안 보이는 넓이 < 25 % 조각은 가림 (창 평균색) · 25 % 이상은 잘린 박스로 라벨
@@ -33,6 +33,15 @@ def read_yolo(p, W, H):
             if len(v) >= 5 and v[0] == "0":
                 cx, cy, w, h = (float(x) for x in v[1:5]); out.append((W * (cx - w / 2), H * (cy - h / 2), W * (cx + w / 2), H * (cy + h / 2)))
     return out
+
+
+FHD_W = 1920
+
+
+def to_fhd(img):
+    """운용과 같은 배율 — 1920 보다 넓은 프레임 (실기체 4K 3840×2160) 은 면적 평균으로 1920 폭에 맞춤 (11-17 · 실기체 영상이 4K 로 들어옴)"""
+    H, W = img.shape[:2]
+    return img if W <= FHD_W else cv2.resize(img, (FHD_W, round(H * FHD_W / W)), interpolation=cv2.INTER_AREA)
 
 
 def tiles(W, H):
@@ -70,7 +79,12 @@ def main(a):
                 if not lp.exists() or (not lp.read_text().strip() and not f.get("empty_ok")):
                     continue
                 stem = f"real_{fid}_{p.stem.replace('_', '')}"
-                (TE / "images" / f"{stem}.jpg").write_bytes(p.read_bytes()); (TE / "labels" / f"{stem}.txt").write_text(lp.read_text())
+                img = cv2.imread(str(p))
+                if img is not None and img.shape[1] > FHD_W:                  # 4K → 1920 (라벨은 정규화라 그대로)
+                    cv2.imwrite(str(TE / "images" / f"{stem}.jpg"), to_fhd(img), [cv2.IMWRITE_JPEG_QUALITY, 95])
+                else:
+                    (TE / "images" / f"{stem}.jpg").write_bytes(p.read_bytes())
+                (TE / "labels" / f"{stem}.txt").write_text(lp.read_text())
                 st["C_frames"] += 1; st["C_people"] += len(lp.read_text().split("\n")) - 1 if lp.read_text().strip() else 0
             continue
         assert place in ("A", "B"), f"{fid} 장소 {place} (A · B · C)"
@@ -79,7 +93,7 @@ def main(a):
             lp = D / "labels" / (p.stem + ".txt")
             if not lp.exists():
                 continue
-            img = cv2.imread(str(p)); H, W = img.shape[:2]; bx = read_yolo(lp, W, H)
+            img = to_fhd(cv2.imread(str(p))); H, W = img.shape[:2]; bx = read_yolo(lp, W, H)
             if not bx and not f.get("empty_ok"):
                 continue                                                     # 사람이 확인 안 한 빈 프레임 = 라벨 구멍일 수 있음
             for x0, y0 in tiles(W, H):

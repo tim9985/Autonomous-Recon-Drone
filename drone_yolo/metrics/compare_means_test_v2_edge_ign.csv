@@ -9,3 +9,21 @@ test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v15pl_f91_swa,v15pl_f92_
 test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12dg_swa,v12dg92_swa",-0.0079,-0.028,0.0089,72,구분 안 됨
 test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12mq_swa,v12mq92_swa",0.0081,-0.0072,0.0196,72,구분 안 됨
 test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12mqn_swa,v12mqn92_swa",-0.0116,-0.0233,-0.0007,72,차이 있음
+test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12p2_f91_swa,-0.004,-0.0168,0.0089,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12s5_f91_swa,0.0125,-0.0037,0.0295,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",0.0091,-0.001,0.017,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa","v12_f91_swa20,v12_f92_swa20,v12_f93_swa20",0.0044,-0.003,0.0117,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep10,v12_f92_ep10,v12_f93_ep10",-0.017,-0.0403,0.0051,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep15,v12_f92_ep15,v12_f93_ep15",-0.0076,-0.0198,0.0027,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep20,v12_f92_ep20,v12_f93_ep20",0.0008,-0.0117,0.0123,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_ep29,v12_f92_ep29,v12_f93_ep29","v12_f91_ep25,v12_f92_ep25,v12_f93_ep25",0.0008,-0.0078,0.01,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v16n_f91_swa,0.0086,-0.0077,0.0216,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12lr5_f91_swa,0.0069,-0.0109,0.0254,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v16n_f92_swa,0.0045,-0.0086,0.0188,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v16n_f92_swa15,0.0026,-0.0059,0.0164,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa,v12_f92_swa,v12_f93_swa",v12dg0_f91_swa,-0.0155,-0.0375,0.0047,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12dg0_f91_swa15,-0.003,-0.0207,0.0113,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",rtd_v12_f91,0.0089,-0.0227,0.0386,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",rtd_v12_f91_swa15,0.0165,-0.0183,0.0469,72,구분 안 됨
+test_v2_edge_ign,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12r90_f91_swa15,0.0216,0.0092,0.0371,72,차이 있음
+test_v2_edge_ign,"v12_f91_swa15,v12_f92_swa15,v12_f93_swa15",v12r90_f92_swa15,0.0047,-0.0071,0.0187,72,구분 안 됨

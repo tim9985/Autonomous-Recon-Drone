@@ -1,0 +1,4 @@
+# 2026-10-06 13:09:25 KST 
+/home/se/miniconda3/envs/drone/bin/python train_person.py --stage 1 --hyp configs/hyp/v6_oblique.yaml --weights runs_person/soup_v10x2/weights/best.pt --data configs/data_ft10_s51.yaml --name ft10_s51 --epochs 10 --lr0 0.002 --warmup-epochs 1
+{"amp": true, "batch": 8, "cache": "disk", "close_mosaic": 0, "data": "configs/data_ft10_s51.yaml", "degrees": 10.0, "epochs": 10, "fliplr": 0.5, "flipud": 0.0, "hsv_h": 0.02, "hsv_s": 0.8, "hsv_v": 0.5, "imgsz": 1280, "lr0": 0.002, "model_yaml": null, "mosaic": 1.0, "nwd": 0.0, "nwd_c": 32.0, "optimizer": "SGD", "params_M": 20.05, "patience": 100, "plots": true, "scale": 0.3, "seed": 42, "translate": 0.15, "val": true, "warmup_epochs": 1.0, "weights": "runs_person/soup_v10x2/weights/best.pt", "workers": 8}
+

@@ -1,0 +1,5 @@
+# v12cp (10-30 CP) — train_v12_f91 + 누운 사람 복사-붙여넣기 창 2989 · val = val_v12
+train: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/train_v12cp.txt
+val: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/val_v12.txt
+nc: 1
+names: ['person']

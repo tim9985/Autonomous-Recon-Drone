@@ -1,0 +1,46 @@
+{
+ "방법": "clef-flash",
+ "T1": {
+  "okutama_obl": {
+   "n": 1,
+   "도움필요_누움AUROC": NaN,
+   "P누움_AUROC": NaN,
+   "3자세_정확도": 1.0,
+   "재현율": {
+    "lying": 1.0,
+    "sitting": NaN,
+    "standing": NaN
+   }
+  },
+  "aihub_test": {
+   "n": 3,
+   "도움필요_누움AUROC": NaN,
+   "P누움_AUROC": NaN,
+   "3자세_정확도": 0.0,
+   "재현율": {
+    "lying": NaN,
+    "sitting": 0.0,
+    "standing": NaN
+   }
+  },
+  "전체": {
+   "n": 4,
+   "도움필요_누움AUROC": 0.667,
+   "P누움_AUROC": 1.0,
+   "3자세_정확도": 0.25,
+   "재현율": {
+    "lying": 1.0,
+    "sitting": 0.0,
+    "standing": NaN
+   }
+  },
+  "지연_ms_중앙": 235.6
+ },
+ "T2": {
+  "n": 4,
+  "도움필요_누움AUROC": 1.0,
+  "규칙점수_누움AUROC (같은 표본)": 1.0,
+  "지연_ms_중앙": 146.3
+ },
+ "GPU_최대_GB": 17.9
+}

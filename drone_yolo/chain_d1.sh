@@ -27,6 +27,7 @@ tr(){ local name=$1; shift
   if ! $P train_person.py $A --smoke >> logs/d1_${name}_smoke.log 2>&1; then log "   ❌ $name 연기 실행 실패 — logs/d1_${name}_smoke.log"; return 1; fi
   [ $SMOKE = 1 ] && { log "   $name 연기 통과 ($(grep -o '1에폭[^·]*' logs/d1_${name}_smoke.log | tail -1))"; return 0; }
   if $P train_person.py $A --set save_period=1 >> logs/d1_${name}_train.log 2>&1; then $P swa_ckpt.py $name >> $Q 2>&1 && ev ${name}_swa
+    $P swa_wide.py $name 15 >> $Q 2>&1 && ev ${name}_swa15          # 11-13 넓은 평균 (에폭 15~29 · 배포 방식) 도 같이
   else log "   ❌ $name 학습 실패"; return 1; fi; }
 
 log "chain_d1 시작 (TAG=$TAG · 평가 $TEST · 연기 $SMOKE)"
@@ -34,10 +35,11 @@ $P make_d1_data.py --flights $FLIGHTS --tag $TAG --test-dir $TEST --check logs/$
 if [ $SMOKE = 1 ]; then
   tr ${TAG}_f91 --data configs/data_${TAG}_f91.yaml; real v12_f91_swa; log "chain_d1 연기 끝"; exit 0
 fi
-for b in v12_f91_swa v12_f92_swa v12_f93_swa; do real $b; done
+for b in v12_f91_swa v12_f92_swa v12_f93_swa v12_f91_swa15 v12_f92_swa15 v12_f93_swa15; do real $b; done
 log "D1-1 — ${TAG}_f91 (train_v12_f91 + 실기체)"; tr ${TAG}_f91 --data configs/data_${TAG}_f91.yaml
 log "D1-2 — ${TAG}_f92 (train_v12_f92 + 같은 창)"; tr ${TAG}_f92 --data configs/data_${TAG}_f92.yaml
 log "D1 평균 비교 (평균[v12 3회] → 평균[D1 2회])"
 for t in ${TEST}_edge test_obl test_v2_edge_ign test_kr_edge; do
-  $P compare_means.py --tag $t v12_f91_swa,v12_f92_swa,v12_f93_swa ${TAG}_f91_swa,${TAG}_f92_swa 2>&1 | tail -1 | tee -a $Q $R; done
+  $P compare_means.py --tag $t v12_f91_swa,v12_f92_swa,v12_f93_swa ${TAG}_f91_swa,${TAG}_f92_swa 2>&1 | tail -1 | tee -a $Q $R
+  $P compare_means.py --tag $t v12_f91_swa15,v12_f92_swa15,v12_f93_swa15 ${TAG}_f91_swa15,${TAG}_f92_swa15 2>&1 | tail -1 | tee -a $Q $R; done
 log "chain_d1 완료 — 판정은 _학습 큐 「11-08 D1」 · 누움 · 빈 장면은 real_flight_eval.py 로 같은 녹화 다시"

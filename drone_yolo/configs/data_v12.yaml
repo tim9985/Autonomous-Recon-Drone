@@ -1,0 +1,5 @@
+# v12 (2026-10-12) — 원본부터 다시: 확대 금지 · 시퀀스 상한 · 무시 영역 · 잘린 조각 가림 · 타일처럼 창 · 영역 예산 · val = val_v12
+train: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/train_v12.txt
+val: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/val_v12.txt
+nc: 1
+names: ['person']

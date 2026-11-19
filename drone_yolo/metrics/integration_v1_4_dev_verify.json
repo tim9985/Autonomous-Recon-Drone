@@ -1,0 +1,81 @@
+{
+ "관제 수치 (1.4, 1.3)": {
+  "REAL_claims0": {
+   "frames_validated": [
+    746,
+    746
+   ],
+   "cand_per_actor": [
+    3.33,
+    3.33
+   ],
+   "query_green_match": [
+    0.959,
+    0.959
+   ],
+   "query_other_match": [
+    0.085,
+    0.085
+   ]
+  },
+  "REAL_claims1": {
+   "frames_validated": [
+    746,
+    746
+   ],
+   "cand_per_actor": [
+    3.33,
+    3.33
+   ],
+   "query_green_match": [
+    0.959,
+    0.959
+   ],
+   "query_other_match": [
+    0.085,
+    0.085
+   ]
+  },
+  "SIM_claims0": {
+   "frames_validated": [
+    746,
+    746
+   ],
+   "cand_per_actor": [
+    3.33,
+    3.33
+   ],
+   "query_green_match": [
+    null,
+    null
+   ],
+   "query_other_match": [
+    null,
+    null
+   ]
+  },
+  "SIM_claims1": {
+   "frames_validated": [
+    746,
+    746
+   ],
+   "cand_per_actor": [
+    3.33,
+    3.33
+   ],
+   "query_green_match": [
+    null,
+    null
+   ],
+   "query_other_match": [
+    null,
+    null
+   ]
+  }
+ },
+ "verify 줄": 933,
+ "관절 판정 줄": 282,
+ "색 확장 줄": 933,
+ "VLM 요청": 371,
+ "ms 중앙": 0.2
+}

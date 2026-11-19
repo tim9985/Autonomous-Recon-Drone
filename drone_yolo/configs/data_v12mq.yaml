@@ -1,0 +1,5 @@
+# v12mq (11-01 M) — train_v12_f91 + 누운 마네킹 실영상 창 811 (Archangel-Mannequin 학습 회차) · val = val_v12
+train: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/train_v12mq.txt
+val: /home/se/JupyterLAB/Capstone/drone_yolo/configs/lists/val_v12.txt
+nc: 1
+names: ['person']

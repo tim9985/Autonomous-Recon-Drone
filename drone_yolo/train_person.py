@@ -338,6 +338,8 @@ def build_parser():
                    help="마지막 N 에폭은 모자이크를 끈다 (ultralytics 기본 10 · 우리 조건에선 0 — 09-20)")
     g.add_argument("--ellipse-box", action="store_true",
                    help="회전 증강 박스를 타원 방식으로 (aug_ext · Kalra ICCV 2021 · 기본 ultralytics 는 가장 큰 박스 → 누운 사람 박스 세로 ×1.5)")
+    g.add_argument("--rot90", type=float, default=0.0,
+                   help="90° 단위 회전 증강 확률 (aug_ext · 11-15 R90 · 0=끔) — 누운 사람 (가로로 긴 몸) 을 추론 한 번에 잡게 · 박스 안 부풂")
     g.add_argument("--degrade", action="store_true",
                    help="화질 열화 증강 (aug_ext · 축소 확대 · 흐림 · 노이즈 · JPEG 30~95 — 실기체 H.264 전송 흉내 · 10-31 C)")
     g.add_argument("--nwd", type=float, default=0.0,
@@ -498,6 +500,9 @@ def main():
     if args.degrade:
         from aug_ext import enable_degrade
         enable_degrade()
+    if args.rot90 > 0:
+        from aug_ext import enable_rot90
+        enable_rot90(args.rot90)
     if model_yaml:
         model = YOLO(str(model_yaml)).load(str(weights))
     else:
@@ -506,7 +511,7 @@ def main():
     print(f"  파라미터    : {n_params:.2f} M")
 
     run = RUNS / name
-    log_command(run, {**final, "data": str(data), "weights": str(weights), "nwd": args.nwd, "nwd_c": args.nwd_c, "ellipse_box": bool(args.ellipse_box), "degrade": bool(args.degrade),
+    log_command(run, {**final, "data": str(data), "weights": str(weights), "nwd": args.nwd, "nwd_c": args.nwd_c, "ellipse_box": bool(args.ellipse_box), "degrade": bool(args.degrade), "rot90": args.rot90,
                       "model_yaml": str(model_yaml) if model_yaml else None,
                       "params_M": round(n_params, 2)})
     t0 = time.time()
