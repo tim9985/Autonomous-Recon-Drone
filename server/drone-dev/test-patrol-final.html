@@ -1,0 +1,23 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>test · 지역수색 SIM 관제</title><link rel="stylesheet" href="/assets/test-maplibre.css"><link rel="stylesheet" href="/test-regional.css?v=20261023">
+<script defer src="/assets/test-maplibre.js"></script><script defer src="/test-regional-model.js?v=20261023"></script><script defer src="/test-regional.js?v=20261023"></script></head>
+<body><header><div><strong>자율정찰 관제</strong><span>test · 지역수색 SIM</span></div><button id="logout">로그아웃</button></header>
+<main><div id="map" aria-label="지역수색 경로와 관측 지도"></div><section class="controls" aria-label="지역수색 설정">
+<h1>의미구역 지역수색</h1><p>구역 선택 → 경로 생성 → 정찰 시작</p>
+<label>수색할 의미구역<select id="region" disabled><option value="">구역 목록 확인 중</option></select></label>
+<p id="area">구역을 선택해 주세요.</p><button id="prepare" disabled>선택 구역 경로 생성</button>
+<p class="profile">기본 3m/s · 조건부 직선 4m/s · 기준 고도 30m<br>유효 프레임 3개 이상 + 연속 1초 · 목표 95%<br>확인된 높이 우선 · 높이 없으면 지상 층수 × 4m</p>
+<dl><dt>경로 준비 계산</dt><dd id="compute">—</dd><dt>예상 95% 도달</dt><dd id="forecast-time">—</dd><dt>예상 최종 관측률</dt><dd id="forecast">—</dd><dt>실제 누적 관측률</dt><dd id="actual">0.00%</dd></dl>
+<p id="readiness" role="status">경로와 PC 실행기 준비를 확인합니다.</p>
+<label>시뮬 실행 PC<select id="worker"><option value="sim-pi-01">sim-pi-01 · 연결 확인 중</option></select></label>
+<div class="actions"><button id="start" class="primary" disabled>정찰 시작</button><button id="stop" disabled>정지·착륙</button></div>
+<p class="limit">정찰 시작을 누르면 선택 경로로 SIM 이륙·수색·복귀·착륙을 요청합니다.</p>
+<p id="message" role="status">학교 계정을 확인하고 있습니다.</p>
+<dl><dt>실행 상태</dt><dd id="state">실행 전</dd><dt>가상 기체</dt><dd id="vehicle">수신 대기</dd><dt>실제 관측 프레임</dt><dd id="frames">0 / 0</dd></dl>
+<section><h2>시간별 관측 지도</h2><label>지도 기준<select id="view"><option value="prediction">예상 관측</option><option value="actual">실제 관측</option></select></label>
+<label id="time-label">구역 진입 후 0.0초<input id="time" type="range" min="0" max="0" step="any" value="0" disabled></label>
+<div class="actions"><button id="play" disabled>시간순 재생</button><button id="latest" disabled>마지막 시점</button></div><p id="coverage-note">시간별 예상 관측 지도 준비 전</p>
+<p class="legend">주황 미관측 · 초록 완료 · 회색 건물<br>파랑 계획 · 청록 지난 경로 · 화살표 기체 방향</p></section>
+<details><summary>실행 기록·연결 진단</summary><p id="run-id">없음</p><pre id="ending"></pre><p id="diagnostics"></p></details>
+<p class="limit">실제 관측은 촬영 RGB·카메라 자세·사전 지도 가림 검사로 누적합니다. 예측 재생은 실제 관측 기록을 만들지 않습니다.</p>
+</section></main></body></html>

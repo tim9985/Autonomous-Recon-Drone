@@ -1,0 +1,7 @@
+secrets/
+data/
+sockets/
+__pycache__/
+*.pyc
+evidence/private*
+

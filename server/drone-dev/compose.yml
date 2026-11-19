@@ -1,0 +1,129 @@
+name: drone-services-20261005
+x-service: &service
+  image: sha256:27ee4624dfcf7dc99934cf94e3db6e40f86a9bda0d414137ab20540a0a3dda4d
+  pull_policy: never
+  network_mode: none
+  read_only: true
+  restart: unless-stopped
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  group_add: ["2400"]
+  cpus: 1
+  mem_limit: 512m
+  pids_limit: 96
+  tmpfs: ["/tmp:rw,noexec,nosuid,size=64m"]
+  working_dir: /workspace
+  environment:
+    PYTHONDONTWRITEBYTECODE: "1"
+    PYTHONUNBUFFERED: "1"
+  logging:
+    driver: json-file
+    options: {max-size: "5m", max-file: "3"}
+services:
+  database:
+    image: postgis/postgis:16-3.5@sha256:94146ac37bc61e2322f88016056c5920729cb8c64c8542ed590af8fc2abdac07
+    pull_policy: never
+    network_mode: none
+    user: "999:999"
+    read_only: true
+    cap_drop: [ALL]
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=64m"]
+    restart: unless-stopped
+    security_opt: [no-new-privileges:true]
+    cpus: 1
+    mem_limit: 1g
+    pids_limit: 128
+    environment:
+      POSTGRES_DB: drone_dev
+      POSTGRES_USER: drone_owner
+      POSTGRES_PASSWORD_FILE: /run/identity/db-owner-password
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+      POSTGRES_INITDB_ARGS: --auth-local=scram-sha-256 --auth-host=scram-sha-256
+    command: [postgres, -c, "listen_addresses=", -c, "unix_socket_directories=/var/run/postgresql", -c, "unix_socket_permissions=0770", -c, "max_connections=20", -c, "shared_buffers=128MB"]
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./sockets/database:/var/run/postgresql
+      - ./secrets/database:/run/identity:ro
+      - ./db/init.sh:/docker-entrypoint-initdb.d/01-init.sh:ro
+    healthcheck:
+      test: [CMD, pg_isready, -h, /var/run/postgresql, -U, drone_owner, -d, drone_dev]
+      interval: 10s
+      timeout: 3s
+      retries: 15
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
+  backend:
+    <<: *service
+    user: "2101:2101"
+    group_add: ["2400", "999"]
+    command: [python, -m, app.launch, backend]
+    depends_on:
+      database: {condition: service_healthy}
+    volumes:
+      - ./app:/workspace/app:ro
+      - ./backend/drone_backend:/workspace/drone_backend:ro
+      - ./backend/tests:/workspace/backend_tests:ro
+      - ./sockets/backend:/run/backend-socket
+      - ./sockets/database:/run/db-socket:ro
+      - ./secrets/backend:/run/identity:ro
+      - ./data/backend:/data
+    healthcheck:
+      test: [CMD, python, -c, "import pathlib; assert pathlib.Path('/run/backend-socket/service.sock').is_socket()"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+  vision:
+    <<: *service
+    user: "2102:2102"
+    command: [python, -m, app.vision]
+    depends_on:
+      backend: {condition: service_healthy}
+    volumes:
+      - ./app:/workspace/app:ro
+      - ./sockets/backend:/run/backend-socket:ro
+      - ./secrets/vision:/run/identity:ro
+      - ./data/models:/models:ro
+      - ./data/vision:/scratch
+  web:
+    <<: *service
+    user: "2103:2103"
+    group_add: ["2400", "999"]
+    command: [python, -m, app.launch, web]
+    volumes:
+      - ./app:/workspace/app:ro
+      - ./school:/workspace/school:ro
+      - ./sockets/database:/run/db-socket:ro
+      - ./data/communication/web:/data/communication
+      - ./web:/workspace/web:ro
+      - ./sockets/web:/run/web-socket
+      - ./secrets/web:/run/identity:ro
+  gateway:
+    <<: *service
+    user: "2104:2104"
+    group_add: ["2400", "999"]
+    command: [python, -m, app.launch, gateway]
+    depends_on:
+      backend: {condition: service_healthy}
+      web: {condition: service_started}
+    volumes:
+      - ./app:/workspace/app:ro
+      - ./school:/workspace/school:ro
+      - ./sockets/database:/run/db-socket:ro
+      - ./data/communication/gateway:/data/communication
+      - ./sockets/gateway:/run/gateway-socket
+      - ./sockets/backend:/run/backend-socket:ro
+      - ./sockets/web:/run/web-socket:ro
+      - ./secrets/gateway:/run/identity:ro
+  verifier:
+    <<: *service
+    profiles: [verify]
+    user: "2105:2105"
+    group_add: ["2400", "1001"]
+    restart: "no"
+    command: [python, -m, app.verify]
+    volumes:
+      - ./app:/workspace/app:ro
+      - ./sockets/backend:/run/backend-socket:ro
+      - ./sockets/gateway:/run/gateway-socket:ro
+      - ./secrets/verifier:/run/identity:ro

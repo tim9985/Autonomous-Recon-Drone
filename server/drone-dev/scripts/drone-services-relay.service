@@ -1,0 +1,24 @@
+[Unit]
+Description=Drone development loopback TLS relay
+After=network.target drone-sandbox-engine.service
+
+[Service]
+Type=simple
+User=se
+Group=se
+ExecStart=/usr/bin/python3 /home/se/sandboxes/drone-dev/scripts/tunnel_proxy.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=yes
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_INET AF_UNIX
+MemoryMax=128M
+CPUQuota=20%
+TasksMax=64
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,5 @@
+{
+  "account": "drone_api",
+  "database": "drone_real",
+  "tcp_address": null
+}

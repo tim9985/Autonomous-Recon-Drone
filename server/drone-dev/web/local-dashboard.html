@@ -1,0 +1,565 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>로컬 정찰 관제</title>
+<link rel="icon" href="/assets/app-icon-192.png">
+<link rel="stylesheet" href="/local-maplibre.css">
+<link rel="stylesheet" href="/local-dashboard.css">
+<link rel="stylesheet" href="/local-search.css">
+<link rel="stylesheet" href="/local-missions.css">
+<link rel="stylesheet" href="/local-environment.css">
+<link rel="stylesheet" href="/local-mobile-controls.css">
+<script defer="" src="/local-maplibre.js">
+</script>
+<script type="module" src="/local-dashboard.js">
+</script>
+<link rel="stylesheet" href="/school-pc.css"><script type="module" src="/school-pc.js"></script></head>
+<body>
+<header class="appbar">
+<a class="brand" href="/" aria-label="자율정찰 관제 홈">
+<span class="brand-mark" data-icon="Drone" aria-hidden="true">
+</span>
+<span>자율정찰 관제</span>
+</a>
+<div class="environment">
+<nav class="environment-switch" aria-label="관제 환경"><span aria-current="page"><i data-icon="Drone" aria-hidden="true"></i>학교 SIM</span><a href="/local-real-map.html"><i data-icon="Map" aria-hidden="true"></i>실지도</a></nav>
+<span id="connection-pill" class="connection-pill" role="status">연결 확인 중</span>
+</div>
+<nav class="app-actions" aria-label="기록과 계정" id="app-actions" hidden="">
+<a href="/local-postflight.html" class="records-link">정찰 기록</a>
+<details id="app-menu" class="app-menu">
+<summary>더보기</summary>
+<div class="app-menu-content">
+<details id="mission-history" class="mission-history">
+<summary>계획 기록 불러오기</summary>
+<select id="saved-plan" aria-label="저장된 계획">
+<option value="">계획 기록 선택</option>
+</select>
+</details>
+<button id="logout" class="text-button" hidden="">로그아웃</button>
+</div>
+</details>
+</nav>
+</header>
+<section id="login-panel" class="login-card" hidden="">
+<p class="eyebrow">학교 SIM</p>
+<h1>관제 로그인</h1>
+<p>로컬 계정으로 정찰 지도에 접속하세요.</p>
+<form id="login-form">
+<label>아이디<input id="login-id" autocomplete="username" required="">
+</label>
+<label>비밀번호<span class="password-field">
+<input id="login-password" type="password" autocomplete="current-password" required="" aria-label="비밀번호">
+<button id="show-password" type="button" aria-pressed="false" aria-label="비밀번호 표시">표시</button>
+</span>
+</label>
+<button class="primary" type="submit">로그인</button>
+</form>
+<p id="login-error" role="alert">
+</p>
+</section>
+<p id="boot-status" class="boot-status" role="status">로컬 연결 확인 중…</p><button id="boot-retry" type="button" hidden="">다시 연결</button>
+<main id="workspace" hidden="">
+<div id="split" class="split" data-layout="sidebar" data-sidebar="open">
+<section class="map-pane" aria-label="정찰 지도 패널">
+<div id="map" role="region" aria-label="정찰 지도 · 구역 선택을 눌러 편집">
+</div>
+<div id="map-topbar" class="map-topbar">
+<section id="drone-status-card" class="drone-status-card" aria-labelledby="drone-status-title" data-link="waiting">
+  <button id="drone-status-toggle" class="drone-status-heading" aria-controls="drone-status-detail" aria-expanded="false" aria-label="드론 상태 상세 펼치기">
+    <span id="drone-status-title"><span data-icon="Drone" aria-hidden="true"></span>드론 상태</span>
+    <span id="drone-link-state" class="drone-link-state" role="status">수신 대기</span><span data-icon="ChevronDown" class="status-chevron" aria-hidden="true"></span>
+  </button>
+  <div class="drone-connection-access"><p id="drone-status-summary" class="drone-status-summary">수신 기록 없음</p><button id="open-drone-connection" type="button" aria-haspopup="dialog" aria-controls="drone-connection-dialog"><span data-icon="PlugConnected" aria-hidden="true"></span><span data-action-label>드론 연결</span></button></div>
+  <div id="flight-controls" class="flight-controls" role="group" aria-label="드론 제어">
+    <button id="map-stop-flight" class="pause-button" type="button" disabled aria-label="정찰 중단 · 현재 위치에서 일시중지"><span id="pause-symbol" data-icon="PlayerPause" aria-hidden="true"></span><span id="resume-symbol" data-icon="PlayerPlay" aria-hidden="true" hidden></span><span id="pause-label">중단</span></button>
+    <button id="map-return-flight" class="return-button" type="button" disabled aria-label="출발지 복귀"><span data-icon="Home" aria-hidden="true"></span><span id="return-label">복귀</span></button>
+  </div>
+  <p id="flight-command-status" class="flight-command-status" role="status" hidden></p>
+  <div id="drone-status-detail" class="drone-status-detail" hidden=""><div>
+  <dl class="drone-metrics">
+    <div><dt>비행 상태</dt><dd id="drone-flight-state">—</dd></div>
+    <div><dt>배터리</dt><dd id="drone-battery" title="배터리 잔량 미수신">—</dd></div>
+    <div><dt>상대 고도</dt><dd id="drone-altitude">—</dd></div>
+    <div><dt>지상 속도</dt><dd id="drone-speed">—</dd></div>
+  </dl>
+  <footer class="drone-status-footer"><span id="drone-received-label">수신 기록 없음</span><time id="drone-received-time"></time></footer></div></div>
+</section>
+<div class="map-switch-tools">
+<div class="map-mode-control">
+<div class="map-modes" role="group" aria-label="지도 보기">
+<button id="map-mode-semantic" aria-pressed="true">
+<span data-icon="Map" aria-hidden="true">
+</span>의미 구역</button>
+<button id="map-mode-coverage" aria-pressed="false">
+<span data-icon="Scan" aria-hidden="true">
+</span>관측 진행</button>
+</div>
+<div id="camera-view-legend" class="camera-view-legend" hidden><i></i><span id="camera-view-label">카메라 범위 · 평면 추정</span></div>
+<div id="coverage-legend" class="coverage-legend" hidden="">
+<div>
+<span>
+<i class="coverage-gray">
+</i>미관측 · 기록 없음</span>
+<span>
+<i class="coverage-green">
+</i>관측 완료</span>
+</div>
+<button id="fit-coverage" class="text-button" title="실제 관측 영역에 맞추기">
+<span id="coverage-status">관측 기록 없음</span>
+<span data-icon="FocusCentered" aria-hidden="true">
+</span>
+</button>
+<span id="coverage-stale-key" class="coverage-stale-key" hidden>재관측 권고</span><span id="coverage-area" hidden="">
+</span>
+</div>
+</div>
+<button id="place-toggle" class="map-search-toggle" aria-label="장소 검색 열기" title="장소 검색" aria-expanded="false" aria-controls="map-search"><span data-icon="Search" aria-hidden="true"></span></button>
+<section id="map-search" class="map-search" aria-label="지도 장소 검색" hidden=""><div class="map-search-heading"><strong>장소 찾기</strong><button id="place-close" type="button" aria-label="장소 검색 닫기"><span data-icon="X" aria-hidden="true"></span></button></div><form id="place-form" class="place-form"><label class="sr-only" for="place-query">장소·주소·좌표 검색</label><input id="place-query" type="search" placeholder="장소·도로명·지번·좌표" autocomplete="off" maxlength="120"><select id="place-category" aria-label="외부 검색 유형"><option value="AUTO">전체</option><option value="PLACE">장소</option><option value="ADDRESS">주소</option></select><button type="submit">검색</button></form>
+<p id="place-status" class="search-note" role="status"></p><div id="place-results" class="place-results" hidden=""></div>
+</section>
+<details id="map-tools" class="map-tool-menu">
+<summary aria-label="지도 도구" title="지도 도구">
+<span data-icon="Stack2" aria-hidden="true">
+</span>
+</summary>
+<div class="map-view-actions">
+<button id="map-view-3d" class="icon-button" aria-pressed="true" title="입체 경로 끄기 · 평면 보기">
+<span data-icon="Stack2" aria-hidden="true"></span><span>입체 경로</span>
+</button>
+<button id="fit-map" class="icon-button" aria-label="선택 구역에 맞추기" title="선택 구역에 맞추기">
+<span data-icon="FocusCentered" aria-hidden="true">
+</span>
+<span>선택 구역 보기</span>
+</button>
+<button id="locate-drone" class="icon-button" aria-label="드론 위치로 이동" title="드론 위치로 이동">
+<span data-icon="Drone" aria-hidden="true">
+</span>
+<span>드론 위치 보기</span>
+</button>
+<details class="layer-menu">
+<summary aria-label="경로 표시" title="지도 레이어">
+<span data-icon="Stack2" aria-hidden="true">
+</span>
+<span>경로 표시</span>
+</summary>
+<div class="map-toolbar">
+<label>
+<input type="checkbox" id="layer-sequence" checked="">구역 순서·번호</label><label><input type="checkbox" id="layer-planned" checked="">계획 경로</label>
+<label>
+<input type="checkbox" id="layer-actual" checked="">실제 경로</label>
+<label>
+<input type="checkbox" id="layer-results">이전 비행 경로</label>
+</div>
+</details>
+</div>
+</details>
+</div>
+</div>
+<div id="map-message" class="map-message" role="status">캠퍼스 지도 준비 중</div>
+<div id="map-pick-message" class="map-pick-message" hidden="" role="status">지도에서 마지막 목격 지점을 누르세요.<button id="map-pick-cancel">취소</button></div><div class="map-footnote"><span id="sequence-legend" hidden="" title="번호와 점선은 구역 방문 순서입니다. 실제 비행은 계산된 경로를 따릅니다."><i class="legend-sequence"></i>구역 순서</span>
+<span>
+<i class="legend-plan">
+</i>계획</span>
+<span>
+<i class="legend-actual">
+</i>실제</span>
+<span>
+<i class="legend-previous">
+</i>탐지</span>
+<p id="map-caption" class="sr-only">구역을 선택해 경로계획을 시작하세요.</p>
+</div>
+<button id="map-video-preview" class="map-video-preview" aria-label="이번 정찰 저장 영상 자세히 보기" hidden="">
+<span class="preview-heading">이번 정찰 <small>저장 프레임</small>
+</span>
+<img id="map-preview-image" alt="이번 정찰의 최근 저장 프레임">
+<span class="preview-caption">
+<span id="map-preview-time">
+</span>
+<span>영상 열기</span>
+</span>
+</button>
+<div class="map-context" aria-label="지도 데이터 상태">
+<div class="vehicle-context sr-only">
+<span id="vehicle-status">드론 위치 수신 대기</span>
+</div>
+<button id="people-shortcut" class="people-shortcut" type="button" title="탐지 결과 목록 보기">
+<span data-icon="MapPin" aria-hidden="true">
+</span>
+<span id="people-status">탐지 기록 불러오는 중</span>
+</button>
+</div>
+
+</section>
+<section id="color-match-queue" class="color-match-queue" aria-label="상의색 일치 후보" hidden>
+<button id="color-match-toggle" class="color-match-toggle" type="button" aria-expanded="false" aria-controls="color-match-body"><span data-icon="FocusCentered" aria-hidden="true"></span><strong><span class="match-provenance">이전</span> 상의색 일치</strong><b id="color-match-count">0</b><span id="color-match-new"></span><span data-icon="ChevronUp" aria-hidden="true"></span></button>
+<div id="color-match-body" hidden><div class="color-match-source"><span data-icon="History" aria-hidden="true"></span><span id="color-match-source">이전 분석 · 이번 비행과 별도</span></div><div id="color-match-list" class="color-match-list"></div><p id="color-match-empty"></p><p id="color-match-note"></p></div>
+</section>
+<aside id="mission-sidebar" class="mission-sidebar" aria-label="관제 사이드바">
+<div id="sidebar-scroll" class="sidebar-scroll">
+<section class="mission-identity" aria-label="정찰 임무">
+<div class="mission-identity-label"><label for="mission-select">정찰 임무</label><span id="mission-save-status" role="status"></span><button id="mission-retry" type="button" hidden>저장 재시도</button></div>
+<div class="mission-picker"><div class="mission-select-field"><select id="mission-select" aria-label="정찰 임무 선택" aria-describedby="mission-created-at"><option value="">임무 선택</option></select><time id="mission-created-at" class="mission-created-at" title="임무 생성 일시 (한국 시간)" hidden></time></div><button id="mission-new" type="button" title="새 정찰 임무"><span data-icon="Plus" aria-hidden="true"></span>새 임무</button></div>
+<button id="mission-settings" class="mission-target" type="button" aria-haspopup="dialog" aria-controls="mission-dialog"><span data-icon="Adjustments" aria-hidden="true"></span><span class="mission-settings-label">임무 설정</span><span id="mission-target-summary">상의색 미지정</span><span id="mission-target-swatches" class="mission-target-swatches"></span><span data-icon="ChevronRight" aria-hidden="true"></span></button>
+<button id="case-summary-open" class="mission-case-link" type="button" aria-haspopup="dialog" aria-controls="case-summary-dialog" hidden><span data-icon="ClipboardList" aria-hidden="true"></span><span class="mission-case-caption">연결 사건</span><span id="mission-case-name"></span><span data-icon="ChevronRight" aria-hidden="true"></span></button>
+<p id="mission-context-lock" hidden></p>
+</section>
+<div class="panel-top">
+<nav class="sidebar-nav" aria-label="관제 정보" id="sidebar-tools" role="tablist">
+<div id="step-flight" role="presentation">
+<button id="tab-flight" data-step="flight" aria-controls="flight-panel" role="tab" aria-selected="true" tabindex="0">
+<span data-icon="Drone" aria-hidden="true">
+</span>
+<span class="nav-label">정찰</span>
+</button>
+</div>
+<div id="step-analysis" role="presentation">
+<button id="tab-analysis" data-step="analysis" aria-controls="video-panel" role="tab" aria-selected="false" tabindex="-1">
+<span data-icon="Video" aria-hidden="true">
+</span>
+<span class="nav-label">영상</span>
+</button>
+</div>
+<div id="step-review" role="presentation">
+<button id="tab-review" data-step="review" aria-controls="review-panel" role="tab" aria-selected="false" tabindex="-1">
+<span data-icon="MapPin" aria-hidden="true">
+</span>
+<span class="nav-label">관측 결과</span>
+</button>
+</div>
+</nav>
+</div>
+<aside id="control-pane" class="control-pane" aria-label="관제 상세" data-layout="sidebar" role="region">
+      
+      <div id="workspace-loading" class="workspace-loading" role="status" hidden=""><span data-icon="Map" aria-hidden="true"></span><strong>관제 연결 중</strong><span>사건과 지도 정보를 확인합니다.</span></div><div id="control-content" class="control-content">
+<div id="error" class="error-banner" role="alert" hidden="">
+</div>
+        
+        
+        <section id="flight-panel" class="stage-panel" aria-labelledby="tab-flight" role="tabpanel" tabindex="0">
+<div class="map-top">
+<section id="mission-controls" class="mission-controls" aria-label="정찰 준비">
+<ol id="prep-steps" class="prep-steps" aria-label="수색 진행 단계">
+<li id="prep-step-selection" aria-label="1단계 구역 선택"><span class="step-symbol"><span data-icon="Map" aria-hidden="true"></span></span><span class="step-label">구역 선택</span></li>
+<li id="prep-step-route" aria-label="2단계 경로 검토"><span class="step-symbol"><span data-icon="Route" aria-hidden="true"></span></span><span class="step-label">경로 검토</span></li>
+<li id="prep-step-connection" aria-label="3단계 드론 연결"><button id="open-connection-step" type="button" aria-haspopup="dialog" aria-controls="drone-connection-dialog"><span class="step-symbol"><span data-icon="PlugConnected" aria-hidden="true"></span></span><span class="step-label">드론 연결</span></button></li>
+<li id="prep-step-flight" aria-label="4단계 정찰"><span class="step-symbol"><span data-icon="Drone" aria-hidden="true"></span></span><span class="step-label">정찰</span></li>
+<li id="prep-step-record" aria-label="5단계 기록"><span class="step-symbol"><span data-icon="Video" aria-hidden="true"></span></span><span class="step-label">기록</span></li></ol>
+<div id="prep-main" class="prep-main">
+<div class="task-heading"><span class="task-symbol"><span data-task-icon="Map"><span data-icon="Map" aria-hidden="true"></span></span><span data-task-icon="Route"><span data-icon="Route" aria-hidden="true"></span></span><span data-task-icon="Drone"><span data-icon="Drone" aria-hidden="true"></span></span><span data-task-icon="Video"><span data-icon="Video" aria-hidden="true"></span></span></span><h1 id="mission-name" tabindex="-1">정찰 구역</h1></div>
+<div id="case-notice" class="case-notice" hidden=""><span id="case-notice-text">보관된 사건입니다.</span><button id="case-resume" type="button">사건 재개</button></div>
+<p id="mission-overview" class="mission-overview sr-only">
+</p>
+<div id="selection-empty" class="selection-empty" hidden=""><span data-icon="Map" aria-hidden="true"></span><strong>지도에서 수색할 구역을 선택하세요</strong><span>선택한 순서대로 경로를 준비합니다.</span></div><section id="search-recommend" class="search-recommend" hidden="" aria-label="추천 구역 적용"><button id="recommend-apply" type="button">추천 구역 적용</button><details id="recommend-details"><summary>추천 근거</summary><p id="recommend-note" class="search-note" role="status"></p><p class="search-note">목격 거리·미관측·관측 시각 기준. 직선 거리 추정이며 통행·경사는 미반영.</p><div class="search-secondary"><button id="coverage-link">이번 관측 연결</button><button id="recommend-refresh">다시 계산</button></div></details></section>
+<section id="region-panel" class="map-editor" aria-label="지도에서 구역 편집" hidden="">
+  <p id="selection-hint" class="editor-hint"><span data-icon="Click" aria-hidden="true"></span>지도 클릭으로 추가·해제</p>
+  <div class="selection-tools">
+<strong id="selection-inline-count">0개</strong><span class="order-caption"></span>
+<button id="clear-selection" class="text-button" aria-label="전체 선택 해제" title="전체 선택 해제"><span data-icon="X" aria-hidden="true"></span></button>
+</div>
+<div id="selected-zones" class="selected-zones">
+</div>
+<label class="sr-only" for="initial-region">
+<span class="initial-key">
+</span>시작 구역</label>
+  <select id="initial-region" hidden="" aria-describedby="selection-hint">
+<option value="">구역 선택 후 지정</option>
+</select>
+  <p id="zone-selection-summary" class="hint" role="status">
+</p>
+<button id="supported-only" class="text-button" hidden="">미지원 구역 해제</button>
+  <details class="zone-search-disclosure">
+<summary><span data-icon="Search" aria-hidden="true"></span><span>구역 찾기</span><span data-icon="ChevronDown" aria-hidden="true"></span></summary>
+<input id="zone-search" type="search" placeholder="구역 이름 검색" aria-label="구역 이름 검색" autocomplete="off">
+<div id="zone-list" class="zone-list" role="group" aria-label="정찰 구역 선택">
+</div>
+</details>
+  
+ </section>
+<p id="planning-availability" class="hint compact" role="status" hidden="">
+</p>
+<section id="plan-panel" class="map-plan" aria-label="첫 구역 경로 준비" hidden="">
+  <div class="plan-status-heading"><span id="plan-state-icon" class="route-state-icon" data-icon="Loader" aria-hidden="true"></span><div class="plan-status-copy"><strong id="plan-summary" role="status" aria-live="polite" aria-atomic="true">
+</strong><p id="plan-progress" class="hint">
+</p></div></div>
+  
+  <div class="route-summary-grid" id="first-route-summary"><div class="route-scope" id="first-route-name">첫 구역 경로</div>
+<div id="route-metrics" class="route-metrics">
+<div><span class="metric-symbol"><span data-icon="Route" aria-hidden="true"></span></span><span id="route-distance-label">거리</span><strong id="route-distance">—</strong></div>
+<div><span class="metric-symbol"><span data-icon="Clock" aria-hidden="true"></span></span><span id="route-time-label">구역 내 탐색</span><strong id="route-first-time">미산정</strong><small id="route-time-note">진입·구역 이동·복귀 시간 별도</small></div>
+<div><span class="metric-symbol"><span data-icon="ArrowUp" aria-hidden="true"></span></span><span>고도</span><b id="route-altitude">—</b></div></div>
+
+</div>
+
+
+ 
+</section><section id="itinerary-panel" class="itinerary-panel" aria-label="수색 순서" hidden=""><header><span data-icon="Route" aria-hidden="true"></span><h2>구역별 경로</h2><span id="itinerary-count"></span></header><ol id="mission-itinerary"></ol><p id="planning-strategy" class="route-strategy"></p></section><div class="plan-inline-actions" id="plan-inline-details">
+<details id="plan-details" class="plan-details">
+<summary><span data-icon="Route" aria-hidden="true"></span><span>경로·복귀 조건</span><span data-icon="ChevronDown" aria-hidden="true"></span></summary>
+<div class="route-rules-body"><dl class="route-rules">
+<div><dt><span data-icon="Route" aria-hidden="true"></span>이동</dt><dd id="route-transition-rule">계획 경로를 따라 이동</dd></div>
+<div><dt><span data-icon="Home" aria-hidden="true"></span>복귀</dt><dd>정찰 종료 → 출발지</dd></div>
+<div><dt><span data-icon="PlayerPause" aria-hidden="true"></span>경로 문제</dt><dd id="route-failure-rule">대기 후 복귀 경로 검증</dd></div>
+<div><dt><span data-icon="Scan" aria-hidden="true"></span>완료 판정</dt><dd>실제 관측 기준</dd></div>
+</dl><p id="route-validation-note" class="route-rules-note">구역 전환 전 진입·복귀 경로와 남은 시간 확인</p></div>
+</details>
+<details id="route-preview" class="plan-details route-preview" hidden>
+<summary><span data-icon="MapPin" aria-hidden="true"></span><span>경로 미리보기</span><span data-icon="ChevronDown" aria-hidden="true"></span></summary>
+<div class="route-preview-body"><label for="plan-position">예상 경로 위치 <output id="plan-percent">0%</output></label><input id="plan-position" type="range" min="0" max="100" value="0" disabled><p>지도 위 경로만 미리 확인합니다</p></div>
+</details>
+</div>
+</div>
+
+<div id="prep-actions" class="prep-actions">
+
+
+
+
+
+<section id="connection-panel" class="connection-panel" aria-label="드론 사전 연결" hidden>
+<div class="connection-heading"><span data-icon="PlugConnected" aria-hidden="true"></span><strong id="connection-title">드론 연결 필요</strong><button id="review-drone-connection" type="button" aria-haspopup="dialog" aria-controls="drone-connection-dialog">연결하기</button></div>
+<p id="connection-description">연결을 완료해야 임무를 시작할 수 있습니다.</p></section>
+<p id="departure-lock-reason" class="departure-lock-reason" hidden></p>
+<div id="departure-controls" hidden="">
+<div id="execution-readiness" class="readiness" role="status">
+</div>
+
+<button id="readiness-retry" type="button" class="text-button" hidden="">준비 상태 다시 확인</button>
+<button id="prepare-scene" class="wide" hidden="">시뮬레이터 준비</button>
+</div><div class="prep-action-buttons"><button id="selection-cancel" hidden=""><span data-icon="ArrowLeft" aria-hidden="true"></span><span data-action-label="">취소</span></button><button id="edit-regions" class="primary"><span data-icon="Edit" aria-hidden="true"></span><span data-action-label="">구역 선택</span></button><button id="plan-route" class="primary" disabled="" hidden=""><span data-icon="ArrowRight" aria-hidden="true"></span><span data-action-label="">경로 만들기</span></button><button id="start-flight" class="primary wide" aria-describedby="departure-lock-reason" disabled="" hidden=""><span data-icon="PlayerPlay" aria-hidden="true"></span><span data-action-label="">임무 시작</span></button><button id="review-capture" class="primary" hidden=""><span data-icon="Video" aria-hidden="true"></span><span data-action-label="">이번 기록 확인</span></button></div></div>
+</section>
+<section class="mission-hud" aria-label="현재 임무 요약" id="mission-hud" hidden="">
+<div class="hud-heading">
+<span class="status-orb">
+</span>
+<strong id="hud-phase">임무 준비</strong>
+<span id="hud-connection">연결 확인 중</span>
+</div>
+<div class="mission-clock"><span>임무 경과</span><time id="hud-elapsed">00:00</time></div>
+<div class="hud-metrics">
+<div title="최근 실제 관측이 기록된 구역의 비율">
+<span>최근 구역 관측</span>
+<strong id="hud-coverage">—</strong>
+<progress id="observation-progress" max="100" value="0" aria-label="최근 구역 실제 관측"></progress>
+</div>
+<div>
+<span>기록 프레임</span>
+<strong id="hud-frames">0</strong>
+</div>
+<div>
+<span>완료 구역</span>
+<strong id="hud-regions">—</strong>
+</div>
+</div>
+<div class="hud-footer" id="hud-landing">
+<span id="hud-source">현재 정찰</span>
+</div>
+</section>
+</div>
+<small id="flight-summary" class="stage-summary" role="status">경로 확인 후 출발할 수 있습니다</small>
+<div class="section-body" id="flight-live-details">
+<div id="flight-sequence" class="flight-sequence" hidden="">
+<div><span>현재 구역</span><strong id="current-zone-name">—</strong></div>
+<div><span>다음 경로</span><strong id="next-route-state">—</strong></div>
+</div>
+<div class="flight-actions">
+<div id="global-flight-status" class="hint" role="status" hidden="">
+</div>
+</div>
+<div class="flight-details">
+<div class="metric-grid telemetry">
+
+<div>
+<span>상대 고도</span>
+<strong id="flight-altitude">—</strong>
+</div>
+
+</div>
+
+<details id="capture-details" class="secondary-options capture-details" hidden="">
+<summary>수집 정보</summary>
+<div>
+<span>카메라 자세</span>
+<strong id="poses-count">0</strong>
+</div>
+<p id="capture-provenance" class="hint">이번 정찰의 원본 영상과 촬영 시점의 카메라 자세를 저장합니다.</p>
+<time id="updated">—</time>
+</details>
+</div>
+</div>
+<div id="completion-next" class="completion-next" hidden=""><strong>정찰 기록을 확인하세요</strong><p>영상과 탐지 결과를 확인하세요.</p><button id="complete-case-summary" type="button">사건 요약·후속 처리</button></div><div id="completed-actions" hidden=""></div></section>
+        <section id="video-panel" class="stage-panel" aria-labelledby="tab-analysis" hidden="" role="tabpanel" tabindex="0">
+<div class="section-body"><header class="workspace-heading"><span data-icon="Video" aria-hidden="true"></span><div><h2>블랙박스</h2><p>전체 비행 기록</p></div></header>
+<div class="video-options">
+<div class="segmented" role="group" aria-label="영상 출처 선택">
+<button id="view-current" aria-pressed="true">이번 영상</button>
+<button id="view-previous" aria-pressed="false">이전 영상</button>
+</div>
+</div>
+<p class="video-policy">원본 영상 보관 <span id="live-vision-status" role="status" title="최대 2 fps">GPU 분석 대기</span></p>
+<div id="blackbox-viewer" class="blackbox-viewer"><p id="blackbox-state" role="status"></p><video id="blackbox-video" controls preload="metadata" playsinline hidden aria-label="전체 정찰 블랙박스 영상"></video></div>
+<div id="video-viewer-host">
+<div id="frame-viewer">
+<div id="source-banner" class="source-banner">이번 정찰 · 수집 전</div>
+<figure class="video-frame">
+<div id="image-empty">
+<span data-icon="Video" aria-hidden="true">
+</span>
+<strong>저장된 영상이 없습니다</strong>
+<span>정찰 촬영 후 원본 프레임이 표시됩니다.</span>
+</div>
+<div id="image-wrap" hidden="">
+<img id="camera-image" alt="정찰 원본 프레임">
+<svg id="bbox" aria-label="검출 영역" preserveAspectRatio="xMidYMid meet">
+</svg>
+</div>
+</figure>
+<div class="image-toolbar">
+<div class="image-meta" id="image-meta">
+<span id="image-time">촬영 시각 —</span>
+</div>
+<button id="expand-image" type="button" class="text-button" hidden="">
+<span data-icon="FocusCentered" aria-hidden="true">
+</span>크게 보기</button>
+</div>
+</div>
+</div>
+<p id="video-storage-status" class="hint" role="status" hidden></p>
+<div class="video-next"><a id="video-record-link" href="/local-postflight.html">이번 정찰 기록 열기</a><button id="video-back-mission" type="button">정찰 준비로</button></div>
+</div>
+</section>
+        <section id="review-panel" class="stage-panel" aria-labelledby="tab-review" hidden="" role="tabpanel" tabindex="0">
+<label class="results-source-control">분석 기록 <select id="results-source" aria-label="탐지 결과 출처"><option value="current">이번 정찰</option><option value="previous">이전 분석</option></select></label><div class="archive-context" id="archive-context"><span data-icon="History" aria-hidden="true"></span><div><strong>이전 분석 기록</strong><span>이번 정찰과 별도</span></div><time id="results-source-date"></time></div>
+<small id="review-summary" class="sr-only">이전 분석의 관측·상의색·자세·위치 확인</small>
+<div class="section-body">
+<div class="review-list-column" id="review-list">
+<div class="result-heading">
+<strong title="반복 프레임을 포함한 관측 건수이며 고유 인원 수가 아닙니다.">후보 <span id="candidate-count">—</span><span class="sr-only"> · 관측 <span id="result-count">—</span>건</span></strong>
+<button id="load-results" class="text-button" title="결과 새로고침" aria-label="결과 새로고침"><span data-icon="Refresh" aria-hidden="true"></span></button>
+</div>
+<p id="review-progress" class="review-progress sr-only" aria-live="polite"></p><div id="review-queue" class="review-queue" aria-label="후보 상태 필터" role="group"><button id="candidates-all" aria-pressed="true"><span>전체</span><b id="queue-all-count">—</b></button><button id="queue-pending" type="button" aria-pressed="false" title="미검토 관측이 있는 후보"><span>미검토</span><span class="queue-value"><b id="queue-pending-count">—</b></span></button><button id="queue-field" type="button" aria-pressed="false" title="현장 확인 대기 후보"><span>현장</span><span class="queue-value"><b id="queue-field-count">—</b></span></button><button id="queue-deferred" type="button" aria-pressed="false" title="보류한 관측이 있는 후보"><span>보류</span><span class="queue-value"><b id="queue-deferred-count">—</b></span></button></div><div class="candidate-searchbar"><label class="candidate-searchfield"><span data-icon="Search" aria-hidden="true"></span><input id="result-search" type="search" placeholder="색상·자세·구역 검색" autocomplete="off" aria-label="색상·자세·구역 검색"></label><button id="candidates-urgent" aria-pressed="false" title="자세 확인이 필요한 후보" aria-label="자세 확인 후보"><span data-icon="Scan" aria-hidden="true"></span><span id="urgent-count">0</span></button><details id="candidate-filters" class="candidate-filters"><summary title="상세 필터"><span data-icon="Adjustments" aria-hidden="true"></span><span id="candidate-filter-label" class="sr-only">상세 필터</span></summary><div class="result-filters"><select id="result-review-filter" aria-label="검토 상태 필터"><option value="all">모든 판단</option><option value="pending">미검토</option><option value="field">현장 확인 대기</option><option value="deferred">보류</option><option value="resolved">검토 처리됨</option></select>
+<label class="sr-only" for="result-search">상의색 또는 자세 검색</label>
+
+<select id="result-location-filter" aria-label="탐지 위치 필터">
+<option value="all">전체 위치</option>
+<option value="located">지도 표시</option>
+<option value="unlocated">좌표 없음</option>
+</select>
+</div></details></div><div class="search-secondary"><button id="source-link" hidden="">이 분석을 사건에 연결</button></div><p id="candidate-context" class="search-note"></p>
+<button id="clear-result-filters" type="button" class="clear-result-filters" hidden=""><span data-icon="X" aria-hidden="true"></span>조건 초기화</button><div id="result-list" class="result-list">
+<p class="empty">이전 결과를 불러오면 관측 목록을 확인할 수 있습니다.</p>
+</div>
+</div>
+</div>
+<div class="review-followup"><button id="review-case-summary" type="button"><span data-icon="ClipboardList" aria-hidden="true"></span>사건 요약·후속 처리<span data-icon="ChevronRight" aria-hidden="true"></span></button></div>
+<details class="secondary-options">
+<summary>실행 정보</summary>
+<div class="section-body">
+<p class="hint compact">위치는 SIM 추정값이며 수직 기준은 미검증입니다.</p>
+<dl>
+<dt>계획 ID</dt>
+<dd id="info-plan">—</dd>
+<dt>이번 수집 ID</dt>
+<dd id="info-capture">—</dd>
+<dt>이전 분석 ID</dt>
+<dd id="info-source">—</dd>
+</dl>
+<a class="record-link" href="/local-postflight.html">전체 원본·정찰 기록 열기 ↗</a>
+</div>
+</details>
+</section>
+        
+      </div>
+    </aside>
+</div>
+</aside>
+<button id="sidebar-toggle" class="sidebar-toggle" aria-controls="mission-sidebar" aria-expanded="true" aria-label="관제 사이드바 접기" title="관제 패널 열기·닫기">
+<span data-icon="ChevronRight" aria-hidden="true">
+</span>
+</button>
+<span id="sidebar-toggle-label" class="map-edit-status" hidden="" role="status">
+</span>
+</div>
+</main>
+
+
+
+
+
+
+
+<dialog id="media-dialog" class="media-dialog dashboard-media" aria-labelledby="media-title" aria-describedby="media-description">
+<header>
+<div>
+<h2 id="media-title" tabindex="-1">원본 프레임</h2>
+<p id="media-description">
+</p>
+</div>
+<button id="close-media" type="button" aria-label="팝업 닫기" autofocus="">
+<span data-icon="X" aria-hidden="true">
+</span>
+</button>
+</header>
+<div id="media-view-tools" class="media-view-tools" hidden=""><div class="segmented" role="group" aria-label="관측 이미지 보기"><button id="media-view-target" type="button" aria-pressed="true">대상 확대</button><button id="media-view-full" type="button" aria-pressed="false">전체 영상</button></div><span id="media-view-note">원본 확대</span></div>
+<div id="media-viewport" class="media-viewport" aria-busy="false">
+<p id="media-empty" class="empty" role="status">원본 프레임 불러오는 중…</p>
+<div id="target-view" class="target-view" hidden=""></div>
+<div id="full-frame-wrap" class="full-frame" hidden="">
+<img id="full-image" alt="확대된 정찰 원본 프레임">
+<svg id="full-bbox" aria-label="검출 영역" preserveAspectRatio="xMidYMid meet">
+</svg>
+</div>
+</div>
+<div id="media-result" class="media-result" hidden="">
+<div class="media-result-meta">
+<dl id="result-facts" class="result-facts"></dl>
+<p id="result-detail" class="result-location"></p>
+</div>
+<div class="media-result-actions">
+<button id="locate-result" type="button"><span data-icon="MapPin" aria-hidden="true"></span>지도에서 위치 보기</button>
+<button id="confirm-result" type="button" disabled="">확인 완료</button>
+</div>
+<div id="candidate-detail" class="candidate-review" hidden=""></div><p id="review-status" class="review-status" role="status" aria-live="polite"></p>
+</div>
+<div id="candidate-actions" class="candidate-actions" hidden=""></div>
+</dialog>
+
+
+
+
+
+
+<dialog id="drone-connection-dialog" class="search-dialog drone-connection-dialog" aria-labelledby="drone-connection-title" aria-describedby="drone-connection-note">
+<header><h2 id="drone-connection-title">드론 연결</h2><button id="close-drone-connection" type="button" aria-label="드론 연결 창 닫기" autofocus><span data-icon="X" aria-hidden="true"></span></button></header>
+<div class="drone-connection-body">
+<ol class="connection-flow" aria-label="드론 연결 순서"><li id="connection-flow-target"><span>1</span>대상 확인</li><li id="connection-flow-link"><span>2</span>연결</li><li id="connection-flow-check"><span>3</span>상태 확인</li></ol>
+<div class="connection-target"><span data-icon="Drone" aria-hidden="true"></span><div><strong>학교 SIM</strong><p>이 PC의 시뮬레이션 드론</p></div><span class="connection-target-tag">연결 대상</span></div>
+<p id="connection-plan-summary" class="connection-plan-summary"></p>
+<div class="connection-progress-heading"><span id="connection-dialog-icon" data-icon="PlugConnected" aria-hidden="true"></span><strong id="connection-dialog-status" role="status" aria-live="polite">연결 준비</strong></div>
+<p id="connection-dialog-description"></p>
+<ul class="connection-checks" aria-label="드론 연결 확인 항목"><li id="connection-check-link" data-label="통신"><span data-icon="Check" aria-hidden="true"></span>통신</li><li id="connection-check-position" data-label="위치"><span data-icon="Check" aria-hidden="true"></span>위치</li><li id="connection-check-disarm" data-label="무장 해제"><span data-icon="Check" aria-hidden="true"></span>무장 해제</li></ul>
+<p id="connection-dialog-error" role="alert" hidden></p><button id="connection-storage-retry" type="button" hidden>저장소 다시 확인</button><p id="drone-connection-note">연결만으로 이륙하지 않습니다. 출발은 임무 시작 버튼으로 진행합니다.</p>
+</div>
+<footer class="connection-dialog-actions"><button id="disconnect-drone" type="button" hidden>연결 해제</button><button id="connection-to-plan" type="button" hidden>경로 준비로</button><button id="connect-drone" class="primary" type="button"><span data-icon="PlugConnected" aria-hidden="true"></span><span data-action-label>연결 시작</span></button><button id="connection-to-mission" class="primary" type="button" hidden>임무 화면으로<span data-icon="ArrowRight" aria-hidden="true"></span></button></footer>
+</dialog>
+<dialog id="mission-dialog" class="search-dialog mission-dialog" aria-labelledby="mission-dialog-title">
+<header><h2 id="mission-dialog-title">새 정찰 임무</h2><button id="mission-dialog-close" type="button" aria-label="임무 설정 닫기"><span data-icon="X" aria-hidden="true"></span></button></header>
+<form id="mission-form" class="mission-form"><label class="mission-name-field" for="mission-title-input">임무 이름<input id="mission-title-input" maxlength="80" required placeholder="예: 캠퍼스 동측 수색"></label>
+<fieldset class="mission-color-field"><legend>찾을 상의색 <small>선택</small></legend><div id="mission-colors" class="target-colors"></div><div class="mission-color-help"><p id="mission-colors-note"></p><button id="mission-colors-clear" type="button">선택 해제</button></div></fieldset>
+<section class="mission-case-field" aria-labelledby="mission-case-label"><div class="mission-case-heading"><label id="mission-case-label" for="mission-case">연결 사건 <small>선택</small></label><button id="case-new" type="button"><span data-icon="Plus" aria-hidden="true"></span>새 사건</button></div><select id="mission-case" aria-describedby="mission-case-help"><option value="">연결하지 않음</option></select><p id="mission-case-help">목격 정보·검토·종료 이력을 사건별로 모읍니다</p></section>
+<p id="mission-dialog-error" role="alert"></p><footer><button id="mission-dialog-cancel" type="button">취소</button><button id="mission-submit" type="submit" class="primary">임무 만들기</button></footer></form></dialog>
+<dialog id="case-dialog" class="search-dialog" aria-labelledby="case-title"><header><h2 id="case-title">사건 등록</h2><button id="case-close" aria-label="사건 편집 닫기" type="button"><span data-icon="X" aria-hidden="true"></span></button></header><form id="case-form" class="case-form">
+<label>사건명 <small>필수</small><input id="case-name" maxlength="80" required="" placeholder="예: 캠퍼스 실종자 수색"></label>
+<div class="case-fields"><label>수색 목적<select id="case-kind"><option value="MISSING">실종자 수색</option><option value="RESCUE">구조 대상 탐색</option><option value="SEARCH">대상자 수색</option></select></label><label>신고 상의색 <small>선택</small><select id="case-color"><option value="unknown">미상</option><option value="black">검정</option><option value="white">흰색</option><option value="gray">회색</option><option value="red">빨강</option><option value="orange">주황</option><option value="yellow">노랑</option><option value="green">초록</option><option value="blue">파랑</option><option value="navy">남색</option><option value="purple">보라</option><option value="pink">분홍</option><option value="brown">갈색</option></select></label></div>
+<div class="case-location"><span class="field-optional">마지막 목격 위치 · 선택</span><p id="case-location-label">마지막 목격 위치 미지정</p><button id="case-pick" type="button">지도에서 지정</button><button id="case-clear-point" type="button">위치 해제</button></div>
+<label>마지막 목격 시각 <small id="case-time-hint">위치 지정 시 필수</small><input id="case-time" type="datetime-local" aria-describedby="case-time-hint"></label>
+<label id="case-state-field">사건 상태<select id="case-state"><option value="ACTIVE">진행 중</option><option value="ARCHIVED">보관</option></select></label>
+<details><summary>추천 기준</summary><div class="case-fields"><label>가정 이동 속도 (m/s)<input id="case-speed" type="number" min="0" max="15" step="0.1" value="1.2" required=""></label><label>재수색 기준 (분)<input id="case-revisit" type="number" min="1" max="10080" value="30" required=""></label></div><p class="search-note">발견 확률이나 실제 이동 경로를 뜻하지 않습니다.</p></details>
+<p id="case-error" class="search-note" data-error="true" role="alert"></p><footer><button id="case-cancel" type="button">취소</button><button id="case-save" class="search-primary" type="submit">사건 저장</button></footer></form></dialog>
+<dialog id="case-summary-dialog" class="search-dialog case-summary-dialog" aria-labelledby="case-summary-title"><header><div><h2 id="case-summary-title">사건 요약</h2><p id="case-summary-name"></p></div><button id="case-summary-dismiss" type="button" aria-label="사건 요약 닫기"><span data-icon="X" aria-hidden="true"></span></button></header>
+<div class="case-summary-body"><section id="case-report-context" class="case-report-context" aria-label="사건 신고 정보"><div><span id="case-target-label"></span><p id="case-context" hidden></p></div><button id="case-edit" type="button"><span data-icon="Edit" aria-hidden="true"></span>신고 정보 수정</button></section><p id="case-summary-status" role="status">불러오는 중…</p><div id="case-summary-facts"></div><div id="case-summary-actions" class="summary-actions"><button id="summary-review" type="button">남은 관측 검토</button><button id="summary-research" type="button">미완료 구역 다시 선택</button></div><p id="summary-research-note" class="search-note"></p><p id="summary-error" role="alert"></p><button id="summary-refresh" class="text-button" type="button">다시 확인</button>
+<form id="case-finish-form" hidden=""><label for="case-finish-reason">종료 사유 <small>필수</small></label><textarea id="case-finish-reason" required="" maxlength="1000" rows="3" placeholder="종료 이유와 남은 확인 사항을 기록하세요."></textarea><p class="search-note">남은 항목과 종료 사유를 보존합니다. 나중에 사건을 다시 열 수 있습니다.</p><div class="summary-actions"><button id="case-finish-cancel" type="button">취소</button><button id="case-finish-save" type="submit" class="search-primary">사유 기록 후 종료</button></div></form></div>
+<footer id="case-summary-footer"><button id="case-finish-open" type="button">사건 종료</button><button id="summary-reopen" class="search-primary" type="button" hidden="">사건 다시 열기</button></footer></dialog>
+
+</body></html>

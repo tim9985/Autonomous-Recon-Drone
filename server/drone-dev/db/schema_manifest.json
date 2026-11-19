@@ -1,0 +1,1528 @@
+{
+  "user_account": [
+    {
+      "name": "user_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "login_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "credential_hash",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "permissions",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false
+    }
+  ],
+  "user_session": [
+    {
+      "name": "session_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "user_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "token_digest",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "issued_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "revoked_at",
+      "type": "timestamptz",
+      "nullable": true
+    }
+  ],
+  "drone": [
+    {
+      "name": "drone_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "gateway_id",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "camera_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "control_user_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "control_session_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "control_revision",
+      "type": "bigint",
+      "nullable": false
+    },
+    {
+      "name": "control_acquired_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "control_expires_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "control_epoch",
+      "type": "bigint",
+      "nullable": false
+    },
+    {
+      "name": "gateway_state",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "link_state",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz",
+      "nullable": false
+    }
+  ],
+  "telemetry_sample": [
+    {
+      "name": "sample_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "drone_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "producer_id",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "producer_session_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "sample_kind",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "sequence",
+      "type": "bigint",
+      "nullable": false
+    },
+    {
+      "name": "sample_time_raw",
+      "type": "bigint",
+      "nullable": true
+    },
+    {
+      "name": "clock_domain",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "source_time_utc",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "received_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "time_evidence",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "pose",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "flight_state",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "validity",
+      "type": "jsonb",
+      "nullable": false
+    }
+  ],
+  "config_version": [
+    {
+      "name": "config_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "kind",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "version",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "schema_version",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "payload",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "content_hash",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "parent_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "asset_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "validation_report",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "approved_by",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "approved_at",
+      "type": "timestamptz",
+      "nullable": true
+    }
+  ],
+  "mission": [
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "drone_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "creator_user_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "draft_revision",
+      "type": "integer",
+      "nullable": true
+    },
+    {
+      "name": "active_revision",
+      "type": "integer",
+      "nullable": true
+    },
+    {
+      "name": "state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "state_evidence",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "readiness",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "appearance_query",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "test_conditions",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "grant_status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "approved_by",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "approved_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "grant_revoked_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "started_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "ended_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "termination_reason",
+      "type": "text",
+      "nullable": true
+    }
+  ],
+  "mission_revision": [
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "revision",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "area_geom",
+      "type": "geometry(MultiPolygon,4326)",
+      "nullable": true
+    },
+    {
+      "name": "priority_geom",
+      "type": "geometry(MultiPolygon,4326)",
+      "nullable": true
+    },
+    {
+      "name": "priority_sources",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "conditions",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "area_denominators",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "spatial_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "coordinate_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "policy_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "model_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "planner_modes",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "grid_version",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "approved_at",
+      "type": "timestamptz",
+      "nullable": true
+    }
+  ],
+  "search_plan": [
+    {
+      "name": "plan_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_revision",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "plan_version",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "plan_kind",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "parent_plan_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "supersedes_plan_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "region_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "input_versions",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "objective_mode",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "visit_order",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "task",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "candidates",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "route",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "generated_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "summary",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "decision_log",
+      "type": "jsonb",
+      "nullable": false
+    }
+  ],
+  "search_region": [
+    {
+      "name": "region_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_revision",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "grid_version",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "region_type",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "source_features",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "region_geom",
+      "type": "geometry(MultiPolygon,4326)",
+      "nullable": false
+    },
+    {
+      "name": "representative_point",
+      "type": "geometry(Point,4326)",
+      "nullable": false
+    },
+    {
+      "name": "total_area_m2",
+      "type": "double precision",
+      "nullable": false
+    },
+    {
+      "name": "remaining_area_m2",
+      "type": "double precision",
+      "nullable": false
+    },
+    {
+      "name": "state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "pass_index",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "service_estimate_s",
+      "type": "double precision",
+      "nullable": true
+    },
+    {
+      "name": "reason",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "row_version",
+      "type": "bigint",
+      "nullable": false
+    }
+  ],
+  "reobservation_request": [
+    {
+      "name": "request_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "candidate_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "requester_kind",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "requested_by",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "requested_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "queue_order",
+      "type": "integer",
+      "nullable": true
+    },
+    {
+      "name": "plan_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "hypothesis",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "desired_view",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "limits",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "usage",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "result_evidence",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "deferred_reason",
+      "type": "text",
+      "nullable": true
+    }
+  ],
+  "video_frame": [
+    {
+      "name": "frame_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "drone_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "stream_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "stream_epoch",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "frame_seq",
+      "type": "bigint",
+      "nullable": false
+    },
+    {
+      "name": "identity_scope",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "capture_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "gateway_received_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "received_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "capture_time_verified",
+      "type": "boolean",
+      "nullable": false
+    },
+    {
+      "name": "time_evidence",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "width",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "height",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "format",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "source_quality_status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "metadata_state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "coordinate_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "pose",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "pose_status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "pose_reason",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "footprint_geom",
+      "type": "geometry(MultiPolygon,4326)",
+      "nullable": true
+    },
+    {
+      "name": "visible_geom",
+      "type": "geometry(MultiPolygon,4326)",
+      "nullable": true
+    },
+    {
+      "name": "coverage",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "obs_group",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "plan_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "analysis_mode",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "analysis_state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "skip_reason",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "model_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "pipeline_version",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "analysis_times",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "pre_ms",
+      "type": "double precision",
+      "nullable": true
+    },
+    {
+      "name": "infer_ms",
+      "type": "double precision",
+      "nullable": true
+    },
+    {
+      "name": "post_ms",
+      "type": "double precision",
+      "nullable": true
+    },
+    {
+      "name": "task_quality_status",
+      "type": "text",
+      "nullable": false
+    }
+  ],
+  "media_asset": [
+    {
+      "name": "asset_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "frame_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "candidate_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "observation_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "asset_type",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "storage_uri",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "content_hash",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "time_start",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "time_end",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "gaps",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "quality_status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "historical",
+      "type": "boolean",
+      "nullable": false
+    },
+    {
+      "name": "retention_class",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "retained_until",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "source_asset_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "meta",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false
+    }
+  ],
+  "person_candidate": [
+    {
+      "name": "candidate_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "first_frame_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "first_asset_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "first_seen",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "last_seen",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "association_state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "evidence_count",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "valid_group_count",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "latest_position",
+      "type": "geometry(Point,4326)",
+      "nullable": true
+    },
+    {
+      "name": "geo_status",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "geo_reason",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "ellipse",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "coordinate_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "appearance",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "judgement",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "tracking",
+      "type": "jsonb",
+      "nullable": true
+    },
+    {
+      "name": "latest_observation_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "row_version",
+      "type": "bigint",
+      "nullable": false
+    }
+  ],
+  "detection_observation": [
+    {
+      "name": "observation_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "candidate_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "frame_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "analysis_mode",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "detection_index",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "track_id",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "bbox",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "confidence",
+      "type": "double precision",
+      "nullable": false
+    },
+    {
+      "name": "class_name",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "observation_kind",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "model_config_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "coordinate_config_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "association_evidence",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "geo_result",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "historical",
+      "type": "boolean",
+      "nullable": false
+    },
+    {
+      "name": "supersedes_id",
+      "type": "uuid",
+      "nullable": true
+    }
+  ],
+  "observation_cell": [
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "grid_version",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "cell_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "region_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "region_allocations",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "spatial_config_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "cell_geom",
+      "type": "geometry(MultiPolygon,4326)",
+      "nullable": false
+    },
+    {
+      "name": "cell_area_m2",
+      "type": "double precision",
+      "nullable": false
+    },
+    {
+      "name": "state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "valid_union_geom",
+      "type": "geometry(MultiPolygon,4326)",
+      "nullable": true
+    },
+    {
+      "name": "valid_area_m2",
+      "type": "double precision",
+      "nullable": false
+    },
+    {
+      "name": "valid_count",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "valid_group_count",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "valid_duration_s",
+      "type": "double precision",
+      "nullable": false
+    },
+    {
+      "name": "last_valid_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "excluded_reasons",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "priority",
+      "type": "double precision",
+      "nullable": false
+    },
+    {
+      "name": "belief",
+      "type": "double precision",
+      "nullable": false
+    },
+    {
+      "name": "belief_detail",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "row_version",
+      "type": "bigint",
+      "nullable": false
+    }
+  ],
+  "flight_command": [
+    {
+      "name": "command_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "request_hash",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "mission_revision",
+      "type": "integer",
+      "nullable": true
+    },
+    {
+      "name": "plan_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "segment_order",
+      "type": "integer",
+      "nullable": true
+    },
+    {
+      "name": "drone_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "control_epoch",
+      "type": "bigint",
+      "nullable": false
+    },
+    {
+      "name": "sequence",
+      "type": "bigint",
+      "nullable": false
+    },
+    {
+      "name": "issued_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "schema_version",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "policy_version",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "coordinate_config_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "requester",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "action",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "payload",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "status_revision",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "reason_code",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "last_evidence_at",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "execution_deadline",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "completion_policy",
+      "type": "jsonb",
+      "nullable": false
+    }
+  ],
+  "alert": [
+    {
+      "name": "alert_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "source_event_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "dedup_key",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "type",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "priority",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "raised_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "evidence_refs",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "ack_user_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "acknowledged_at",
+      "type": "timestamptz",
+      "nullable": true
+    }
+  ],
+  "mission_event": [
+    {
+      "name": "event_id",
+      "type": "uuid",
+      "nullable": false
+    },
+    {
+      "name": "event_seq",
+      "type": "bigint",
+      "nullable": false
+    },
+    {
+      "name": "mission_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "drone_id",
+      "type": "varchar(255)",
+      "nullable": true
+    },
+    {
+      "name": "event_type",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "code",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "use_case_id",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "actor_user_id",
+      "type": "uuid",
+      "nullable": true
+    },
+    {
+      "name": "ref_table",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "ref_id",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "source_time",
+      "type": "timestamptz",
+      "nullable": true
+    },
+    {
+      "name": "stored_at",
+      "type": "timestamptz",
+      "nullable": false
+    },
+    {
+      "name": "source_epoch",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "correlation_id",
+      "type": "text",
+      "nullable": true
+    },
+    {
+      "name": "payload",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "refs",
+      "type": "jsonb",
+      "nullable": false
+    },
+    {
+      "name": "producer_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "producer_session_id",
+      "type": "varchar(255)",
+      "nullable": false
+    },
+    {
+      "name": "sequence",
+      "type": "bigint",
+      "nullable": false
+    },
+    {
+      "name": "publish_state",
+      "type": "text",
+      "nullable": false
+    },
+    {
+      "name": "published_at",
+      "type": "timestamptz",
+      "nullable": true
+    }
+  ]
+}

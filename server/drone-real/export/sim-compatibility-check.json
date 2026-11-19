@@ -1,0 +1,7 @@
+{
+  "passed": 79,
+  "shared_backend_code_sim_compatible": true,
+  "production_changed": false,
+  "temporary_database_removed": true,
+  "test_fixture_update": "Request stubs now carry the route URL"
+}

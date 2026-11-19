@@ -1,0 +1,8 @@
+/* Environment navigation has the same position and order in both workspaces. */
+.environment-switch{display:inline-flex;align-items:center;gap:2px;padding:3px;background:#eef3f4;border:1px solid #d9e2e5;border-radius:7px;white-space:nowrap}
+.environment-switch a,.environment-switch span{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:32px;padding:5px 10px;border:1px solid transparent;border-radius:5px;font-size:12px;font-weight:550;color:#536b76;text-decoration:none}
+.environment-switch [aria-current=page]{color:#065e6a;background:#fff;border-color:#c7d8dd;box-shadow:0 1px 2px #1b35400c}
+.environment-switch a:hover{color:#075c69;background:#e0ebee}.environment-switch a:focus-visible{outline:2px solid #007484;outline-offset:2px}
+.environment-switch .icon{width:15px;height:15px;stroke-width:1.7}
+@media(max-width:650px){.appbar{gap:8px;padding-inline:10px}.appbar .brand>span:last-child{display:none}.environment-switch a,.environment-switch span{min-height:36px;padding:5px 9px}.environment{gap:0}.app-actions{margin-left:auto}.environment-switch .icon{display:none}}
+@media(prefers-reduced-motion:no-preference){.environment-switch a{transition:background-color .16s ease,color .16s ease}}

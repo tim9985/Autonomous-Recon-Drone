@@ -1,0 +1,18 @@
+{
+  "files": {
+    "web/test-patrol.html": "264463e13d7b93e84879a2803aa988802d29854f2a86f9bef872326b6e917e68",
+    "web/test-regional.js": "e0d337137a6d00e0ae674b5f5a545240bc0cd3b94812710bbd348cef95ac052e",
+    "web/test-regional-model.js": "bd5d732c81ef27a59297e41de8b0eb32068679444648b2afb052961da3a8afe4",
+    "web/test-regional.css": "1207d5ae42b317bb46524f5f5c54b993a7a3ec734a78348d318e40892042df2d",
+    "regional-search-code/server_integration/regional_search/observe.py": "a76091ada0a3b0019cea7bfcf09177fc661f4b45079dbad8110372aab91f4876",
+    "regional-search-code/server_integration/regional_search/pc_flight.py": "1e7e52e442e79c7017ec802d4c983377897c7507f35241c1fb25885dd00c2c78",
+    "regional-search-code/server_integration/regional_search/launch_pc.py": "1f902b55f9dc3b145a811cc4089215a2b6f187191fc9f530721c792e15ae3e25"
+  },
+  "baseline": {
+    "web/test-patrol.html": "4d6a28878c61c11616c1f7c6dd7396384a531cc1bb487a8b2b901b75fddd75dd",
+    "web/index.html": "3d536d712924b30a9447a0d851297adfdf5e8f91186ca07035fedf56f4faf1cf"
+  },
+  "previousAdapterHash": "798d6de8e217926fc4fa5a05faf71910831229887c96b48e97e22233e5c2077b",
+  "adapterHash": "400813f9534d4d3f8afbfc10413cc271fbc4436e669fe1af0205e790a54c0cd9",
+  "packageId": "46e34ac42e086fa58f0f492574a0d0ea1ee85a861fd5a3014bd380e7f15fb2f8"
+}

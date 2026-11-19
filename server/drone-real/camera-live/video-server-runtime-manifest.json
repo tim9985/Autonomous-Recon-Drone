@@ -1,0 +1,17 @@
+{
+  "python": "3.12",
+  "platform": "manylinux_2_28_x86_64",
+  "source": "PyPI binary wheels",
+  "files": [
+    {
+      "name": "av-19.0.2-cp312-abi3-manylinux_2_28_x86_64.whl",
+      "bytes": 34990159,
+      "sha256": "9c1da7aad0fa6c13b4a5c1e7985be0d13f8526a96284573acaf3d55ead6d3fe8"
+    },
+    {
+      "name": "pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 7144542,
+      "sha256": "42d63be3af4f9b951b199b0a9d23365d37ab14687e6d77b74940432c8515c4ca"
+    }
+  ]
+}

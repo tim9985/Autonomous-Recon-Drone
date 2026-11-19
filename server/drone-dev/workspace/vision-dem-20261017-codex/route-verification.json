@@ -1,0 +1,5468 @@
+{
+  "run": {
+    "run_id": "5286f6a8-7f9d-40c4-a0ea-830532d1d02c",
+    "state": "FAILED",
+    "started_at": "2026-10-17 07:46:45.419571+00",
+    "ended_at": "2026-10-17 07:51:29.826725+00"
+  },
+  "frames": [
+    {
+      "frame_id": "26fcb92f-27e8-472a-891d-7f4801ba9459",
+      "pose": {
+        "mount": null,
+        "frame_id": "26fcb92f-27e8-472a-891d-7f4801ba9459",
+        "capture_at": "2026-10-17T07:46:50.941547Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 70.09844970703125,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 168.003584,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223208405340416",
+        "camera_position_ned": {
+          "down_m": 1.4505873918533325,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223208237336832"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "c757ea8e-ac44-4d07-a1c9-ecc1b2099a5b",
+      "pose": {
+        "mount": null,
+        "frame_id": "c757ea8e-ac44-4d07-a1c9-ecc1b2099a5b",
+        "capture_at": "2026-10-17T07:46:51.340176Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 70.09844970703125,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223208906351104",
+        "camera_position_ned": {
+          "down_m": 1.4505873918533325,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223208726347264"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "882cf5d3-5c95-4be7-91ef-ddbd303c6c79",
+      "pose": {
+        "mount": null,
+        "frame_id": "882cf5d3-5c95-4be7-91ef-ddbd303c6c79",
+        "capture_at": "2026-10-17T07:46:51.839491Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 70.23194122314453,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 177.003776,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223209404361728",
+        "camera_position_ned": {
+          "down_m": 1.4036682844161987,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223209227357952"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "ca959a88-2222-453d-b85a-2f9f6e7c550d",
+      "pose": {
+        "mount": null,
+        "frame_id": "ca959a88-2222-453d-b85a-2f9f6e7c550d",
+        "capture_at": "2026-10-17T07:46:52.359495Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 70.47258758544922,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 198.004224,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223209923372800",
+        "camera_position_ned": {
+          "down_m": 1.1791727542877197,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223209725368576"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "e592b34b-ce22-4b6f-93ca-4bcec0e47550",
+      "pose": {
+        "mount": null,
+        "frame_id": "e592b34b-ce22-4b6f-93ca-4bcec0e47550",
+        "capture_at": "2026-10-17T07:46:52.854473Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 70.70768737792969,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 198.004224,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223210415383296",
+        "camera_position_ned": {
+          "down_m": 0.9451767802238464,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223210217379072"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "bfef6cde-9c37-48fa-b4c1-14a1dfc58613",
+      "pose": {
+        "mount": null,
+        "frame_id": "bfef6cde-9c37-48fa-b4c1-14a1dfc58613",
+        "capture_at": "2026-10-17T07:46:53.368296Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 70.95550537109375,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 210.00448,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223210925394176",
+        "camera_position_ned": {
+          "down_m": 0.7047020792961121,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223210715389696"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "772d6c9f-f134-4954-bbcf-6afff633be75",
+      "pose": {
+        "mount": null,
+        "frame_id": "772d6c9f-f134-4954-bbcf-6afff633be75",
+        "capture_at": "2026-10-17T07:46:53.857474Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 71.19392395019531,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223211411404544",
+        "camera_position_ned": {
+          "down_m": 0.4539148211479187,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223211225400576"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "df478845-cda4-4644-9f5a-f88e8cd014a8",
+      "pose": {
+        "mount": null,
+        "frame_id": "df478845-cda4-4644-9f5a-f88e8cd014a8",
+        "capture_at": "2026-10-17T07:46:54.359360Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 71.44252014160156,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 192.004096,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223211915415296",
+        "camera_position_ned": {
+          "down_m": 0.21022102236747742,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223211723411200"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "2d5fe9f1-008b-4dad-b3a7-cc6c6268f49b",
+      "pose": {
+        "mount": null,
+        "frame_id": "2d5fe9f1-008b-4dad-b3a7-cc6c6268f49b",
+        "capture_at": "2026-10-17T07:46:54.846292Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 71.64009857177734,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223212401425664",
+        "camera_position_ned": {
+          "down_m": -0.0344410315155983,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223212218421760"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "188e4230-a080-4088-a28d-02bca16cdd29",
+      "pose": {
+        "mount": null,
+        "frame_id": "188e4230-a080-4088-a28d-02bca16cdd29",
+        "capture_at": "2026-10-17T07:46:55.341759Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 72.01306915283203,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223212896436224",
+        "camera_position_ned": {
+          "down_m": -0.2550028860569,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223212713432320"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "5caee9d8-9220-40cd-bf09-a47fd88c4000",
+      "pose": {
+        "mount": null,
+        "frame_id": "5caee9d8-9220-40cd-bf09-a47fd88c4000",
+        "capture_at": "2026-10-17T07:46:55.856114Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 72.54129028320312,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223213409447168",
+        "camera_position_ned": {
+          "down_m": -0.7863699793815613,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223213229443328"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "e108c301-d02f-448c-9c27-e0139e7a01be",
+      "pose": {
+        "mount": null,
+        "frame_id": "e108c301-d02f-448c-9c27-e0139e7a01be",
+        "capture_at": "2026-10-17T07:46:56.373204Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 73.06838989257812,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 204.004352,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223213928458240",
+        "camera_position_ned": {
+          "down_m": -1.2915005683898926,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223213724453888"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "2fc6910a-cc6a-4d49-a944-db544ced590c",
+      "pose": {
+        "mount": null,
+        "frame_id": "2fc6910a-cc6a-4d49-a944-db544ced590c",
+        "capture_at": "2026-10-17T07:46:56.845671Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 73.54606628417969,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223214402468352",
+        "camera_position_ned": {
+          "down_m": -1.797812581062317,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223214228464640"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "6b30e781-e5b8-462b-8d42-fca5dd7b1486",
+      "pose": {
+        "mount": null,
+        "frame_id": "6b30e781-e5b8-462b-8d42-fca5dd7b1486",
+        "capture_at": "2026-10-17T07:46:57.359463Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 74.06072235107422,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223214915479296",
+        "camera_position_ned": {
+          "down_m": -2.3012256622314453,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223214726475264"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "834cc6e1-2525-46a0-8d3b-bf691f7a233d",
+      "pose": {
+        "mount": null,
+        "frame_id": "834cc6e1-2525-46a0-8d3b-bf691f7a233d",
+        "capture_at": "2026-10-17T07:46:57.857196Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 74.56197357177734,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223215416489984",
+        "camera_position_ned": {
+          "down_m": -2.802953004837036,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223215227485952"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "9784bdd4-3565-4733-aa0e-094f4f3ccf4c",
+      "pose": {
+        "mount": null,
+        "frame_id": "9784bdd4-3565-4733-aa0e-094f4f3ccf4c",
+        "capture_at": "2026-10-17T07:46:58.355573Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 75.06543731689453,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 195.00416,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223215920500736",
+        "camera_position_ned": {
+          "down_m": -3.2977068424224854,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223215725496576"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "31b46c04-7563-4638-8fbc-0c7ba7df6014",
+      "pose": {
+        "mount": null,
+        "frame_id": "31b46c04-7563-4638-8fbc-0c7ba7df6014",
+        "capture_at": "2026-10-17T07:47:00.338412Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 77.04338073730469,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223217903543040",
+        "camera_position_ned": {
+          "down_m": -5.293945789337158,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223217723539200"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "7dc9136e-555d-4ac2-9b73-c962f9ed3028",
+      "pose": {
+        "mount": null,
+        "frame_id": "7dc9136e-555d-4ac2-9b73-c962f9ed3028",
+        "capture_at": "2026-10-17T07:46:58.856834Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 75.5654525756836,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 204.004352,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223216421511424",
+        "camera_position_ned": {
+          "down_m": -3.788907766342163,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223216217507072"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "a25d049f-b89d-443c-bfd5-9d01c327537a",
+      "pose": {
+        "mount": null,
+        "frame_id": "a25d049f-b89d-443c-bfd5-9d01c327537a",
+        "capture_at": "2026-10-17T07:46:59.342123Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 76.05024719238281,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 192.004096,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223216907521792",
+        "camera_position_ned": {
+          "down_m": -4.28876256942749,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223216715517696"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "c492a4a8-fc94-4f93-bf0d-df44b75b687b",
+      "pose": {
+        "mount": null,
+        "frame_id": "c492a4a8-fc94-4f93-bf0d-df44b75b687b",
+        "capture_at": "2026-10-17T07:46:59.822700Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 76.53189849853516,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223217390532096",
+        "camera_position_ned": {
+          "down_m": -4.788418292999268,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223217216528384"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "a40e10f7-27ba-41ff-8bd5-1d324ddcf216",
+      "pose": {
+        "mount": null,
+        "frame_id": "a40e10f7-27ba-41ff-8bd5-1d324ddcf216",
+        "capture_at": "2026-10-17T07:47:00.851805Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 77.55479431152344,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 192.004096,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223218416553984",
+        "camera_position_ned": {
+          "down_m": -5.793412208557129,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223218224549888"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "ef2773d9-ae16-4e37-9bd8-6a939840b368",
+      "pose": {
+        "mount": null,
+        "frame_id": "ef2773d9-ae16-4e37-9bd8-6a939840b368",
+        "capture_at": "2026-10-17T07:47:01.343041Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 78.04826354980469,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223218911564544",
+        "camera_position_ned": {
+          "down_m": -6.292862892150879,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223218725560576"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "f19f6806-e4f5-4b17-be08-3ef3ca0a84a3",
+      "pose": {
+        "mount": null,
+        "frame_id": "f19f6806-e4f5-4b17-be08-3ef3ca0a84a3",
+        "capture_at": "2026-10-17T07:47:01.860354Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 78.56260681152344,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 204.004352,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223219427575552",
+        "camera_position_ned": {
+          "down_m": -6.786309719085693,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223219223571200"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "e64b39dc-546d-4faf-8a85-09b664888c4e",
+      "pose": {
+        "mount": null,
+        "frame_id": "e64b39dc-546d-4faf-8a85-09b664888c4e",
+        "capture_at": "2026-10-17T07:47:02.342058Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 79.03805541992188,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223219904585728",
+        "camera_position_ned": {
+          "down_m": -7.276710033416748,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223219715581696"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "ef2c99d5-f25f-4650-b8c0-735cdb847e88",
+      "pose": {
+        "mount": null,
+        "frame_id": "ef2c99d5-f25f-4650-b8c0-735cdb847e88",
+        "capture_at": "2026-10-17T07:47:03.850074Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 80.54531860351562,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223221416617984",
+        "camera_position_ned": {
+          "down_m": -8.786928176879883,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223221230614016"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "71eb1e86-b257-4862-80c6-7661427f9dd3",
+      "pose": {
+        "mount": null,
+        "frame_id": "71eb1e86-b257-4862-80c6-7661427f9dd3",
+        "capture_at": "2026-10-17T07:47:02.821842Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 79.51950073242188,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223220387596032",
+        "camera_position_ned": {
+          "down_m": -7.77608060836792,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223220216592384"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "c2ada126-a6d1-41b7-9538-305c530fec7a",
+      "pose": {
+        "mount": null,
+        "frame_id": "c2ada126-a6d1-41b7-9538-305c530fec7a",
+        "capture_at": "2026-10-17T07:47:03.327348Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 80.02493286132812,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223220894606848",
+        "camera_position_ned": {
+          "down_m": -8.272523880004883,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223220714603008"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "0fb6b436-a15b-4661-a2fd-4d6171338a1d",
+      "pose": {
+        "mount": null,
+        "frame_id": "0fb6b436-a15b-4661-a2fd-4d6171338a1d",
+        "capture_at": "2026-10-17T07:47:04.342564Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 81.03579711914062,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223221908628480",
+        "camera_position_ned": {
+          "down_m": -9.277406692504883,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223221719624448"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "dca399eb-0876-48c0-8a7e-4149a6eea72b",
+      "pose": {
+        "mount": null,
+        "frame_id": "dca399eb-0876-48c0-8a7e-4149a6eea72b",
+        "capture_at": "2026-10-17T07:47:04.831388Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 81.52328491210938,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223222397638912",
+        "camera_position_ned": {
+          "down_m": -9.782838821411133,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223222226635264"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "72cfd1bc-7507-4b6b-a102-30325ddb30ed",
+      "pose": {
+        "mount": null,
+        "frame_id": "72cfd1bc-7507-4b6b-a102-30325ddb30ed",
+        "capture_at": "2026-10-17T07:47:05.345563Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 82.03768920898438,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 201.004288,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223222913649920",
+        "camera_position_ned": {
+          "down_m": -10.264345169067383,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223222712645632"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "f1a7bcf3-b968-4ade-8792-1f6854dc8869",
+      "pose": {
+        "mount": null,
+        "frame_id": "f1a7bcf3-b968-4ade-8792-1f6854dc8869",
+        "capture_at": "2026-10-17T07:47:05.862945Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 82.55209350585938,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 201.004288,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223223429660928",
+        "camera_position_ned": {
+          "down_m": -10.781740188598633,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223223228656640"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "f73cd6bb-b797-473f-b476-77ab584f05c1",
+      "pose": {
+        "mount": null,
+        "frame_id": "f73cd6bb-b797-473f-b476-77ab584f05c1",
+        "capture_at": "2026-10-17T07:47:06.340438Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 83.02462768554688,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223223903671040",
+        "camera_position_ned": {
+          "down_m": -11.272218704223633,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223223720667136"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "93e06fa7-7fe0-43a1-8b0e-2c17e1199d13",
+      "pose": {
+        "mount": null,
+        "frame_id": "93e06fa7-7fe0-43a1-8b0e-2c17e1199d13",
+        "capture_at": "2026-10-17T07:47:06.822643Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916,
+          "altitude_m": 83.50912475585938,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223224389681408",
+        "camera_position_ned": {
+          "down_m": -11.765687942504883,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223224218677760"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "93cb7b16-d61b-45c9-bc70-6e6fa69f1b77",
+      "pose": {
+        "mount": null,
+        "frame_id": "93cb7b16-d61b-45c9-bc70-6e6fa69f1b77",
+        "capture_at": "2026-10-17T07:47:07.336202Z",
+        "geographic": {
+          "latitude": 36.14577898916595,
+          "longitude": 128.3916,
+          "altitude_m": 84.02053833007812,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223224902692352",
+        "camera_position_ned": {
+          "down_m": -12.259157180786133,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223224713688320"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "3dbdf8e3-8d2d-457a-b431-d95b930049c1",
+      "pose": {
+        "mount": null,
+        "frame_id": "3dbdf8e3-8d2d-457a-b431-d95b930049c1",
+        "capture_at": "2026-10-17T07:47:07.888483Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.39160005715806,
+          "altitude_m": 84.43692779541016,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9990352392196655,
+            "x": 0.04391595348715782,
+            "y": -2.8435151455674657e-10,
+            "z": 1.2422925188548817e-10
+          }
+        },
+        "sync_error_ms": 213.004544,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 0.0,
+            "y": -0.3826834261417389,
+            "z": 0.0
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223225439703808",
+        "camera_position_ned": {
+          "down_m": -12.773561477661133,
+          "east_m": 0.0,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223225226699264"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "05dce2e1-887d-4cc0-a753-264c43c662a7",
+      "pose": {
+        "mount": null,
+        "frame_id": "05dce2e1-887d-4cc0-a753-264c43c662a7",
+        "capture_at": "2026-10-17T07:47:08.354577Z",
+        "geographic": {
+          "latitude": 36.145778989165954,
+          "longitude": 128.3916014718574,
+          "altitude_m": 84.43097686767578,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9993296265602112,
+            "x": 0.036610811948776245,
+            "y": -2.4041519885997786e-09,
+            "z": -3.0655220029096597e-10
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9229549169540405,
+            "x": -0.017116818577051163,
+            "y": -0.3823004364967346,
+            "z": -0.04132365807890892
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223225904713728",
+        "camera_position_ned": {
+          "down_m": -12.886598587036133,
+          "east_m": 0.04091028869152069,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223225715709696"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "42fec666-962d-4e6b-959b-ec43afb15b7b",
+      "pose": {
+        "mount": null,
+        "frame_id": "42fec666-962d-4e6b-959b-ec43afb15b7b",
+        "capture_at": "2026-10-17T07:47:08.822537Z",
+        "geographic": {
+          "latitude": 36.14577898916604,
+          "longitude": 128.39160464897572,
+          "altitude_m": 84.41725158691406,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9998096227645874,
+            "x": 0.019513892009854317,
+            "y": -6.771083693735136e-09,
+            "z": -8.821198771435945e-10
+          }
+        },
+        "sync_error_ms": 177.003776,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9235707521438599,
+            "x": -0.009892743080854416,
+            "y": -0.3825555443763733,
+            "z": -0.023883195593953133
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223226375723776",
+        "camera_position_ned": {
+          "down_m": -12.874374389648438,
+          "east_m": 0.2795867323875427,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223226198720000"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "c3a871cd-90de-482f-9794-e92a24330d01",
+      "pose": {
+        "mount": null,
+        "frame_id": "c3a871cd-90de-482f-9794-e92a24330d01",
+        "capture_at": "2026-10-17T07:47:09.344195Z",
+        "geographic": {
+          "latitude": 36.14577898916615,
+          "longitude": 128.3916092810016,
+          "altitude_m": 84.40286254882812,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999657869338989,
+            "x": 0.00827169418334961,
+            "y": 7.349381991872406e-09,
+            "z": -7.156273351682785e-10
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238134622573853,
+            "x": -0.004575988743454218,
+            "y": -0.382656067609787,
+            "z": -0.01104741357266903
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223226897734912",
+        "camera_position_ned": {
+          "down_m": -12.859095573425293,
+          "east_m": 0.6589722037315369,
+          "north_m": 0.30000007152557373
+        },
+        "source_timestamp_ns": "1792223226708730880"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "f0198693-2c76-4fc7-91e7-d99cbb511e19",
+      "pose": {
+        "mount": null,
+        "frame_id": "f0198693-2c76-4fc7-91e7-d99cbb511e19",
+        "capture_at": "2026-10-17T07:47:09.825901Z",
+        "geographic": {
+          "latitude": 36.14577898916578,
+          "longitude": 128.39161402977257,
+          "altitude_m": 84.39332580566406,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999961256980896,
+            "x": 0.0027933213859796524,
+            "y": 2.6598643287911727e-09,
+            "z": -9.292393521320719e-10
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238698482513428,
+            "x": -0.0017522912239655852,
+            "y": -0.38267943263053894,
+            "z": -0.004230405203998089
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223227380745216",
+        "camera_position_ned": {
+          "down_m": -12.847652435302734,
+          "east_m": 1.089053988456726,
+          "north_m": 0.30000007152557373
+        },
+        "source_timestamp_ns": "1792223227206741504"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "c1ebd503-3bae-421c-ae7d-08f74a3b4a24",
+      "pose": {
+        "mount": null,
+        "frame_id": "c1ebd503-3bae-421c-ae7d-08f74a3b4a24",
+        "capture_at": "2026-10-17T07:47:10.339367Z",
+        "geographic": {
+          "latitude": 36.14577898916499,
+          "longitude": 128.3916191938233,
+          "altitude_m": 84.38658905029297,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 1.0,
+            "x": -6.83384423609823e-05,
+            "y": 5.025551086390578e-09,
+            "z": -1.3011848265520598e-09
+          }
+        },
+        "sync_error_ms": 198.004224,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238791465759277,
+            "x": -0.0003402531729079783,
+            "y": -0.38268327713012695,
+            "z": -0.0008214437984861434
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223227890756096",
+        "camera_position_ned": {
+          "down_m": -12.840065002441406,
+          "east_m": 1.529868245124817,
+          "north_m": 0.30000007152557373
+        },
+        "source_timestamp_ns": "1792223227692751872"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "147ff667-6e34-4712-b805-4c4dd6c1175c",
+      "pose": {
+        "mount": null,
+        "frame_id": "147ff667-6e34-4712-b805-4c4dd6c1175c",
+        "capture_at": "2026-10-17T07:47:10.830529Z",
+        "geographic": {
+          "latitude": 36.145778989163865,
+          "longitude": 128.39162413460738,
+          "altitude_m": 84.43358612060547,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999996423721313,
+            "x": -0.0008410391747020185,
+            "y": -2.980869995283797e-10,
+            "z": -1.4917708179851275e-09
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238791465759277,
+            "x": 0.0003499481244944036,
+            "y": -0.38268327713012695,
+            "z": 0.000844849506393075
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223228379766528",
+        "camera_position_ned": {
+          "down_m": -12.845251083374023,
+          "east_m": 2.001060962677002,
+          "north_m": 0.30000007152557373
+        },
+        "source_timestamp_ns": "1792223228208762880"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "a7643cb4-d695-4541-99e4-d0f32f643214",
+      "pose": {
+        "mount": null,
+        "frame_id": "a7643cb4-d695-4541-99e4-d0f32f643214",
+        "capture_at": "2026-10-17T07:47:11.338902Z",
+        "geographic": {
+          "latitude": 36.14577898916247,
+          "longitude": 128.39162925827816,
+          "altitude_m": 84.53062438964844,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": -0.00034654641058295965,
+            "y": 8.516790050983047e-10,
+            "z": -1.0178896614476685e-09
+          }
+        },
+        "sync_error_ms": 192.004096,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238793849945068,
+            "x": 0.00020216424309182912,
+            "y": -0.3826833665370941,
+            "z": 0.00048806765698827803
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223228892777472",
+        "camera_position_ned": {
+          "down_m": -12.934738159179688,
+          "east_m": 2.4451205730438232,
+          "north_m": 0.30000004172325134
+        },
+        "source_timestamp_ns": "1792223228700773376"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "98f258c6-b841-4d1a-9524-d334aa11a231",
+      "pose": {
+        "mount": null,
+        "frame_id": "98f258c6-b841-4d1a-9524-d334aa11a231",
+        "capture_at": "2026-10-17T07:47:11.843945Z",
+        "geographic": {
+          "latitude": 36.14577898916089,
+          "longitude": 128.39163422511479,
+          "altitude_m": 84.61676025390625,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 1.0,
+            "x": -0.00012234708992764354,
+            "y": 4.4196131199214506e-09,
+            "z": -4.2434217251141604e-10
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 4.184668796369806e-05,
+            "y": -0.3826834261417389,
+            "z": 0.00010102684609591961
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223229393788160",
+        "camera_position_ned": {
+          "down_m": -13.031875610351562,
+          "east_m": 2.901163339614868,
+          "north_m": 0.30000001192092896
+        },
+        "source_timestamp_ns": "1792223229210784256"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "d3b28664-031a-4a73-9373-eaf65a589207",
+      "pose": {
+        "mount": null,
+        "frame_id": "d3b28664-031a-4a73-9373-eaf65a589207",
+        "capture_at": "2026-10-17T07:47:12.353876Z",
+        "geographic": {
+          "latitude": 36.14577900079967,
+          "longitude": 128.39163925427263,
+          "altitude_m": 84.62696075439453,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9992214441299438,
+            "x": -0.025580521672964096,
+            "y": -0.03003634139895439,
+            "z": 2.7499332645675167e-05
+          }
+        },
+        "sync_error_ms": 198.004224,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238779544830322,
+            "x": 0.0007109419093467295,
+            "y": -0.38268277049064636,
+            "z": 0.001716365572065115
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223229906799104",
+        "camera_position_ned": {
+          "down_m": -13.078842163085938,
+          "east_m": 3.344489574432373,
+          "north_m": 0.29999998211860657
+        },
+        "source_timestamp_ns": "1792223229708794880"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "5bf95d81-5222-499f-a13f-d88c75b5dc42",
+      "pose": {
+        "mount": null,
+        "frame_id": "5bf95d81-5222-499f-a13f-d88c75b5dc42",
+        "capture_at": "2026-10-17T07:47:12.850254Z",
+        "geographic": {
+          "latitude": 36.145780061756426,
+          "longitude": 128.39164287932553,
+          "altitude_m": 84.68074798583984,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.998464047908783,
+            "x": -0.040916286408901215,
+            "y": -0.037349339574575424,
+            "z": -0.000679779564961791
+          }
+        },
+        "sync_error_ms": 198.004224,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9229746460914612,
+            "x": 0.016933195292949677,
+            "y": -0.38230860233306885,
+            "z": 0.04088034853339195
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223230401809664",
+        "camera_position_ned": {
+          "down_m": -13.081361770629883,
+          "east_m": 3.752439498901367,
+          "north_m": 0.33022695779800415
+        },
+        "source_timestamp_ns": "1792223230203805440"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "cf5bc25d-0972-4994-9649-5eb99badf2cd",
+      "pose": {
+        "mount": null,
+        "frame_id": "cf5bc25d-0972-4994-9649-5eb99badf2cd",
+        "capture_at": "2026-10-17T07:47:14.322600Z",
+        "geographic": {
+          "latitude": 36.14578994952085,
+          "longitude": 128.3916440362982,
+          "altitude_m": 84.7149429321289,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999775290489197,
+            "x": -0.004390747286379337,
+            "y": -0.004980154801160097,
+            "z": -0.0009731259196996689
+          }
+        },
+        "sync_error_ms": 168.003584,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.923865020275116,
+            "x": 0.0021457206457853317,
+            "y": -0.3826774060726166,
+            "z": 0.0051802280358970165
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223231871841024",
+        "camera_position_ned": {
+          "down_m": -13.162665367126465,
+          "east_m": 3.9881229400634766,
+          "north_m": 1.3460185527801514
+        },
+        "source_timestamp_ns": "1792223231703837440"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "2e5f09b8-8477-4f25-b880-1adae53ec1d8",
+      "pose": {
+        "mount": null,
+        "frame_id": "2e5f09b8-8477-4f25-b880-1adae53ec1d8",
+        "capture_at": "2026-10-17T07:47:13.337233Z",
+        "geographic": {
+          "latitude": 36.14578264893153,
+          "longitude": 128.39164442034723,
+          "altitude_m": 84.70934295654297,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9994694590568542,
+            "x": -0.026138493791222572,
+            "y": -0.0194084569811821,
+            "z": -0.0009469685610383749
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9234118461608887,
+            "x": 0.012175200507044792,
+            "y": -0.38248971104621887,
+            "z": 0.02939353510737419
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223230890820096",
+        "camera_position_ned": {
+          "down_m": -13.137219429016113,
+          "east_m": 3.966728448867798,
+          "north_m": 0.5643419623374939
+        },
+        "source_timestamp_ns": "1792223230707816192"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "9b800fc6-10a0-4ed5-8a70-676b3faf1dc7",
+      "pose": {
+        "mount": null,
+        "frame_id": "9b800fc6-10a0-4ed5-8a70-676b3faf1dc7",
+        "capture_at": "2026-10-17T07:47:13.837087Z",
+        "geographic": {
+          "latitude": 36.14578614743892,
+          "longitude": 128.39164458230934,
+          "altitude_m": 84.71558380126953,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9998695850372314,
+            "x": -0.01305876113474369,
+            "y": -0.009454326704144478,
+            "z": -0.000985675840638578
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9237605333328247,
+            "x": 0.006141957826912403,
+            "y": -0.38263413310050964,
+            "z": 0.014827997423708439
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223231388830720",
+        "camera_position_ned": {
+          "down_m": -13.158027648925781,
+          "east_m": 4.021292209625244,
+          "north_m": 0.9291795492172241
+        },
+        "source_timestamp_ns": "1792223231208826880"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "bcc9fe1e-617d-4449-8508-4981bd70232d",
+      "pose": {
+        "mount": null,
+        "frame_id": "bcc9fe1e-617d-4449-8508-4981bd70232d",
+        "capture_at": "2026-10-17T07:47:15.822648Z",
+        "geographic": {
+          "latitude": 36.14580266317337,
+          "longitude": 128.39164216006012,
+          "altitude_m": 84.71106719970703,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999580383300781,
+            "x": 0.009094221517443657,
+            "y": 0.0006007588235661387,
+            "z": -0.000927181332372129
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238300323486328,
+            "x": -0.00396228302270174,
+            "y": -0.38266292214393616,
+            "z": -0.009565796703100204
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223233374873088",
+        "camera_position_ned": {
+          "down_m": -13.162181854248047,
+          "east_m": 3.79909086227417,
+          "north_m": 2.7416880130767822
+        },
+        "source_timestamp_ns": "1792223233200869376"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "469b9b58-1c19-4806-8b73-c5f77384f2f1",
+      "pose": {
+        "mount": null,
+        "frame_id": "469b9b58-1c19-4806-8b73-c5f77384f2f1",
+        "capture_at": "2026-10-17T07:47:14.822749Z",
+        "geographic": {
+          "latitude": 36.14579408095312,
+          "longitude": 128.39164322799098,
+          "altitude_m": 84.7129898071289,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999940395355225,
+            "x": 0.0019993826281279325,
+            "y": -0.002651684219017625,
+            "z": -0.0009551937109790742
+          }
+        },
+        "sync_error_ms": 165.00352,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238783717155457,
+            "x": -0.0006131397094577551,
+            "y": -0.3826829493045807,
+            "z": -0.0014802502701058984
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223232369851648",
+        "camera_position_ned": {
+          "down_m": -13.162641525268555,
+          "east_m": 3.9175679683685303,
+          "north_m": 1.8006911277770996
+        },
+        "source_timestamp_ns": "1792223232204848128"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "b60c0a82-cfaa-4e0d-b303-27dd8b52c91b",
+      "pose": {
+        "mount": null,
+        "frame_id": "b60c0a82-cfaa-4e0d-b303-27dd8b52c91b",
+        "capture_at": "2026-10-17T07:47:15.325877Z",
+        "geographic": {
+          "latitude": 36.14579842173045,
+          "longitude": 128.39164250423093,
+          "altitude_m": 84.71153259277344,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999753832817078,
+            "x": 0.0069021787494421005,
+            "y": -0.000888570852112025,
+            "z": -0.0009395064553245902
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.923857569694519,
+            "x": -0.002639586804434657,
+            "y": -0.38267433643341064,
+            "z": -0.006372526288032532
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223232879862528",
+        "camera_position_ned": {
+          "down_m": -13.162007331848145,
+          "east_m": 3.8466713428497314,
+          "north_m": 2.2623748779296875
+        },
+        "source_timestamp_ns": "1792223232696858624"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "35dfa19e-b315-4513-994a-8962cb5b1685",
+      "pose": {
+        "mount": null,
+        "frame_id": "35dfa19e-b315-4513-994a-8962cb5b1685",
+        "capture_at": "2026-10-17T07:47:16.314014Z",
+        "geographic": {
+          "latitude": 36.145806844061326,
+          "longitude": 128.3916422834565,
+          "altitude_m": 84.71082305908203,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999669790267944,
+            "x": 0.00795281957834959,
+            "y": 0.001391966245137155,
+            "z": -0.0009189464035443962
+          }
+        },
+        "sync_error_ms": 168.003584,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238298535346985,
+            "x": -0.003969607874751091,
+            "y": -0.382662832736969,
+            "z": -0.009583480656147003
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223233866883584",
+        "camera_position_ned": {
+          "down_m": -13.162639617919922,
+          "east_m": 3.793724775314331,
+          "north_m": 3.216527223587036
+        },
+        "source_timestamp_ns": "1792223233698880000"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "89c2c67a-94f3-4e53-9339-6eeb5c94e67c",
+      "pose": {
+        "mount": null,
+        "frame_id": "89c2c67a-94f3-4e53-9339-6eeb5c94e67c",
+        "capture_at": "2026-10-17T07:47:16.811507Z",
+        "geographic": {
+          "latitude": 36.14581098770052,
+          "longitude": 128.39164283679702,
+          "altitude_m": 84.71037292480469,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999606609344482,
+            "x": 0.006355424411594868,
+            "y": 0.006126255262643099,
+            "z": -0.0008811611332930624
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238460063934326,
+            "x": -0.0032597766257822514,
+            "y": -0.3826695382595062,
+            "z": -0.007869796827435493
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223234364894208",
+        "camera_position_ned": {
+          "down_m": -13.163496971130371,
+          "east_m": 3.8297977447509766,
+          "north_m": 3.6761233806610107
+        },
+        "source_timestamp_ns": "1792223234193890560"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "989c8ee7-96b7-4b24-bd4d-c1c17ba5b532",
+      "pose": {
+        "mount": null,
+        "frame_id": "989c8ee7-96b7-4b24-bd4d-c1c17ba5b532",
+        "capture_at": "2026-10-17T07:47:17.319954Z",
+        "geographic": {
+          "latitude": 36.145814503590074,
+          "longitude": 128.39164283145263,
+          "altitude_m": 84.76399993896484,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9977969527244568,
+            "x": -0.04837464541196823,
+            "y": 0.0453999862074852,
+            "z": -0.00028082638164050877
+          }
+        },
+        "sync_error_ms": 165.00352,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9228388667106628,
+            "x": 0.01815834827721119,
+            "y": -0.38225239515304565,
+            "z": 0.043838128447532654
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223234874905088",
+        "camera_position_ned": {
+          "down_m": -13.211599349975586,
+          "east_m": 3.8914246559143066,
+          "north_m": 4.130892276763916
+        },
+        "source_timestamp_ns": "1792223234709901568"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "0d024a1b-0c19-4838-8ecc-2318f64595a6",
+      "pose": {
+        "mount": null,
+        "frame_id": "0d024a1b-0c19-4838-8ecc-2318f64595a6",
+        "capture_at": "2026-10-17T07:47:17.827316Z",
+        "geographic": {
+          "latitude": 36.1458161119932,
+          "longitude": 128.39164040817425,
+          "altitude_m": 84.81429290771484,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9991644620895386,
+            "x": -0.02670147456228733,
+            "y": 0.030938759446144104,
+            "z": -0.0005077634705230594
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9233967661857605,
+            "x": 0.012369876727461815,
+            "y": -0.38248345255851746,
+            "z": 0.029863523319363594
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223235378915840",
+        "camera_position_ned": {
+          "down_m": -13.275212287902832,
+          "east_m": 3.7497503757476807,
+          "north_m": 4.381038665771484
+        },
+        "source_timestamp_ns": "1792223235204912128"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "34d9d526-e596-41c3-ba17-adbc0863263d",
+      "pose": {
+        "mount": null,
+        "frame_id": "34d9d526-e596-41c3-ba17-adbc0863263d",
+        "capture_at": "2026-10-17T07:47:18.332764Z",
+        "geographic": {
+          "latitude": 36.14581633386168,
+          "longitude": 128.3916364759182,
+          "altitude_m": 84.82780456542969,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9997864365577698,
+            "x": -0.0129921929910779,
+            "y": 0.01606529951095581,
+            "z": -0.0005121771828271449
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9237719178199768,
+            "x": 0.005840586498379707,
+            "y": -0.3826388716697693,
+            "z": 0.014100423082709312
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223235882926592",
+        "camera_position_ned": {
+          "down_m": -13.288819313049316,
+          "east_m": 3.436227321624756,
+          "north_m": 4.452421188354492
+        },
+        "source_timestamp_ns": "1792223235702922752"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "bf0c678c-6718-455b-86a2-3d9e0ced2393",
+      "pose": {
+        "mount": null,
+        "frame_id": "bf0c678c-6718-455b-86a2-3d9e0ced2393",
+        "capture_at": "2026-10-17T07:47:19.810971Z",
+        "geographic": {
+          "latitude": 36.145814252500315,
+          "longitude": 128.39162184224227,
+          "altitude_m": 84.82687377929688,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999820590019226,
+            "x": -0.0023897881619632244,
+            "y": -0.005478994455188513,
+            "z": -0.0004225990269333124
+          }
+        },
+        "sync_error_ms": 168.003584,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.92387855052948,
+            "x": 0.0005540220299735665,
+            "y": -0.38268303871154785,
+            "z": 0.0013375275302678347
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223237361958144",
+        "camera_position_ned": {
+          "down_m": -13.276069641113281,
+          "east_m": 2.142096996307373,
+          "north_m": 4.243058681488037
+        },
+        "source_timestamp_ns": "1792223237193954560"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "994b5ded-5426-4d21-9f82-c0aa4baa8a0e",
+      "pose": {
+        "mount": null,
+        "frame_id": "994b5ded-5426-4d21-9f82-c0aa4baa8a0e",
+        "capture_at": "2026-10-17T07:47:18.848282Z",
+        "geographic": {
+          "latitude": 36.14581579441137,
+          "longitude": 128.39163168330452,
+          "altitude_m": 84.82931518554688,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999604225158691,
+            "x": -0.006617044098675251,
+            "y": 0.0059393406845629215,
+            "z": -0.0004741173470392823
+          }
+        },
+        "sync_error_ms": 201.004288,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238567352294922,
+            "x": 0.002686664229258895,
+            "y": -0.3826740086078644,
+            "z": 0.006486181169748306
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223236398937600",
+        "camera_position_ned": {
+          "down_m": -13.286213874816895,
+          "east_m": 3.044478178024292,
+          "north_m": 4.4187421798706055
+        },
+        "source_timestamp_ns": "1792223236197933312"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "2efbacfd-09af-4ff3-bd46-b3f19c5744f7",
+      "pose": {
+        "mount": null,
+        "frame_id": "2efbacfd-09af-4ff3-bd46-b3f19c5744f7",
+        "capture_at": "2026-10-17T07:47:19.321772Z",
+        "geographic": {
+          "latitude": 36.145815029342074,
+          "longitude": 128.39162693466653,
+          "altitude_m": 84.8281478881836,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999918937683105,
+            "x": -0.003984068054705858,
+            "y": -0.0004209253238514066,
+            "z": -0.00044483394594863057
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238746762275696,
+            "x": 0.0012412358773872256,
+            "y": -0.3826814293861389,
+            "z": 0.00299660861492157
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223236872947712",
+        "camera_position_ned": {
+          "down_m": -13.280806541442871,
+          "east_m": 2.597883939743042,
+          "north_m": 4.334717273712158
+        },
+        "source_timestamp_ns": "1792223236701944064"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "5e3ea0b2-82e8-40df-a62e-2dd9fcfc406a",
+      "pose": {
+        "mount": null,
+        "frame_id": "5e3ea0b2-82e8-40df-a62e-2dd9fcfc406a",
+        "capture_at": "2026-10-17T07:47:21.337067Z",
+        "geographic": {
+          "latitude": 36.14581377783594,
+          "longitude": 128.3916056207611,
+          "altitude_m": 84.82621765136719,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999641180038452,
+            "x": 0.002973429625853896,
+            "y": -0.007927898317575455,
+            "z": -0.00036887844908051193
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238761067390442,
+            "x": -0.0010377668077126145,
+            "y": -0.38268202543258667,
+            "z": -0.0025053906720131636
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223238885990656",
+        "camera_position_ned": {
+          "down_m": -13.27239990234375,
+          "east_m": 0.7018316388130188,
+          "north_m": 4.141632080078125
+        },
+        "source_timestamp_ns": "1792223238699986688"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "f2c7b198-e889-4904-869d-b0322a82e9dd",
+      "pose": {
+        "mount": null,
+        "frame_id": "f2c7b198-e889-4904-869d-b0322a82e9dd",
+        "capture_at": "2026-10-17T07:47:20.327253Z",
+        "geographic": {
+          "latitude": 36.1458136802185,
+          "longitude": 128.3916163524583,
+          "altitude_m": 84.82636260986328,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999572038650513,
+            "x": -0.0007607666775584221,
+            "y": -0.009212535806000233,
+            "z": -0.00040322603308595717
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -1.5761537724756636e-05,
+            "y": -0.3826834261417389,
+            "z": -3.805171945714392e-05
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223237877969152",
+        "camera_position_ned": {
+          "down_m": -13.272602081298828,
+          "east_m": 1.6678948402404785,
+          "north_m": 4.1677656173706055
+        },
+        "source_timestamp_ns": "1792223237691965184"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "c2cf2b57-7a89-4711-8877-982fc6209993",
+      "pose": {
+        "mount": null,
+        "frame_id": "c2cf2b57-7a89-4711-8877-982fc6209993",
+        "capture_at": "2026-10-17T07:47:20.834799Z",
+        "geographic": {
+          "latitude": 36.145813523618536,
+          "longitude": 128.39161096302573,
+          "altitude_m": 84.82646179199219,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999566078186035,
+            "x": 0.0005077162641100585,
+            "y": -0.00929960049688816,
+            "z": -0.0003903186006937176
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238784313201904,
+            "x": -0.0005839355872012675,
+            "y": -0.3826829791069031,
+            "z": -0.0014097453095018864
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223238381979904",
+        "camera_position_ned": {
+          "down_m": -13.271559715270996,
+          "east_m": 1.179652214050293,
+          "north_m": 4.130801677703857
+        },
+        "source_timestamp_ns": "1792223238198976000"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "eae1f6e0-0921-4431-86ce-7a454f34ff52",
+      "pose": {
+        "mount": null,
+        "frame_id": "eae1f6e0-0921-4431-86ce-7a454f34ff52",
+        "capture_at": "2026-10-17T07:47:21.831959Z",
+        "geographic": {
+          "latitude": 36.14581389235985,
+          "longitude": 128.3916009816733,
+          "altitude_m": 84.8667221069336,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9976399540901184,
+            "x": 0.04740201309323311,
+            "y": 0.04967320337891579,
+            "z": -0.0004563520778901875
+          }
+        },
+        "sync_error_ms": 177.003776,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9232485890388489,
+            "x": -0.014140674844384193,
+            "y": -0.3824220895767212,
+            "z": -0.03413860872387886
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223239378001152",
+        "camera_position_ned": {
+          "down_m": -13.313342094421387,
+          "east_m": 0.2264246642589569,
+          "north_m": 4.196445465087891
+        },
+        "source_timestamp_ns": "1792223239200997376"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "c8c37ad1-0efd-4737-94e7-c80fe3901a53",
+      "pose": {
+        "mount": null,
+        "frame_id": "c8c37ad1-0efd-4737-94e7-c80fe3901a53",
+        "capture_at": "2026-10-17T07:47:22.327372Z",
+        "geographic": {
+          "latitude": 36.14581217907817,
+          "longitude": 128.3915985340815,
+          "altitude_m": 84.92659759521484,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9989339113235474,
+            "x": 0.03548934683203697,
+            "y": 0.02950451523065567,
+            "z": -0.001017815782688558
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9230459928512573,
+            "x": -0.016251953318715096,
+            "y": -0.38233816623687744,
+            "z": -0.039235685020685196
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223239876011776",
+        "camera_position_ned": {
+          "down_m": -13.383843421936035,
+          "east_m": -0.07769256085157394,
+          "north_m": 4.090961933135986
+        },
+        "source_timestamp_ns": "1792223239693007872"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "719dedeb-0c49-4d9f-ad8c-2d9867c33457",
+      "pose": {
+        "mount": null,
+        "frame_id": "719dedeb-0c49-4d9f-ad8c-2d9867c33457",
+        "capture_at": "2026-10-17T07:47:22.824220Z",
+        "geographic": {
+          "latitude": 36.145809177125045,
+          "longitude": 128.39159798287847,
+          "altitude_m": 84.9448013305664,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9997063875198364,
+            "x": 0.019416876137256622,
+            "y": 0.014453747309744358,
+            "z": -0.0011393213644623756
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.923539936542511,
+            "x": -0.01037500612437725,
+            "y": -0.38254275918006897,
+            "z": -0.025047481060028076
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223240371022336",
+        "camera_position_ned": {
+          "down_m": -13.403307914733887,
+          "east_m": -0.1834048628807068,
+          "north_m": 3.799065351486206
+        },
+        "source_timestamp_ns": "1792223240191018496"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "cff0acf9-96b7-4d84-a40e-62278dc8db23",
+      "pose": {
+        "mount": null,
+        "frame_id": "cff0acf9-96b7-4d84-a40e-62278dc8db23",
+        "capture_at": "2026-10-17T07:47:23.314938Z",
+        "geographic": {
+          "latitude": 36.145805574252414,
+          "longitude": 128.39159848570557,
+          "altitude_m": 84.94775390625,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.99993497133255,
+            "x": 0.008517647162079811,
+            "y": 0.007501790300011635,
+            "z": -0.001138194464147091
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9237834811210632,
+            "x": -0.005517546087503433,
+            "y": -0.3826436400413513,
+            "z": -0.013320534490048885
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223240860032768",
+        "camera_position_ned": {
+          "down_m": -13.404187202453613,
+          "east_m": -0.16466185450553894,
+          "north_m": 3.412262439727783
+        },
+        "source_timestamp_ns": "1792223240686029056"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "fb8f80e8-13de-41f7-9eed-390d984546a2",
+      "pose": {
+        "mount": null,
+        "frame_id": "fb8f80e8-13de-41f7-9eed-390d984546a2",
+        "capture_at": "2026-10-17T07:47:23.808059Z",
+        "geographic": {
+          "latitude": 36.14580157551664,
+          "longitude": 128.3915994727179,
+          "altitude_m": 84.94682312011719,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999889135360718,
+            "x": 0.0011664627818390727,
+            "y": 0.00442703440785408,
+            "z": -0.0011164371389895678
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238634705543518,
+            "x": -0.002255430445075035,
+            "y": -0.38267678022384644,
+            "z": -0.005445091053843498
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223241358043392",
+        "camera_position_ned": {
+          "down_m": -13.401508331298828,
+          "east_m": -0.08520407229661942,
+          "north_m": 2.9789676666259766
+        },
+        "source_timestamp_ns": "1792223241184039680"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "51306fa9-4afc-4c30-bf3e-974ebe4d7d69",
+      "pose": {
+        "mount": null,
+        "frame_id": "51306fa9-4afc-4c30-bf3e-974ebe4d7d69",
+        "capture_at": "2026-10-17T07:47:24.310895Z",
+        "geographic": {
+          "latitude": 36.145797362601336,
+          "longitude": 128.3916005409806,
+          "altitude_m": 84.94544219970703,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999860525131226,
+            "x": -0.004242691211402416,
+            "y": 0.0029545265715569258,
+            "z": -0.0010962876258417964
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": 4.521189839579165e-05,
+            "y": -0.3826834261417389,
+            "z": 0.00010915118036791682
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223241859054080",
+        "camera_position_ned": {
+          "down_m": -13.398970603942871,
+          "east_m": 0.012790810316801071,
+          "north_m": 2.520656108856201
+        },
+        "source_timestamp_ns": "1792223241685050368"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "0eddb36c-0870-4db0-96a0-c40de7be0aec",
+      "pose": {
+        "mount": null,
+        "frame_id": "0eddb36c-0870-4db0-96a0-c40de7be0aec",
+        "capture_at": "2026-10-17T07:47:24.826302Z",
+        "geographic": {
+          "latitude": 36.1457928992667,
+          "longitude": 128.3916014042337,
+          "altitude_m": 84.9447021484375,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999616146087646,
+            "x": -0.008532929234206676,
+            "y": 0.0016715596430003643,
+            "z": -0.0010783951729536057
+          }
+        },
+        "sync_error_ms": 177.003776,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238682389259338,
+            "x": 0.001894268672913313,
+            "y": -0.382678747177124,
+            "z": 0.0045731691643595695
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223242375065088",
+        "camera_position_ned": {
+          "down_m": -13.397139549255371,
+          "east_m": 0.1025804951786995,
+          "north_m": 2.0295374393463135
+        },
+        "source_timestamp_ns": "1792223242198061312"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "3dff9e28-8e03-4da4-87cd-2e3500e342ac",
+      "pose": {
+        "mount": null,
+        "frame_id": "3dff9e28-8e03-4da4-87cd-2e3500e342ac",
+        "capture_at": "2026-10-17T07:47:25.334917Z",
+        "geographic": {
+          "latitude": 36.145788450943435,
+          "longitude": 128.3916017841496,
+          "altitude_m": 84.94486999511719,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999468326568604,
+            "x": -0.01025484874844551,
+            "y": 0.0002551793004386127,
+            "z": -0.0010629358002915978
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238499999046326,
+            "x": 0.0030584996566176414,
+            "y": -0.38267120718955994,
+            "z": 0.007383871357887983
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223242882075904",
+        "camera_position_ned": {
+          "down_m": -13.396193504333496,
+          "east_m": 0.15490217506885529,
+          "north_m": 1.5432255268096924
+        },
+        "source_timestamp_ns": "1792223242702072064"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "3ee1cbab-2b4a-476d-9f45-3e9ac2b780d2",
+      "pose": {
+        "mount": null,
+        "frame_id": "3ee1cbab-2b4a-476d-9f45-3e9ac2b780d2",
+        "capture_at": "2026-10-17T07:47:25.833007Z",
+        "geographic": {
+          "latitude": 36.1457840806578,
+          "longitude": 128.3916016155728,
+          "altitude_m": 84.94498443603516,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.999957263469696,
+            "x": -0.009130951948463917,
+            "y": -0.0010156501084566116,
+            "z": -0.001050688442774117
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238547086715698,
+            "x": 0.0028063305653631687,
+            "y": -0.38267314434051514,
+            "z": 0.0067750816233456135
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223243380086528",
+        "camera_position_ned": {
+          "down_m": -13.39576244354248,
+          "east_m": 0.15848518908023834,
+          "north_m": 1.054439663887024
+        },
+        "source_timestamp_ns": "1792223243200082688"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "554f3bbb-3398-4c38-b677-d07e469690ee",
+      "pose": {
+        "mount": null,
+        "frame_id": "554f3bbb-3398-4c38-b677-d07e469690ee",
+        "capture_at": "2026-10-17T07:47:26.319744Z",
+        "geographic": {
+          "latitude": 36.14578008426677,
+          "longitude": 128.39160105369447,
+          "altitude_m": 84.91710662841797,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9990140795707703,
+            "x": 0.004714947193861008,
+            "y": -0.04414282739162445,
+            "z": -0.0004696987452916801
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238775968551636,
+            "x": -0.0007785127963870764,
+            "y": -0.3826826512813568,
+            "z": -0.001879496150650084
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223243869096960",
+        "camera_position_ned": {
+          "down_m": -13.371872901916504,
+          "east_m": 0.11467161029577255,
+          "north_m": 0.5692312121391296
+        },
+        "source_timestamp_ns": "1792223243698093312"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "c5d25a56-ddb2-4a4d-8872-a462c54ccfd4",
+      "pose": {
+        "mount": null,
+        "frame_id": "c5d25a56-ddb2-4a4d-8872-a462c54ccfd4",
+        "capture_at": "2026-10-17T07:47:26.836999Z",
+        "geographic": {
+          "latitude": 36.1457775355743,
+          "longitude": 128.39160061533514,
+          "altitude_m": 84.83380126953125,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9996185302734375,
+            "x": 0.0038167154416441917,
+            "y": -0.027351301163434982,
+            "z": -0.00037655586493201554
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238668084144592,
+            "x": -0.0020099924877285957,
+            "y": -0.38267815113067627,
+            "z": -0.0048525515012443066
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223244382107904",
+        "camera_position_ned": {
+          "down_m": -13.299476623535156,
+          "east_m": 0.06647875905036926,
+          "north_m": 0.21799349784851074
+        },
+        "source_timestamp_ns": "1792223244196103936"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "a6c8e4b8-c6c6-4116-ad54-854f5cf35bda",
+      "pose": {
+        "mount": null,
+        "frame_id": "a6c8e4b8-c6c6-4116-ad54-854f5cf35bda",
+        "capture_at": "2026-10-17T07:47:27.328501Z",
+        "geographic": {
+          "latitude": 36.1457763178321,
+          "longitude": 128.39160039991194,
+          "altitude_m": 84.73770141601562,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999037384986877,
+            "x": 0.00197492353618145,
+            "y": -0.013730108737945557,
+            "z": -0.00036693664151243865
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238753914833069,
+            "x": -0.0011464154813438654,
+            "y": -0.3826817274093628,
+            "z": -0.0027676918543875217
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223244877118464",
+        "camera_position_ned": {
+          "down_m": -13.217135429382324,
+          "east_m": 0.041285909712314606,
+          "north_m": 0.041863080114126205
+        },
+        "source_timestamp_ns": "1792223244694114560"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "fa0179e0-d84e-4f78-9a0a-394eba0ca081",
+      "pose": {
+        "mount": null,
+        "frame_id": "fa0179e0-d84e-4f78-9a0a-394eba0ca081",
+        "capture_at": "2026-10-17T07:47:27.831941Z",
+        "geographic": {
+          "latitude": 36.14577571869096,
+          "longitude": 128.39160029339735,
+          "altitude_m": 84.6361312866211,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999774098396301,
+            "x": 0.0009606017265468836,
+            "y": -0.006640848238021135,
+            "z": -0.0003647975972853601
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238783121109009,
+            "x": -0.0006194304442033172,
+            "y": -0.3826829195022583,
+            "z": -0.001495437347330153
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223245378129152",
+        "camera_position_ned": {
+          "down_m": -13.121503829956055,
+          "east_m": 0.02880457229912281,
+          "north_m": -0.04475436732172966
+        },
+        "source_timestamp_ns": "1792223245198125312"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "39e587b3-62e6-451d-b779-e9dc9538ed3a",
+      "pose": {
+        "mount": null,
+        "frame_id": "39e587b3-62e6-451d-b779-e9dc9538ed3a",
+        "capture_at": "2026-10-17T07:47:28.325274Z",
+        "geographic": {
+          "latitude": 36.14577543245607,
+          "longitude": 128.39160024248997,
+          "altitude_m": 84.53512573242188,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.999994695186615,
+            "x": 0.0004670177004300058,
+            "y": -0.003227083943784237,
+            "z": -0.0003642695664893836
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.923879086971283,
+            "x": -0.00036619335878640413,
+            "y": -0.38268324732780457,
+            "z": -0.0008840690134093165
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223245873139712",
+        "camera_position_ned": {
+          "down_m": -13.02450942993164,
+          "east_m": 0.022927088662981987,
+          "north_m": -0.0854969397187233
+        },
+        "source_timestamp_ns": "1792223245690135808"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "02b8f97c-3850-432a-a65a-bdb7f67fd254",
+      "pose": {
+        "mount": null,
+        "frame_id": "02b8f97c-3850-432a-a65a-bdb7f67fd254",
+        "capture_at": "2026-10-17T07:47:28.849947Z",
+        "geographic": {
+          "latitude": 36.14577528783805,
+          "longitude": 128.39160021678668,
+          "altitude_m": 84.42810821533203,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999988079071045,
+            "x": 0.0002169405488530174,
+            "y": -0.0015000231796875596,
+            "z": -0.000364137114956975
+          }
+        },
+        "sync_error_ms": 210.00448,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238793253898621,
+            "x": -0.00024073450185824186,
+            "y": -0.3826833665370941,
+            "z": -0.0005811845185235143
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223246398150912",
+        "camera_position_ned": {
+          "down_m": -12.924273490905762,
+          "east_m": 0.020011652261018753,
+          "north_m": -0.10571683198213577
+        },
+        "source_timestamp_ns": "1792223246188146432"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "eccb3c18-1f72-4e00-97c4-54208c6b6001",
+      "pose": {
+        "mount": null,
+        "frame_id": "eccb3c18-1f72-4e00-97c4-54208c6b6001",
+        "capture_at": "2026-10-17T07:47:29.348404Z",
+        "geographic": {
+          "latitude": 36.14577522297682,
+          "longitude": 128.39160020526853,
+          "altitude_m": 84.32676696777344,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999997019767761,
+            "x": 0.00010478383774170652,
+            "y": -0.0007251584902405739,
+            "z": -0.00036410862230695784
+          }
+        },
+        "sync_error_ms": 198.004224,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238794445991516,
+            "x": -0.00017928781744558364,
+            "y": -0.3826833963394165,
+            "z": -0.00043283909326419234
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223246896161536",
+        "camera_position_ned": {
+          "down_m": -12.82107925415039,
+          "east_m": 0.018580209463834763,
+          "north_m": -0.11565239727497101
+        },
+        "source_timestamp_ns": "1792223246698157312"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "b962bf26-e829-48b3-addc-acdca1945f0b",
+      "pose": {
+        "mount": null,
+        "frame_id": "b962bf26-e829-48b3-addc-acdca1945f0b",
+        "capture_at": "2026-10-17T07:47:29.831003Z",
+        "geographic": {
+          "latitude": 36.14577519240394,
+          "longitude": 128.39160019984425,
+          "altitude_m": 84.22920227050781,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999998807907104,
+            "x": 5.195678386371583e-05,
+            "y": -0.0003598680777940899,
+            "z": -0.0003641027433332056
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238794445991516,
+            "x": -0.00015051676018629223,
+            "y": -0.3826833963394165,
+            "z": -0.0003633796004578471
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223247376171776",
+        "camera_position_ned": {
+          "down_m": -12.71948528289795,
+          "east_m": 0.017908936366438866,
+          "north_m": -0.12031590193510056
+        },
+        "source_timestamp_ns": "1792223247196167936"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "4a27ab77-0800-4d61-af9b-64194f6e88fb",
+      "pose": {
+        "mount": null,
+        "frame_id": "4a27ab77-0800-4d61-af9b-64194f6e88fb",
+        "capture_at": "2026-10-17T07:47:30.331157Z",
+        "geographic": {
+          "latitude": 36.14577517678254,
+          "longitude": 128.39160019707484,
+          "altitude_m": 84.12743377685547,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 2.4984787160065025e-05,
+            "y": -0.0001731937809381634,
+            "z": -0.00036410122993402183
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238794445991516,
+            "x": -0.0001368055382044986,
+            "y": -0.3826833963394165,
+            "z": -0.0003302777768112719
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223247877182464",
+        "camera_position_ned": {
+          "down_m": -12.619083404541016,
+          "east_m": 0.017588764429092407,
+          "north_m": -0.1225418820977211
+        },
+        "source_timestamp_ns": "1792223247694178560"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "6700e9c3-e206-4b08-b025-f8417f011e7d",
+      "pose": {
+        "mount": null,
+        "frame_id": "6700e9c3-e206-4b08-b025-f8417f011e7d",
+        "capture_at": "2026-10-17T07:47:30.829240Z",
+        "geographic": {
+          "latitude": 36.145775169293984,
+          "longitude": 128.3916001957488,
+          "altitude_m": 84.0262680053711,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 1.206425622513052e-05,
+            "y": -8.370129216928035e-05,
+            "z": -0.0003641018411144614
+          }
+        },
+        "sync_error_ms": 177.003776,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.0001300752628594637,
+            "y": -0.3826833963394165,
+            "z": -0.0003140294866170734
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223248375193088",
+        "camera_position_ned": {
+          "down_m": -12.516777038574219,
+          "east_m": 0.01743156649172306,
+          "north_m": -0.12363605201244354
+        },
+        "source_timestamp_ns": "1792223248198189312"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "a4577a3b-074c-4a0e-a9f2-6cc2508ee19e",
+      "pose": {
+        "mount": null,
+        "frame_id": "a4577a3b-074c-4a0e-a9f2-6cc2508ee19e",
+        "capture_at": "2026-10-17T07:47:31.322554Z",
+        "geographic": {
+          "latitude": 36.14577516571914,
+          "longitude": 128.39160019511613,
+          "altitude_m": 83.92694091796875,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 5.9031804084952455e-06,
+            "y": -4.098482531844638e-05,
+            "z": -0.0003641015209723264
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012687976413872093,
+            "y": -0.3826834261417389,
+            "z": -0.00030631484696641564
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223248864203520",
+        "camera_position_ned": {
+          "down_m": -12.41565227508545,
+          "east_m": 0.01735690049827099,
+          "north_m": -0.12415601313114166
+        },
+        "source_timestamp_ns": "1792223248693199872"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "93f38ef6-1c91-42ae-ab64-dc59e7db0c52",
+      "pose": {
+        "mount": null,
+        "frame_id": "93f38ef6-1c91-42ae-ab64-dc59e7db0c52",
+        "capture_at": "2026-10-17T07:47:31.829836Z",
+        "geographic": {
+          "latitude": 36.145775163924974,
+          "longitude": 128.391600194799,
+          "altitude_m": 83.82405090332031,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 2.814437266351888e-06,
+            "y": -1.956545384018682e-05,
+            "z": -0.0003641015791799873
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012534281995613128,
+            "y": -0.3826834261417389,
+            "z": -0.00030260434141382575
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223249371214336",
+        "camera_position_ned": {
+          "down_m": -12.315156936645508,
+          "east_m": 0.01732100360095501,
+          "north_m": -0.1244063451886177
+        },
+        "source_timestamp_ns": "1792223249191210496"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "e5409ed5-dd25-4948-a8a5-4a256165aab4",
+      "pose": {
+        "mount": null,
+        "frame_id": "e5409ed5-dd25-4948-a8a5-4a256165aab4",
+        "capture_at": "2026-10-17T07:47:32.328220Z",
+        "geographic": {
+          "latitude": 36.14577516307594,
+          "longitude": 128.39160019464902,
+          "altitude_m": 83.72244262695312,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 1.3537649010686437e-06,
+            "y": -9.4151127996156e-06,
+            "z": -0.0003641020739451051
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012459841673262417,
+            "y": -0.3826834261417389,
+            "z": -0.00030080717988312244
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223249872225024",
+        "camera_position_ned": {
+          "down_m": -12.213555335998535,
+          "east_m": 0.01730344071984291,
+          "north_m": -0.12452886998653412
+        },
+        "source_timestamp_ns": "1792223249689221120"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "de254faf-878e-44de-ae42-3921dec1d8b9",
+      "pose": {
+        "mount": null,
+        "frame_id": "de254faf-878e-44de-ae42-3921dec1d8b9",
+        "capture_at": "2026-10-17T07:47:32.832600Z",
+        "geographic": {
+          "latitude": 36.14577516266603,
+          "longitude": 128.39160019457668,
+          "altitude_m": 83.62022399902344,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 6.473820235441963e-07,
+            "y": -4.5034375943941996e-06,
+            "z": -0.00036410335451364517
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.0001242400030605495,
+            "y": -0.3826834261417389,
+            "z": -0.0002999418938998133
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223250376235776",
+        "camera_position_ned": {
+          "down_m": -12.112557411193848,
+          "east_m": 0.01729503646492958,
+          "north_m": -0.12458762526512146
+        },
+        "source_timestamp_ns": "1792223250190231808"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "7c36de6e-0963-43af-afb3-3f31f32fadea",
+      "pose": {
+        "mount": null,
+        "frame_id": "7c36de6e-0963-43af-afb3-3f31f32fadea",
+        "capture_at": "2026-10-17T07:47:33.331772Z",
+        "geographic": {
+          "latitude": 36.145775162471516,
+          "longitude": 128.39160019454238,
+          "altitude_m": 83.51922607421875,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 3.125481384813611e-07,
+            "y": -2.1596338228846435e-06,
+            "z": -0.00036410335451364517
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012409368355292827,
+            "y": -0.3826834261417389,
+            "z": -0.0002995886607095599
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223250874246400",
+        "camera_position_ned": {
+          "down_m": -12.011556625366211,
+          "east_m": 0.017290964722633362,
+          "north_m": -0.12461601197719574
+        },
+        "source_timestamp_ns": "1792223250685242368"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "30a98443-3160-4bc8-a446-63a0c3d15701",
+      "pose": {
+        "mount": null,
+        "frame_id": "30a98443-3160-4bc8-a446-63a0c3d15701",
+        "capture_at": "2026-10-17T07:47:33.818715Z",
+        "geographic": {
+          "latitude": 36.14577516237503,
+          "longitude": 128.391600194526,
+          "altitude_m": 83.4200439453125,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 1.52273273101855e-07,
+            "y": -1.0876689202632406e-06,
+            "z": -0.000364103470928967
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.0001239968987647444,
+            "y": -0.3826834261417389,
+            "z": -0.0002993549860548228
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223251363256832",
+        "camera_position_ned": {
+          "down_m": -11.909339904785156,
+          "east_m": 0.017288994044065475,
+          "north_m": -0.12462978065013885
+        },
+        "source_timestamp_ns": "1792223251189253120"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "9be17adc-abb5-4e2e-9ce5-f374debce10f",
+      "pose": {
+        "mount": null,
+        "frame_id": "9be17adc-abb5-4e2e-9ce5-f374debce10f",
+        "capture_at": "2026-10-17T07:47:34.316162Z",
+        "geographic": {
+          "latitude": 36.145775162330395,
+          "longitude": 128.3916001945178,
+          "altitude_m": 83.31904602050781,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 6.965073851006309e-08,
+            "y": -5.778737772743625e-07,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012394782970659435,
+            "y": -0.3826834261417389,
+            "z": -0.0002992365334648639
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223251861267456",
+        "camera_position_ned": {
+          "down_m": -11.807729721069336,
+          "east_m": 0.017288068309426308,
+          "north_m": -0.1246362030506134
+        },
+        "source_timestamp_ns": "1792223251690263808"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "51ed1d56-eb2a-4264-8ede-71ec36c1ab17",
+      "pose": {
+        "mount": null,
+        "frame_id": "51ed1d56-eb2a-4264-8ede-71ec36c1ab17",
+        "capture_at": "2026-10-17T07:47:34.814000Z",
+        "geographic": {
+          "latitude": 36.145775162313406,
+          "longitude": 128.39160019451404,
+          "altitude_m": 83.2186508178711,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 3.696007766507137e-08,
+            "y": -3.4664748227442033e-07,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012394782970659435,
+            "y": -0.3826834261417389,
+            "z": -0.0002992365334648639
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223252356278016",
+        "camera_position_ned": {
+          "down_m": -11.707944869995117,
+          "east_m": 0.017287617549300194,
+          "north_m": -0.12463990598917007
+        },
+        "source_timestamp_ns": "1792223252185274368"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "00ce003c-5da1-4bc6-92f4-93a7a675189c",
+      "pose": {
+        "mount": null,
+        "frame_id": "00ce003c-5da1-4bc6-92f4-93a7a675189c",
+        "capture_at": "2026-10-17T07:47:35.322214Z",
+        "geographic": {
+          "latitude": 36.14577516231334,
+          "longitude": 128.39160019451185,
+          "altitude_m": 83.11521911621094,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 1.7563785092988837e-08,
+            "y": -1.0160191976638089e-07,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012394782970659435,
+            "y": -0.3826834261417389,
+            "z": -0.0002992365334648639
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223252866288896",
+        "camera_position_ned": {
+          "down_m": -11.606334686279297,
+          "east_m": 0.017287306487560272,
+          "north_m": -0.12463990598917007
+        },
+        "source_timestamp_ns": "1792223252686285056"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "0f95a818-d05b-4d78-b201-0843e26d04d6",
+      "pose": {
+        "mount": null,
+        "frame_id": "0f95a818-d05b-4d78-b201-0843e26d04d6",
+        "capture_at": "2026-10-17T07:47:35.814211Z",
+        "geographic": {
+          "latitude": 36.145775162313285,
+          "longitude": 128.39160019451185,
+          "altitude_m": 83.01603698730469,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 1.1646418940358672e-08,
+            "y": -9.360876873643065e-08,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 168.003584,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012394782970659435,
+            "y": -0.3826834261417389,
+            "z": -0.0002992365334648639
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223253355299328",
+        "camera_position_ned": {
+          "down_m": -11.504117012023926,
+          "east_m": 0.017287304624915123,
+          "north_m": -0.12463990598917007
+        },
+        "source_timestamp_ns": "1792223253187295744"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "87e3669a-d034-401a-b587-6bd6ec138c7c",
+      "pose": {
+        "mount": null,
+        "frame_id": "87e3669a-d034-401a-b587-6bd6ec138c7c",
+        "capture_at": "2026-10-17T07:47:37.325886Z",
+        "geographic": {
+          "latitude": 36.14577516231309,
+          "longitude": 128.39160019451185,
+          "altitude_m": 82.70877838134766,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 8.383028493597067e-09,
+            "y": 1.5337944248017266e-08,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223254870331648",
+        "camera_position_ned": {
+          "down_m": -11.200502395629883,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223254684327680"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "ea59ca89-faa8-4eb1-afcf-f8ea78a1e51a",
+      "pose": {
+        "mount": null,
+        "frame_id": "ea59ca89-faa8-4eb1-afcf-f8ea78a1e51a",
+        "capture_at": "2026-10-17T07:47:36.336741Z",
+        "geographic": {
+          "latitude": 36.14577516231322,
+          "longitude": 128.39160019451185,
+          "altitude_m": 82.90956115722656,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 4.351512206124397e-10,
+            "y": -1.4226063660416344e-09,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 195.00416,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012394782970659435,
+            "y": -0.3826834261417389,
+            "z": -0.0002992365334648639
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223253880310528",
+        "camera_position_ned": {
+          "down_m": -11.403114318847656,
+          "east_m": 0.017287304624915123,
+          "north_m": -0.12463990598917007
+        },
+        "source_timestamp_ns": "1792223253685306368"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "b37f2fd5-b220-4dd6-9d72-62d63a8ba85b",
+      "pose": {
+        "mount": null,
+        "frame_id": "b37f2fd5-b220-4dd6-9d72-62d63a8ba85b",
+        "capture_at": "2026-10-17T07:47:36.812013Z",
+        "geographic": {
+          "latitude": 36.14577516231316,
+          "longitude": 128.39160019451185,
+          "altitude_m": 82.81343078613281,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": -1.0281557827340748e-08,
+            "y": 3.22293374210858e-08,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223254354320640",
+        "camera_position_ned": {
+          "down_m": -11.302112579345703,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223254183316992"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "60c670db-185c-42c5-97d0-90856e4f272a",
+      "pose": {
+        "mount": null,
+        "frame_id": "60c670db-185c-42c5-97d0-90856e4f272a",
+        "capture_at": "2026-10-17T07:47:37.819649Z",
+        "geographic": {
+          "latitude": 36.145775162313036,
+          "longitude": 128.39160019451185,
+          "altitude_m": 82.60899353027344,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 3.7890011128638434e-09,
+            "y": 8.084943381447829e-09,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223255362342144",
+        "camera_position_ned": {
+          "down_m": -11.098892211914062,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223255188338432"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "296f1b5d-1188-490e-bda5-3beed7c4cc44",
+      "pose": {
+        "mount": null,
+        "frame_id": "296f1b5d-1188-490e-bda5-3beed7c4cc44",
+        "capture_at": "2026-10-17T07:47:38.333814Z",
+        "geographic": {
+          "latitude": 36.14577516231298,
+          "longitude": 128.39160019451185,
+          "altitude_m": 82.50494384765625,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": -9.990601679277233e-10,
+            "y": 6.231259508382436e-09,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 189.004032,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223255875353088",
+        "camera_position_ned": {
+          "down_m": -10.997891426086426,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223255686349056"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "f3d32897-7909-45ce-b7ea-233a417113d3",
+      "pose": {
+        "mount": null,
+        "frame_id": "f3d32897-7909-45ce-b7ea-233a417113d3",
+        "capture_at": "2026-10-17T07:47:38.809442Z",
+        "geographic": {
+          "latitude": 36.145775162312916,
+          "longitude": 128.39160019451188,
+          "altitude_m": 82.4088134765625,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": -5.424455551406027e-09,
+            "y": 8.171734400264086e-10,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 168.003584,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223256349363200",
+        "camera_position_ned": {
+          "down_m": -10.896889686584473,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223256181359616"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "805f45f9-c220-4d7e-a4a9-bb508a7137df",
+      "pose": {
+        "mount": null,
+        "frame_id": "805f45f9-c220-4d7e-a4a9-bb508a7137df",
+        "capture_at": "2026-10-17T07:47:39.330046Z",
+        "geographic": {
+          "latitude": 36.14577516231286,
+          "longitude": 128.39160019451188,
+          "altitude_m": 82.30294036865234,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": -6.828023035865272e-09,
+            "y": -1.0847540643510456e-08,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223256871374336",
+        "camera_position_ned": {
+          "down_m": -10.79345417022705,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223256691370496"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "5f5ac674-2f80-4b36-8171-fc089dbc1090",
+      "pose": {
+        "mount": null,
+        "frame_id": "5f5ac674-2f80-4b36-8171-fc089dbc1090",
+        "capture_at": "2026-10-17T07:47:39.821878Z",
+        "geographic": {
+          "latitude": 36.145775162312795,
+          "longitude": 128.39160019451188,
+          "altitude_m": 82.20315551757812,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 4.210072290788958e-09,
+            "y": 3.760816547071499e-09,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 174.003712,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223257363384832",
+        "camera_position_ned": {
+          "down_m": -10.693059921264648,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223257189381120"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "a4fbd312-234b-4cf2-806c-e459f2e8b25f",
+      "pose": {
+        "mount": null,
+        "frame_id": "a4fbd312-234b-4cf2-806c-e459f2e8b25f",
+        "capture_at": "2026-10-17T07:47:40.321692Z",
+        "geographic": {
+          "latitude": 36.14577516231274,
+          "longitude": 128.39160019451188,
+          "altitude_m": 82.10215759277344,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 6.186315459899561e-09,
+            "y": 5.071090769526165e-10,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223257861395456",
+        "camera_position_ned": {
+          "down_m": -10.591449737548828,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223257690391808"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "209cb3e1-572f-4d61-acee-c8ccf52117b2",
+      "pose": {
+        "mount": null,
+        "frame_id": "209cb3e1-572f-4d61-acee-c8ccf52117b2",
+        "capture_at": "2026-10-17T07:47:40.835047Z",
+        "geographic": {
+          "latitude": 36.145775162312674,
+          "longitude": 128.39160019451188,
+          "altitude_m": 81.99811553955078,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 8.225295111685682e-09,
+            "y": 5.989998275168773e-09,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 183.003904,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223258374406400",
+        "camera_position_ned": {
+          "down_m": -10.489839553833008,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223258191402496"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "84b7c65b-253e-4b14-bfb2-a0f7f0787f8a",
+      "pose": {
+        "mount": null,
+        "frame_id": "84b7c65b-253e-4b14-bfb2-a0f7f0787f8a",
+        "capture_at": "2026-10-17T07:47:41.316147Z",
+        "geographic": {
+          "latitude": 36.14577516231262,
+          "longitude": 128.39160019451188,
+          "altitude_m": 81.90076446533203,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": -6.710185296299187e-09,
+            "y": 5.849089657061768e-09,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 171.003648,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223258854416640",
+        "camera_position_ned": {
+          "down_m": -10.389447212219238,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223258683412992"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "d7e6fb29-4a2b-4250-bd0a-52f0b35ee48f",
+      "pose": {
+        "mount": null,
+        "frame_id": "d7e6fb29-4a2b-4250-bd0a-52f0b35ee48f",
+        "capture_at": "2026-10-17T07:47:41.843850Z",
+        "geographic": {
+          "latitude": 36.14577516231255,
+          "longitude": 128.39160019451188,
+          "altitude_m": 81.7936782836914,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": -1.36341959944275e-08,
+            "y": 2.358040873673417e-09,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 192.004096,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223259382427904",
+        "camera_position_ned": {
+          "down_m": -10.286619186401367,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223259190423808"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "a4c7179e-a2bc-44a9-b5dc-142df9b96dcb",
+      "pose": {
+        "mount": null,
+        "frame_id": "a4c7179e-a2bc-44a9-b5dc-142df9b96dcb",
+        "capture_at": "2026-10-17T07:47:42.341660Z",
+        "geographic": {
+          "latitude": 36.14577516231249,
+          "longitude": 128.39160019451188,
+          "altitude_m": 81.69267272949219,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": -1.7204656588276634e-09,
+            "y": 1.420433215493233e-12,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 195.00416,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223259880438528",
+        "camera_position_ned": {
+          "down_m": -10.186226844787598,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223259685434368"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "6d4c64c9-6d67-4370-8b67-7ccaebaded48",
+      "pose": {
+        "mount": null,
+        "frame_id": "6d4c64c9-6d67-4370-8b67-7ccaebaded48",
+        "capture_at": "2026-10-17T07:47:42.836014Z",
+        "geographic": {
+          "latitude": 36.145775162312425,
+          "longitude": 128.3916001945119,
+          "altitude_m": 81.59288787841797,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 1.0052430887697028e-08,
+            "y": 5.08540365373733e-09,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223260372449024",
+        "camera_position_ned": {
+          "down_m": -10.08400821685791,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223260192445184"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "53466713-aa86-4fd1-8a89-b495203dd712",
+      "pose": {
+        "mount": null,
+        "frame_id": "53466713-aa86-4fd1-8a89-b495203dd712",
+        "capture_at": "2026-10-17T07:47:43.336774Z",
+        "geographic": {
+          "latitude": 36.14577516231237,
+          "longitude": 128.3916001945119,
+          "altitude_m": 81.49066925048828,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 6.404833552409173e-09,
+            "y": 2.4776003471060903e-10,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 186.003968,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223260876459776",
+        "camera_position_ned": {
+          "down_m": -9.98239803314209,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223260690455808"
+      },
+      "analysis_state": "COMPLETED"
+    },
+    {
+      "frame_id": "b8e5bfaa-964f-4fce-ab37-c8630733567c",
+      "pose": {
+        "mount": null,
+        "frame_id": "b8e5bfaa-964f-4fce-ab37-c8630733567c",
+        "capture_at": "2026-10-17T07:47:43.832382Z",
+        "geographic": {
+          "latitude": 36.145775162312304,
+          "longitude": 128.3916001945119,
+          "altitude_m": 81.39027404785156,
+          "altitude_datum": "MSL"
+        },
+        "clock_domain": "SIM",
+        "body_attitude": {
+          "reference": "BODY_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9999999403953552,
+            "x": 1.7813882591255492e-09,
+            "y": -1.0875639055996089e-08,
+            "z": -0.0003641035291366279
+          }
+        },
+        "sync_error_ms": 180.00384,
+        "schema_version": "frame-pose/1.0",
+        "camera_attitude": {
+          "reference": "CAMERA_FRD_TO_NED",
+          "quaternion": {
+            "w": 0.9238795042037964,
+            "x": -0.00012389752373564988,
+            "y": -0.3826834261417389,
+            "z": -0.00029911508318036795
+          }
+        },
+        "missing_reasons": [
+          "MOUNT_CALIBRATION_UNVERIFIED",
+          "UTC_SIM_MAPPING_UNVERIFIED"
+        ],
+        "body_timestamp_ns": "1792223261371470336",
+        "camera_position_ned": {
+          "down_m": -9.881396293640137,
+          "east_m": 0.01728733442723751,
+          "north_m": -0.12463969737291336
+        },
+        "source_timestamp_ns": "1792223261191466496"
+      },
+      "analysis_state": "COMPLETED"
+    }
+  ],
+  "observations": [
+    {
+      "frame_id": "98f258c6-b841-4d1a-9524-d334aa11a231",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 183 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 437.2,
+        "x2": 458.2,
+        "y1": 0.0,
+        "y2": 7.5,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.3999
+    },
+    {
+      "frame_id": "d3b28664-031a-4a73-9373-eaf65a589207",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 198 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 415.0,
+        "x2": 438.5,
+        "y1": 0.0,
+        "y2": 10.4,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.4736
+    },
+    {
+      "frame_id": "5bf95d81-5222-499f-a13f-d88c75b5dc42",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 198 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 45.1,
+        "x2": 61.9,
+        "y1": 0.0,
+        "y2": 9.1,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.4187
+    },
+    {
+      "frame_id": "2e5f09b8-8477-4f25-b880-1adae53ec1d8",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 183 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 79.4,
+        "x2": 95.8,
+        "y1": 0.0,
+        "y2": 5.7,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.2494
+    },
+    {
+      "frame_id": "9b800fc6-10a0-4ed5-8a70-676b3faf1dc7",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 180 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 278.8,
+        "x2": 367.8,
+        "y1": 0.0,
+        "y2": 32.4,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.2295
+    },
+    {
+      "frame_id": "b60c0a82-cfaa-4e0d-b303-27dd8b52c91b",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 183 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 192.6,
+        "x2": 208.9,
+        "y1": 0.0,
+        "y2": 5.4,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.2494
+    },
+    {
+      "frame_id": "bcc9fe1e-617d-4449-8508-4981bd70232d",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 174 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 198.1,
+        "x2": 213.9,
+        "y1": 0.0,
+        "y2": 9.3,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.5449
+    },
+    {
+      "frame_id": "35dfa19e-b315-4513-994a-8962cb5b1685",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 168 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 189.3,
+        "x2": 207.2,
+        "y1": 0.3,
+        "y2": 17.2,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.542
+    },
+    {
+      "frame_id": "0eddb36c-0870-4db0-96a0-c40de7be0aec",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 177 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 289.1,
+        "x2": 305.9,
+        "y1": 0.4,
+        "y2": 16.4,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.4609
+    },
+    {
+      "frame_id": "3dff9e28-8e03-4da4-87cd-2e3500e342ac",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 180 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 283.0,
+        "x2": 301.5,
+        "y1": 0.0,
+        "y2": 11.5,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.3999
+    },
+    {
+      "frame_id": "c5d25a56-ddb2-4a4d-8872-a462c54ccfd4",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 186 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 547.2,
+        "x2": 574.8,
+        "y1": 0.0,
+        "y2": 14.6,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.5
+    },
+    {
+      "frame_id": "a6c8e4b8-c6c6-4116-ad54-854f5cf35bda",
+      "geo_result": {
+        "reason": "SIM_PHYSICAL_VALIDATION_REQUIRED",
+        "status": "PENDING",
+        "worker_claim": {
+          "lat": null,
+          "lon": null,
+          "method": null,
+          "status": "PENDING",
+          "reasons": [
+            "PHYSICAL_VALIDATION_REQUIRED",
+            "SYNC_ERROR 183 ms > 50",
+            "SOURCE:MOUNT_CALIBRATION_UNVERIFIED",
+            "SOURCE:UTC_SIM_MAPPING_UNVERIFIED"
+          ],
+          "error_ellipse": null
+        }
+      },
+      "bbox": {
+        "x1": 547.2,
+        "x2": 568.8,
+        "y1": 0.0,
+        "y2": 8.8,
+        "convention": "PIXEL_XYXY",
+        "source_width": 1920,
+        "source_height": 1080
+      },
+      "confidence": 0.4148
+    }
+  ],
+  "candidate_count": 9,
+  "flight_metrics": [
+    {
+      "data": {
+        "flight_result": {
+          "status": "PASS",
+          "elapsed_s": 108.54699999999957,
+          "controller": "SimpleFlight",
+          "origin_ned_m": [
+            0.0,
+            0.0,
+            1.330587387084961
+          ],
+          "route_reached": true,
+          "landed_disarmed": true,
+          "dynamics_validated": false,
+          "landing_contact_ns": "1792223317241662208",
+          "near_ground_descent_steps": 0
+        },
+        "evidence_directory": "D:\\Capstone1\\SITL\\NET_SITL\\runtime\\20261017-164457-SimpleFlight\\flight-164651-428910"
+      }
+    }
+  ],
+  "storage_reserved_bytes": "1072883016",
+  "storage_quota_bytes": 1073741824,
+  "worker_status": {
+    "state": "running",
+    "model_loaded": true,
+    "flight_enabled": false,
+    "updated_at": "2026-10-17T07:52:37Z",
+    "model": "v12_f91_swa",
+    "model_config_id": "9e223e9c-bff2-5775-84bf-05b7e93818e2",
+    "backend": "tensorrt",
+    "sender": "leased-analysis-api",
+    "producer_session_id": "65d951b3-e1db-4039-b4ae-0e358b747689",
+    "error": null,
+    "frames": 107,
+    "observations": 12,
+    "dropped": 0,
+    "uploads": 0,
+    "upload_fail": 0,
+    "sequence": 0,
+    "engine_sha256": "40b442b529eb29caa49e478ed8064a2debd834b2a57bad57f6799d72b5ff673c",
+    "posture_sha256": "c750b56345f8429880fbb743c092dae37c75fbdb5aaf0884c53b0b091a0c235f",
+    "dem_loaded": true,
+    "min_agl_m": 10.0,
+    "agl_unknown_frames": 0,
+    "low_altitude_frames": 25,
+    "low_altitude_dets": 3
+  },
+  "status": "INCONCLUSIVE",
+  "reason": "Flight landed/disarmed, but storage quota prevented all frames from uploading",
+  "stored_frame_verification": {
+    "low_frames": 25,
+    "cruise_frames": 82,
+    "unknown_agl_frames": 0,
+    "low_observations": 0,
+    "cruise_observations": 12,
+    "sync_error_ms": {
+      "min": 165.00352,
+      "median": 183.003904,
+      "max": 213.004544
+    },
+    "schema_versions": [
+      "frame-pose/1.0"
+    ]
+  }
+}

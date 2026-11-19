@@ -1,0 +1,19 @@
+{
+  "activeBefore": 0,
+  "files": [
+    [
+      "school/regional_contract.py",
+      "regional_contract_ready_fix.py",
+      "80fe386a49bf8168b9f16934182dde53540376279a2927e701cb1af5ea6ea4cf",
+      "47383bcdbcae8e96b4424a29bbe9c40b81cd6d12822fd0551b277b6c8ee4660f"
+    ],
+    [
+      "web/test-regional.js",
+      "test-regional-ready-fix.js",
+      "e0d337137a6d00e0ae674b5f5a545240bc0cd3b94812710bbd348cef95ac052e",
+      "4bc07719e84023131a5e7dc8fab6a7bfc499fdbdf71de13e22d39f863d5ca5f5"
+    ]
+  ],
+  "backup": "/home/se/sandboxes/drone-dev/backups/test-regional-ready-20261023",
+  "status": "DEPLOYED"
+}

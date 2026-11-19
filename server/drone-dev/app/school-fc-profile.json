@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "enabled": false,
+  "workers": ["sim-worker-01"],
+  "execution_profile": "SCHOOL_FC_GUARDED_V1",
+  "activation": "Enable only with the guarded local worker installed and release checks passed."
+}

@@ -1,0 +1,48 @@
+{
+  "mission_id": "33fd444f-b58a-4383-abf7-6ce10318d488",
+  "run_id": "4649e553-03ba-4a64-bdd0-e787ed8aa6d6",
+  "request": {
+    "run_id": "4649e553-03ba-4a64-bdd0-e787ed8aa6d6",
+    "worker_id": "sim-worker-01",
+    "scenario": "ROUTE",
+    "world": "Kumoh",
+    "coordinate_frame": "NED_M",
+    "simulator_version": "NET_SITL/UE5.5.4/Cosys5.5-v3.3",
+    "seed": "0",
+    "duration_s": 60,
+    "ttl_s": 600,
+    "speed_m_s": 1,
+    "waypoints": [
+      {
+        "north_m": 0,
+        "east_m": 0,
+        "altitude_m": 15
+      },
+      {
+        "north_m": 0,
+        "east_m": 2,
+        "altitude_m": 15
+      },
+      {
+        "north_m": 0,
+        "east_m": 0,
+        "altitude_m": 15
+      }
+    ],
+    "pipeline_config": {
+      "mission_id": "33fd444f-b58a-4383-abf7-6ce10318d488",
+      "model_config_id": "9e223e9c-bff2-5775-84bf-05b7e93818e2",
+      "camera_name": "0",
+      "interval_s": 0.5,
+      "image_format": "JPEG"
+    }
+  },
+  "readiness_before": {
+    "business_api_ready": true,
+    "environment": "SIM",
+    "model_loaded": true,
+    "flight_enabled": false,
+    "real_device_enabled": false,
+    "schema_migrations": 11
+  }
+}

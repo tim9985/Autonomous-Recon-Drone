@@ -1,0 +1,97 @@
+{
+  "verified_at_utc": "2026-10-06T14:07:21.767302+00:00",
+  "services": {
+    "database": {
+      "running": true,
+      "uid": "999:999",
+      "network": "none",
+      "published_ports": [],
+      "read_only_root": true,
+      "started_at": "2026-10-06T13:33:19.186430308Z"
+    },
+    "backend": {
+      "running": true,
+      "uid": "2201:2201",
+      "network": "none",
+      "published_ports": [],
+      "read_only_root": true,
+      "started_at": "2026-10-06T14:06:27.757518144Z"
+    },
+    "gateway": {
+      "running": true,
+      "uid": "2204:2204",
+      "network": "none",
+      "published_ports": [],
+      "read_only_root": true,
+      "started_at": "2026-10-06T13:56:32.010038936Z"
+    },
+    "vision": {
+      "running": true,
+      "uid": "2202:2202",
+      "network": "none",
+      "published_ports": [],
+      "read_only_root": true,
+      "started_at": "2026-10-06T13:50:50.241397924Z"
+    }
+  },
+  "database": {
+    "database": "drone_real",
+    "tables": 20,
+    "missions": 0,
+    "telemetry": 0,
+    "candidates": 0,
+    "receipts": 0,
+    "commands": 0,
+    "migrations": 9
+  },
+  "actual_tls_wss": {
+    "passed": 12,
+    "checks": [
+      "Gateway rejects anonymous reads",
+      "Gateway bounds chunked bodies before authentication",
+      "Actual TLS login succeeds",
+      "Cookie is secure and distinct",
+      "Actual TLS reaches REAL DB",
+      "Actual device mTLS/token accepted",
+      "Token without matching certificate denied",
+      "Vision workload can poll frames",
+      "Operator gateway cannot expose workload routes",
+      "Actual WSS carries operator and TLS workload identity",
+      "Actual WSS rejects untrusted Origin",
+      "Actual logout revokes session"
+    ],
+    "writes": "authentication session and audit events only",
+    "hardware": "NOT_RUN"
+  },
+  "loopback_tls_ports": [
+    19443,
+    19444
+  ],
+  "existing_development_services": {
+    "database": {
+      "running": true,
+      "started_at": "2026-10-05T06:40:31.674829472Z"
+    },
+    "backend": {
+      "running": true,
+      "started_at": "2026-10-06T00:55:48.496766544Z"
+    },
+    "vision": {
+      "running": true,
+      "started_at": "2026-10-05T06:40:55.40814898Z"
+    },
+    "web": {
+      "running": true,
+      "started_at": "2026-10-05T06:40:31.560555549Z"
+    },
+    "gateway": {
+      "running": true,
+      "started_at": "2026-10-06T00:55:59.576940133Z"
+    }
+  },
+  "model_loaded": false,
+  "flight_enabled": false,
+  "public_internet": "NOT_CONFIGURED",
+  "actual_device": "NOT_RUN",
+  "actual_model_inference": "NOT_RUN"
+}

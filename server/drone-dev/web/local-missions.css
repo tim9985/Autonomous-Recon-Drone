@@ -1,0 +1,133 @@
+.mission-identity{flex:none;background:#203740;color:#f4f8fa;padding:14px 16px 10px;border-bottom:1px solid #34505b}
+.mission-identity-label{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:11px;color:#bbd0d8}
+.mission-identity-label label{font-weight:700;letter-spacing:0}.mission-identity-label [role=status]{margin-left:auto;font-size:10px;color:#b4c8d0}
+.mission-identity-label [data-error=true]{color:#ffca9a}.mission-identity-label button{padding:0;color:#ffca9a;background:none;border:0;font-size:11px}
+.mission-picker{display:flex;gap:8px}.mission-picker select{font:inherit;font-size:14px;font-weight:650;min-width:0;flex:1;min-height:42px;padding:8px;border:1px solid #64808b;border-radius:6px;background:#2a454f;color:#fff}
+.mission-picker select option{background:#fff;color:#243842}.mission-picker>button{flex:none;display:flex;gap:4px;align-items:center;color:#fff;background:#38535d;border:1px solid #64808b;border-radius:6px;padding:6px 9px;font-size:12px}
+.mission-select-field{position:relative;flex:1;min-width:0}
+.mission-select-field select{width:100%;text-overflow:ellipsis}
+.mission-picker select optgroup{background:#fff;color:#415764}
+.mission-select-field:has(time:not([hidden])) select{height:48px;padding:4px 24px 18px 9px}
+.mission-created-at:not([hidden]){position:absolute;left:10px;right:20px;bottom:5px;color:#c9dbe2;font-size:11px;line-height:13px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;font-variant-numeric:tabular-nums}
+body[data-mobile-ui=true] .appbar .mission-select-field:has(time:not([hidden])) select{height:44px;padding:1px 22px 15px 6px}
+body[data-mobile-ui=true] .appbar .mission-created-at{left:6px;bottom:2px;color:#485d67}
+@supports (appearance: base-select) and selector(::picker(select)) {
+  #mission-select, #mission-select::picker(select) { appearance: base-select; }
+  #mission-select {
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  #mission-select > button, #mission-select selectedcontent {
+    display: block;
+    min-inline-size: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  #mission-select > button {
+    appearance: none;
+    inline-size: 100%;
+    min-block-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    font: inherit;
+    text-align: start;
+    pointer-events: none;
+  }
+  #mission-select::picker-icon {
+    position: absolute;
+    inset-inline-end: 7px;
+    top: 50%;
+    translate: 0 -50%;
+  }
+  #mission-select::picker(select) {
+    box-sizing: border-box;
+    inline-size: anchor-size(width);
+    max-inline-size: calc(100vw - 12px);
+    max-block-size: min(240px, 44dvh);
+    margin-block: 3px;
+    padding: 3px 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    scrollbar-color: #70888d #e9eeee;
+    background: white;
+    color: #243842;
+    border: 1px solid #aebfc2;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px #19323928;
+  }
+  #mission-select optgroup {
+    padding: 0;
+    background: #eaf1ef;
+    color: #34544c;
+    font: 650 12px/1.65 system-ui, sans-serif;
+  }
+  #mission-select option {
+    min-block-size: 32px;
+    padding: 5px 9px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font: 500 13px/1.4 system-ui, sans-serif;
+  }
+  #mission-select option:checked { background: #e2f1ee; color: #17554c; }
+  #mission-select option:is(:hover, :focus-visible) { background: #edf4f4; }
+  @media (pointer: coarse) {
+    #mission-select option { min-block-size: 44px; }
+  }
+}
+.mission-target{display:flex;align-items:center;gap:7px;width:100%;padding:10px 2px 2px;color:#c4dce2;background:none;border:0;text-align:left;font-size:12px;min-height:34px}
+.mission-target>span:nth-child(2){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mission-target>span:last-child{margin-left:auto;flex:none}.mission-target-swatches{display:flex;flex:none;gap:3px;max-width:76px;overflow:hidden}
+.mission-target-swatches i{width:10px;height:10px;border-radius:50%;border:1px solid #bcc9ce;flex:none}.mission-target:hover{color:#fff}.mission-identity button:disabled{opacity:.5;cursor:default}
+#mission-context-lock{font-size:11px;line-height:1.5;margin:7px 0 0;color:#f1c799}.mission-identity :focus-visible{outline:2px solid #81d6e1;outline-offset:2px}
+.mission-dialog{width:min(470px,calc(100vw - 28px));border-radius:12px;padding:0;max-height:calc(100dvh - 32px);overflow:auto}.mission-dialog header{padding:20px 22px 8px}.mission-dialog h2{font-size:18px}.mission-form{padding:12px 22px 20px;display:grid;gap:20px}
+.mission-name-field{display:grid;gap:8px;font-size:13px;font-weight:650}.mission-name-field input,.mission-case-field select{width:100%;padding:10px 12px;font:inherit;font-size:14px;border:1px solid #b7c7d0;border-radius:6px;background:white;color:#253b47;box-sizing:border-box}
+.mission-color-field{border:0;margin:0;padding:0;min-width:0}.mission-color-field legend{font-size:13px;font-weight:650;margin-bottom:12px;padding:0}.mission-color-field small{font-size:11px;color:#6c7e87;font-weight:400;margin-left:5px}
+.target-colors{display:grid;grid-template-columns:repeat(6,1fr);gap:12px 6px}.target-color{position:relative;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;color:#485e69;padding:3px;border-radius:6px}.target-color input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}.target-color-swatch{display:grid;place-items:center;width:32px;height:32px;border:1px solid #8b9ca6;border-radius:50%;box-shadow:0 0 0 3px #fff,0 0 0 4px transparent;transition:box-shadow .15s ease}
+.target-color-swatch [data-icon]{opacity:0;width:17px;height:17px;background:#fff;color:#006878;border-radius:50%;padding:1px;box-shadow:0 1px 3px #1e354c66}.target-color:has(input:checked){color:#006878;font-weight:700}.target-color:has(input:checked) .target-color-swatch{box-shadow:0 0 0 3px #fff,0 0 0 5px #007484}.target-color:has(input:checked) [data-icon]{opacity:1}.target-color:has(input:focus-visible){outline:2px solid #007484;outline-offset:3px}.target-color:hover{background:#edf5f7}
+.mission-color-help{display:flex;align-items:center;gap:8px;margin-top:14px}.mission-color-help p{font-size:11px;line-height:1.5;margin:0;color:#5a727d}.mission-color-help button{flex:none;margin-left:auto;border:0;background:none;color:#006f7e;padding:5px;font-size:11px}.mission-case-field{border-top:1px solid #e0e7eb;padding-top:14px;font-size:12px}.mission-case-field summary{cursor:pointer;color:#526a77}.mission-case-field summary span{font-size:11px;color:#7b8f98;margin-left:5px}.mission-case-field select{margin-top:10px;font-size:12px}.mission-form footer{display:flex;gap:8px;justify-content:flex-end}.mission-form footer button{padding:10px 18px;font-size:13px;border-radius:6px}.mission-form footer button:first-child{background:white;border:1px solid #b7c7d0;color:#415a67}#mission-dialog-error{margin:0;font-size:12px;color:#a62e27;line-height:1.5}#mission-dialog-error:empty{display:none}
+.color-match-queue{position:absolute;right:20px;bottom:38px;z-index:8;width:318px;max-width:calc(100% - 40px);border:1px solid #b7cbd2;border-radius:10px;background:#fff;box-shadow:0 5px 24px #18364720;overflow:hidden}.color-match-toggle{width:100%;display:flex;align-items:center;gap:8px;border:0;background:#fff;padding:13px 14px;color:#294651;font-size:12px;text-align:left;cursor:pointer}.color-match-toggle>strong{font-weight:650}.color-match-toggle>b{padding:2px 6px;border-radius:5px;background:#e9f3f4;color:#006b78;font-variant-numeric:tabular-nums}.color-match-toggle>span:last-child{margin-left:auto;transition:transform .2s ease}.color-match-toggle[aria-expanded=true]>span:last-child{transform:rotate(180deg)}#color-match-new{font-size:10px;color:#9b581f}.color-match-source{display:flex;align-items:center;gap:5px;padding:9px 14px;background:#f6f3ec;border-block:1px solid #e6dfd1;font-size:11px;color:#79603b}.color-match-list{max-height:min(315px,36dvh);overflow:auto;overscroll-behavior:contain}.color-match-card{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;border:0;border-bottom:1px solid #e4eaed;border-radius:0;background:#fff;color:#2c4653;text-align:left;cursor:pointer}.color-match-card:hover{background:#f2f7f8}.color-match-card[data-unseen=true]{border-left:3px solid #007686;padding-left:9px}.color-match-crop{position:relative;overflow:hidden;flex:none;width:48px;height:48px;background:#eaf0f2;border-radius:5px}.color-match-crop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}.color-match-description{flex:1;min-width:0;display:grid;gap:5px}.color-match-description strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}.color-match-description small{font-size:10px;color:#657b87}#color-match-empty{font-size:12px;padding:18px 14px;margin:0;color:#647d88}#color-match-note{font-size:10px;line-height:1.5;margin:0;padding:10px 14px;color:#73838d;background:#fafbfc}.color-match-queue [hidden]{display:none}.color-match-queue:has([aria-expanded=false]){width:288px}.color-match-queue button:focus-visible{outline:2px solid #007888;outline-offset:-3px}
+@media(max-width:1023px){.mission-identity{padding:10px 14px 8px}.mission-picker select{min-height:38px}.mission-target{padding-top:7px}.color-match-queue{right:12px;bottom:calc(var(--sheet-height,0px) + 12px);max-width:calc(100% - 24px);width:300px}.split[data-sidebar=closed] .color-match-queue{bottom:80px}.color-match-list{max-height:22dvh}.color-match-queue:has([aria-expanded=false]){width:260px}.color-match-toggle{padding:10px 12px;font-size:11px}.color-match-source{padding:7px 12px;font-size:10px}}
+@media(prefers-reduced-motion:no-preference){#color-match-body:not([hidden]){animation:match-arrive .18s ease-out}@keyframes match-arrive{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}}
+@media(prefers-reduced-motion:reduce){.target-color-swatch,.color-match-toggle>span:last-child{transition:none}}
+.match-provenance{font-size:10px;font-weight:500;background:#f4eee2;color:#80643c;border-radius:3px;padding:2px 3px;margin-right:2px}.color-match-toggle>strong{white-space:nowrap}
+/* The desktop trigger stays at the bottom edge while the list opens upward. */
+.color-match-queue{display:flex;flex-direction:column-reverse}.color-match-queue[hidden]{display:none}
+.color-match-queue:has([aria-expanded=false]){width:318px}
+.color-match-toggle{border-radius:10px}.color-match-queue #color-match-body{max-height:460px;overflow:hidden;opacity:1;visibility:visible;transition:max-height .22s ease,opacity .15s ease}
+.color-match-queue #color-match-body[hidden]{display:block;max-height:0;opacity:0;visibility:hidden;pointer-events:none}
+/* On phones the expanded list overlays the sheet below its stable trigger.
+   Its height never pushes that trigger behind the fixed map controls. */
+@media(max-width:1023px){
+ .color-match-queue{z-index:45;overflow:visible;left:12px;right:auto;width:150px}
+ .color-match-queue #color-match-body{position:absolute;top:calc(100% + 16px);left:0;right:auto;width:min(300px,calc(100vw - 24px));border:1px solid #b7cbd2;border-radius:8px;background:#fff;box-shadow:0 5px 24px #18364725;overflow:hidden}
+ .color-match-list{max-height:min(240px,28dvh)}
+ .split[data-sidebar=closed] .color-match-queue #color-match-body{top:auto;bottom:calc(100% + 6px)}
+ .color-match-queue:has([aria-expanded=false]){width:150px}
+ .color-match-toggle{gap:5px;padding:10px}#color-match-new{display:none}
+ .color-match-toggle>span:first-child{display:none}
+}
+@media(prefers-reduced-motion:reduce){.color-match-queue #color-match-body{transition:none;animation:none}}
+
+/* Missions own flight inputs; a case is a linked investigation record. */
+.mission-case-link{display:flex;align-items:center;gap:8px;width:100%;min-height:36px;margin-top:8px;padding:8px 0 0;border:0;border-top:1px solid #43606b;border-radius:0;background:none;color:#d5e4e9;text-align:left;font-size:12px;transition:color .16s ease,background-color .16s ease}
+.mission-case-link[hidden]{display:none}.mission-case-link:hover{color:#fff;background:#2a454f}.mission-case-link .mission-case-caption{flex:none;color:#aec4cd;font-size:11px}.mission-case-link #mission-case-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mission-case-link>[data-icon]{flex:none;width:16px;height:16px}
+.mission-target[hidden]{display:none}.mission-target .mission-settings-label{flex:none;font-size:12px}.mission-target #mission-target-summary{margin-left:auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#b7cdd5}.mission-target>span:last-child{margin-left:0}.mission-target-swatches{max-width:52px}
+.mission-case-field{padding-top:16px}.mission-case-heading{display:flex;align-items:center;gap:8px;justify-content:space-between}.mission-case-heading label{font-size:13px;font-weight:600;color:#253b47}.mission-case-heading small{color:#647781;font-size:11px;font-weight:400;margin-left:4px}.mission-case-heading button{display:flex;align-items:center;gap:4px;min-height:36px;border:0;background:transparent;color:#006d7b;font-size:12px;padding:8px}.mission-case-heading button:hover{background:#edf5f7}.mission-case-field select{margin-top:8px;font-size:13px;min-height:44px}.mission-case-field p{margin:8px 0 0;font-size:11px;line-height:1.5;color:#60727c}
+.case-report-context{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 0 16px;margin-bottom:16px;border-bottom:1px solid var(--line);font-size:12px;line-height:1.5}.case-report-context>div{min-width:0}.case-report-context p{margin:4px 0 0;color:var(--secondary);overflow-wrap:anywhere}.case-report-context button{display:flex;align-items:center;gap:4px;flex:none;min-height:36px;padding:8px;border:1px solid var(--line);border-radius:6px;color:#385968;background:#fff;font-size:11px}.case-report-context button:disabled{opacity:.5}
+/* Policies and route preview are separate; prediction figures stay above. */
+.plan-details .route-rules-body{padding:0 0 4px}.route-rules{display:grid;margin:0;border:1px solid #d6e0e4;border-radius:8px;overflow:hidden;background:#fff}.route-rules>div{display:grid;grid-template-columns:100px minmax(0,1fr);align-items:baseline;gap:8px;padding:12px;border-bottom:1px solid #e5ebee;font-size:12px;line-height:1.5}.route-rules>div:last-child{border-bottom:0}.route-rules dt{display:flex;align-items:center;gap:8px;color:#526a76}.route-rules dt [data-icon]{flex:none;width:16px;height:16px}.route-rules dd{margin:0;color:#203b47;font-weight:500}.route-rules-note{margin:8px 0 0;font-size:11px;line-height:1.5;color:#647985}.route-preview{margin-top:0}.plan-details.route-preview[open]{padding-bottom:8px}.route-preview-body{padding:0 4px 4px}.route-preview-body label{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#526a76}.route-preview-body output{font-variant-numeric:tabular-nums;color:#203b47}.route-preview-body input{width:100%;margin:12px 0 8px;accent-color:#007484}.route-preview-body p{font-size:11px;color:#647985;margin:0}
+.plan-details>summary>[data-icon]:last-child{transition:transform .18s ease}
+@media(prefers-reduced-motion:no-preference){.plan-details[open]>.route-rules-body,.route-preview[open]>.route-preview-body{animation:route-details-arrive .16s ease-out}@keyframes route-details-arrive{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}}
+@media(prefers-reduced-motion:reduce){.mission-case-link,.plan-details>summary>[data-icon]:last-child{transition:none}}
+@media(max-width:1023px){.mission-case-heading button{min-height:44px}.route-rules>div{grid-template-columns:96px minmax(0,1fr);padding:12px}.case-report-context{align-items:flex-start}}
+/* The phone sheet uses one reading flow, with its tabs anchored above it. */
+@media(max-width:1023px){.sidebar-scroll{display:block;overflow-y:auto;overscroll-behavior:contain}.control-pane,.control-content{display:block;overflow:visible;max-height:none}.panel-top{position:sticky;top:0;z-index:4;border-radius:0}.prep-actions{position:static}}

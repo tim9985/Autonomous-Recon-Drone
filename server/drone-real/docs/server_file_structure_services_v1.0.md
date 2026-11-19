@@ -1,0 +1,173 @@
+# 학교 서버 서비스 파일 구조도 — 2026-10-06
+
+서비스·업무 코드 확인 시각(UTC): 2026-10-06T00:56:16+00:00. 기존 /home 개요는 2026-10-05 기록을 유지한다.
+
+새 환경의 디렉터리와 공개 코드 파일명을 직접 확인한 기록이다. secrets·DB 내부 데이터·모델 내용은 조회하지 않는다. 기존 /home 전체 개요는 [기존 서버 파일 구조](server_file_structure.md)를 따른다.
+
+```text
+/home/se/
+├── JupyterLAB/                   # 기존 학교·학습 환경, 신규 서비스에 마운트하지 않음
+├── miniconda3/                   # 기존 환경 유지
+├── repos/                        # 기존 환경 유지
+└── sandboxes/
+    ├── drone-server-20261003/     # 기존 DB·Jupyter·미디어 개발 환경 유지
+    └── drone-services-20261005/   # 신규 환경, 호스트 디렉터리 0700
+        ├── README.md
+        ├── app/
+        │   ├── __init__.py
+        │   ├── backend.py
+        │   ├── body_limit.py
+        │   ├── common.py
+        │   ├── gateway.py
+        │   ├── launch.py
+        │   ├── persistence.py
+        │   ├── tls_identity.py
+        │   ├── verify.py
+        │   ├── vision.py
+        │   ├── web.py
+        ├── certs/
+        │   ├── ca.crt
+        ├── compose.yml
+        ├── backend/
+        │   ├── drone_backend/
+        │   │   ├── __init__.py
+        │   │   ├── analysis.py
+        │   │   ├── contracts.py
+        │   │   ├── core.py
+        │   │   ├── deployment.py
+        │   │   ├── device_api.py
+        │   │   ├── main.py
+        │   │   ├── media.py
+        │   │   ├── openapi.py
+        │   │   ├── planning.py
+        │   │   └── responses.py
+        │   ├── tests/{acceptance,regressions,live}.py
+        │   └── openapi.json
+        ├── backend-fix-stage/      # 검증 후보 소스, 운영 코드와 별도
+        ├── backups/
+        │   └── backend-fix-20261006T005534Z/  # root 전용 0700
+        │       ├── before.dump
+        │       ├── backend/         # 적용 전 전체 업무 코드
+        │       ├── candidate/       # 지문을 검증한 설치 소스
+        │       ├── gateway.py
+        │       └── compose.yml
+        ├── data/
+        │   ├── backend/ [내부 데이터 생략]
+        │   ├── models/ [내부 데이터 생략]
+        │   ├── postgres/ [내부 데이터 생략]
+        │   ├── vision/ [내부 데이터 생략]
+        ├── db/
+        │   ├── init.sh
+        │   ├── apply.py
+        │   ├── verify.py
+        │   ├── schema_manifest.json
+        │   ├── migrations/001_*.sql … 006_backend_review_fixes.sql
+        │   └── checks/{001_acceptance,002_review_regression}.sql
+        ├── docs/
+        │   ├── drone_database_design_spec_v1.1.md
+        │   ├── drone_server_handover_v1.1.md
+        │   ├── server_file_structure.md
+        │   ├── server_file_structure_services_20261005.md
+        │   ├── service_architecture_zero_trust_v1.0.md
+        ├── evidence/
+        │   ├── acceptance.json
+        │   ├── before-reconfigure.json
+        │   ├── deployment-audit-output.json
+        │   ├── deployment-audit.json
+        ├── scripts/
+        │   ├── audit.py
+        │   ├── check_host_access.py
+        │   ├── check_revocation.py
+        │   ├── drone-services-relay.service
+        │   ├── file_structure.py
+        │   ├── provision.py
+        │   ├── stack.sh
+        │   ├── tunnel_proxy.py
+        │   ├── upgrade_dev_policy.py
+        │   ├── verify.sh
+        ├── secrets/
+        │   ├── backend/ [내용 비공개]
+        │   ├── ca.crt [값 비공개]
+        │   ├── ca.key [값 비공개]
+        │   ├── ca.srl [값 비공개]
+        │   ├── database/ [내용 비공개]
+        │   ├── gateway/ [내용 비공개]
+        │   ├── gateway-client/ [내용 비공개]
+        │   ├── operator-login.json [값 비공개]
+        │   ├── provisioned [값 비공개]
+        │   ├── sim-device/ [내용 비공개]
+        │   ├── sim-device-client/ [내용 비공개]
+        │   ├── verifier/ [내용 비공개]
+        │   ├── vision/ [내용 비공개]
+        │   ├── vision-client/ [내용 비공개]
+        │   ├── web/ [내용 비공개]
+        ├── sockets/
+        │   ├── backend/ [연결 소켓]
+        │   ├── database/ [연결 소켓]
+        │   ├── gateway/ [연결 소켓]
+        │   ├── web/ [연결 소켓]
+        ├── web/
+        │   ├── index.html
+        │   ├── status.js
+        │   ├── style.css
+```
+
+## 실제 서비스 연결·저장소 경계
+
+| 서비스 | UID:GID | 연결 경로 | 데이터 마운트 |
+|---|---|---|---|
+| database | 999:999 | database 소켓만 생성, TCP 없음 | data/postgres 전용 |
+| backend | 2101:2101 | backend 소켓 생성, database 소켓 접속 | data/backend 전용 |
+| vision | 2102:2102 | backend 소켓 접속 | data/models 읽기 전용, data/vision 작업 공간 |
+| web | 2103:2103 | web 소켓 생성 | 정적 Web 코드만 읽기 전용 |
+| gateway | 2104:2104 | gateway 소켓 생성, backend/web 소켓 접속 | 임무·DB 저장소 없음 |
+| verifier | 2105:2105 | backend/gateway 소켓 접속, 기본 실행 제외 | 관리자 시험 신원만 |
+
+모든 실행 컨테이너는 network_mode=none, read_only root filesystem, cap_drop=ALL이다. 호스트 loopback 127.0.0.1:18443만 systemd TLS 중계가 연다. backend·vision·web·gateway의 서비스 인증 정보는 자기 secrets 디렉터리만 마운트한다. backend registry는 요청 검증에 필요한 서비스 token/인증서 지문만 포함하며 다른 서비스의 개인키는 포함하지 않는다.
+
+DB 업무 스키마 18개 테이블·298개 컬럼, migration 001–006 및 SIM 업무 API v0.1.1이 배포되어 있다. integration.probe는 기존 명시적 SIM 교환 시험용이다. backend 저장소의 `.media.lock`은 프로세스 간 미디어 변경을 직렬화하며 만료 예약 정리는 60초 간격으로 수행한다. model_loaded=false, flight_enabled=false를 유지한다. GPU 장치는 신규 vision에 연결하지 않았다. 호스트 관리자·커널·물리 자원은 공유한다.
+
+## 개발 접속과 문서
+
+- SSH 터널: localhost:18443 → 학교 서버 127.0.0.1:18443.
+- HTTPS 개발 관제 주소: https://localhost:18443. 별도 개발 계정과 개발 CA 필요.
+- 아키텍처: [서비스 아키텍처 v1.1](service_architecture_zero_trust_v1.1.md).
+- 비밀 값은 문서에 기록하지 않는다. 개발 CA 인증서만 공개할 수 있으며 CA 개인키를 배포하지 않는다.
+- 이 목록은 신규 샌드박스 상세이며 /home의 다른 사용자·패키지·캐시 전수 조사가 아니다.
+
+## 2026-10-06 REAL 데이터 서비스 추가
+
+아래는 기존 샌드박스와 분리해 추가한 실운용 데이터 수신 환경이다. 신규 SIM DB·테이블은 배포하지 않았으며 기존 학습 폴더는 마운트하지 않는다.
+
+```text
+/home/se/sandboxes/drone-real/
+├── compose.json                   # database / backend / gateway / vision
+├── drone_backend/
+│   ├── real.py                    # REAL 수신·조회 앱, 비행 dispatch 비활성
+│   ├── real_contracts.py          # 실제 데이터·비전 입력 계약
+│   ├── core.py / media.py         # 공통 인증·트랜잭션·미디어 처리
+│   └── 기타 공유 업무 코드
+├── app/
+│   ├── real_launch.py            # TLS Unix 소켓 실행
+│   ├── gateway.py                # 관제 세션 API·WebSocket 프록시
+│   └── vision_outbox.py          # 비전 로컬 JSONL → FastAPI 재전송
+├── db/
+│   ├── migrations/001–009        # 001–006 업무 스키마, 007–009 REAL 저장·격리
+│   ├── apply.py                  # 변경 불가 migration 지문 확인
+│   └── init-real.sh              # 별도 DB 계정 초기화
+├── data/
+│   ├── postgres/                # drone_real 전용 DB 데이터
+│   ├── backend/                 # 영상·sidecar·프레임·crop·clip
+│   ├── vision/                  # 워커 scratch, outbox.jsonl, ack.json
+│   └── models/                  # 모델 자리, 현재 미배치·읽기 전용
+├── sockets/{database,backend,gateway}/
+├── secrets/                     # 별도 CA·계정·인증서·토큰, 내용 문서화 금지
+├── tools/                       # 임시 DB 검증·배포 검사·TLS 중계
+├── tests/                       # REAL 저장·실제 TLS/WSS 검사
+├── scripts/stack.sh
+├── evidence/                    # 실제 검증 JSON
+├── backups/                     # root 전용 DB dump·소스 백업
+└── openapi-real.json
+```
+
+호스트 `drone-real-relay.service`는 127.0.0.1의 19443(관제 HTTPS)·19444(기체 mTLS)를 소켓에 연결한다. 컨테이너 공개 포트는 없고 DB는 TCP를 수신하지 않는다. [REAL 구축 결과](./real_backend_deployment_20261006.md)를 함께 확인한다.

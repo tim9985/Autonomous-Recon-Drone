@@ -1,0 +1,32 @@
+{
+  "archive_sha256": "131d2a2b87f5340d2832cf768ebb70d53bed9947d0279c5d02bf2f11e72dc781",
+  "files": {
+    "app/gateway.py": "6ddab755fc2f92f2b56a51165e694528eb7263fe6557cc331a62fa3f2773ee92",
+    "backend/drone_backend/core.py": "5c1948a1fb13a30386245fd419b8a5abd3560cfbc143ec9f39dc3c52edeb19d4",
+    "backend/drone_backend/main.py": "1713071e3badbedc7acf7876b7b38850405e029620da472011e561f52afc1704",
+    "school/sim_link.py": "1665a0c3bf3e02f6c226cc5ed826dbb15d006b6b2314e76017887fcbfb1f8875",
+    "school/observability.py": "1726ecf5d3b87c63d702661e1d1fee1474a37560618316923d7ff0dd0612c772",
+    "tools/sim_link_acceptance.py": "c3a566b563d42906e1911f75fe6a98d2433805e29c1b9f40fad3ec4500a9c6b3",
+    "web/index.html": "6dd72046fa24a63c1dffea6f6049062b2af2a9f95177f308832aff6edeb8f7f6",
+    "web/manifest.webmanifest": "a886eb0a6c4135928f9e4e84821f41f3a7dcdc4ca27189d421ea70d735a1f181",
+    "web/sw.js": "cd16c7fb99b7c4b20135bca407f8d122346f8c00c82ad5f81a09594efffdf11a",
+    "web/workbox-9c191d2f.js": "04b086f1b2f4215ee4b659a7bc9c76162894abdb43fa876247bc7c0bd6fd1c37",
+    "web/assets/app-CWSsmNU5.js": "5c40a14837d388f9d98dcc8dc41c92439c3d5df36cdb428b5292984518489710",
+    "web/assets/app-CXmAgHlb.css": "9c75af610a0d584cfccf93105778b9d7166d5de3d385baccc8a619a7ea024e82",
+    "web/assets/app-icon-1024.png": "9641a029e6233cc371886f67a31465c41dead438fcafd0ba821e6d7f90cd7e15",
+    "web/assets/app-icon-192.png": "9d61f5de74b5feb649d0ec64aa923c01393615f2ab5dce4c639a40e39fb9b161",
+    "web/assets/app-icon-512.png": "3861c5c5e5b25451a3dd54f8bcd55502aec9e11bb877cd0104de3a800d292e03",
+    "web/assets/buildingInfo-C5vvFT3m.css": "0c94d52e8951db6f50ef3bfd0da400684276f4459d480d30ededd33c7f133557",
+    "web/assets/buildingInfo-DjAvi_Gw.js": "2770f3c90191af346982065ef74e9e38fc47ab2af9d482ac9797ed5b81a4af2d",
+    "web/assets/city3d-B5NGr2xk.js": "9ef2a0e6b159f0ca05b0c1a150772485c7df2387b5fccaafd45644020bb5fc3d",
+    "web/assets/city3d-BSlnaRbN.css": "ad422b78fc9d62eed11f0c5582a9603d3f491fc58b1ef9e50d551ba08e2aedc1",
+    "web/assets/frame-CFZYaPYb.js": "d0bad16aa809b7f96d33d90da8a38e856dabe903eefb6ed5ce92abf8253da6f5",
+    "web/assets/frame-pxvUM1TM.css": "571c38f5d0dd914a6c744f2da840d3089b1b90d00c9b837b26b05f46d7ad33c6",
+    "web/assets/kumoh-campus-map.png": "5947c89fe412b8292add944dd004ae99bae88d7e04fc323c3ca2beedfa678120",
+    "web/assets/mission-hatch.png": "8e1bf5ec1eff5ffa75b63ecff57efec1e621ffdebc095191b1da8ab30720daf8",
+    "web/assets/p021-snapshot.png": "794314349a357b4ee719a884fd4ed421815d221b9ce8b65eae16bf54667c6f38",
+    "web/assets/PretendardVariable-CJuje-Rk.woff2": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4",
+    "web/assets/selection-tTDZfLZM.js": "732fea86422d3656a92da71a72fb898921a8c720443aaa5cd0ff36583129eef2",
+    "web/assets/vworld3d-Bj2Iooc4.js": "e3992d53dcb15ece78173135ac15dd2ca8055315fe7bcf052a719fc2cd55a21f"
+  }
+}

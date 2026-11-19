@@ -1,0 +1,417 @@
+"""Public response records, generated from schema_manifest.json; secrets and storage paths are excluded."""
+from datetime import datetime
+from uuid import UUID
+from typing import Literal
+from pydantic import BaseModel, ConfigDict, Field
+from .contracts import Counter, Hash, Asset
+
+class Reply(BaseModel):
+    model_config=ConfigDict(extra='forbid',allow_inf_nan=False)
+
+class UserSession(Reply):
+    session_id: UUID
+    user_id: UUID
+    issued_at: datetime
+    expires_at: datetime
+    revoked_at: datetime|None=None
+
+class Drone(Reply):
+    drone_id: str
+    name: str
+    gateway_id: str|None=None
+    camera_config_id: UUID|None=None
+    control_user_id: UUID|None=None
+    control_session_id: UUID|None=None
+    control_revision: Counter
+    control_acquired_at: datetime|None=None
+    control_expires_at: datetime|None=None
+    control_epoch: Counter
+    gateway_state: dict
+    link_state: dict
+    updated_at: datetime
+
+class Mission(Reply):
+    mission_id: UUID
+    drone_id: str
+    creator_user_id: UUID
+    draft_revision: int|None=None
+    active_revision: int|None=None
+    state: str
+    state_evidence: dict
+    readiness: dict
+    appearance_query: dict|None=None
+    test_conditions: dict
+    grant_status: str
+    approved_by: UUID|None=None
+    approved_at: datetime|None=None
+    grant_revoked_at: datetime|None=None
+    started_at: datetime|None=None
+    ended_at: datetime|None=None
+    termination_reason: str|None=None
+
+class MissionRevision(Reply):
+    mission_id: UUID
+    revision: int
+    area_geom: dict|str|None=None
+    priority_geom: dict|str|None=None
+    priority_sources: list
+    conditions: dict
+    area_denominators: dict|None=None
+    spatial_config_id: UUID|None=None
+    coordinate_config_id: UUID|None=None
+    policy_config_id: UUID|None=None
+    model_config_id: UUID|None=None
+    planner_modes: dict
+    grid_version: str|None=None
+    created_at: datetime
+    approved_at: datetime|None=None
+
+class TelemetrySample(Reply):
+    sample_id: UUID
+    mission_id: UUID|None=None
+    drone_id: str
+    producer_id: str
+    producer_session_id: str
+    sample_kind: str
+    sequence: Counter
+    sample_time_raw: Counter|None=None
+    clock_domain: str
+    source_time_utc: datetime|None=None
+    received_at: datetime
+    time_evidence: dict
+    pose: dict|None=None
+    flight_state: dict|None=None
+    validity: dict
+
+class FlightCommand(Reply):
+    command_id: UUID
+    request_hash: str
+    mission_id: UUID|None=None
+    mission_revision: int|None=None
+    plan_id: UUID|None=None
+    segment_order: int|None=None
+    drone_id: str
+    control_epoch: Counter
+    sequence: Counter
+    issued_at: datetime
+    expires_at: datetime
+    schema_version: str
+    policy_version: str
+    coordinate_config_id: UUID
+    requester: dict
+    action: str
+    payload: dict
+    state: str
+    status_revision: int
+    reason_code: str|None=None
+    last_evidence_at: datetime|None=None
+    execution_deadline: datetime|None=None
+    completion_policy: dict
+
+class MissionEvent(Reply):
+    event_id: UUID
+    event_seq: Counter
+    mission_id: UUID|None=None
+    drone_id: str|None=None
+    event_type: str
+    code: str
+    use_case_id: str|None=None
+    actor_user_id: UUID|None=None
+    ref_table: str|None=None
+    ref_id: str|None=None
+    source_time: datetime|None=None
+    stored_at: datetime
+    source_epoch: str|None=None
+    correlation_id: str|None=None
+    payload: dict
+    refs: list
+    producer_id: str
+    producer_session_id: str
+    sequence: Counter
+    publish_state: str
+    published_at: datetime|None=None
+
+class MediaAsset(Reply):
+    asset_id: UUID
+    mission_id: UUID|None=None
+    frame_id: UUID|None=None
+    candidate_id: UUID|None=None
+    observation_id: UUID|None=None
+    asset_type: str
+    content_hash: str|None=None
+    time_start: datetime|None=None
+    time_end: datetime|None=None
+    state: str
+    gaps: list
+    quality_status: str
+    historical: bool
+    retention_class: str
+    retained_until: datetime|None=None
+    source_asset_id: UUID|None=None
+    meta: dict
+    created_at: datetime
+
+class FrameInput(Reply):
+    frame_id: UUID
+    mission_id: UUID
+    capture_at: datetime|None=None
+    width: int
+    height: int
+    format: str
+    time_evidence: dict
+    pose: dict|None=Field(default=None,description='frame-pose/1.0 for new records; legacy stored metadata is preserved.')
+    pose_status: str
+    pose_reason: str|None=None
+    appearance_query: dict|None=None
+
+class VideoFrame(Reply):
+    frame_id: UUID
+    mission_id: UUID|None=None
+    drone_id: str
+    stream_id: str
+    stream_epoch: int
+    frame_seq: Counter
+    identity_scope: str
+    capture_at: datetime|None=None
+    gateway_received_at: datetime|None=None
+    received_at: datetime
+    capture_time_verified: bool
+    time_evidence: dict
+    width: int
+    height: int
+    format: str
+    source_quality_status: str
+    metadata_state: str
+    coordinate_config_id: UUID|None=None
+    pose: dict|None=None
+    pose_status: str
+    pose_reason: str|None=None
+    footprint_geom: dict|str|None=None
+    visible_geom: dict|str|None=None
+    coverage: dict
+    obs_group: str|None=None
+    plan_id: UUID|None=None
+    analysis_mode: str|None=None
+    analysis_state: str
+    skip_reason: str|None=None
+    model_config_id: UUID|None=None
+    pipeline_version: str|None=None
+    analysis_times: dict
+    pre_ms: float|None=None
+    infer_ms: float|None=None
+    post_ms: float|None=None
+    task_quality_status: str
+    appearance_query: dict|None=None
+
+class PersonCandidate(Reply):
+    candidate_id: UUID
+    mission_id: UUID
+    first_frame_id: UUID
+    first_asset_id: UUID|None=None
+    first_seen: datetime|None=None
+    last_seen: datetime|None=None
+    association_state: str
+    evidence_count: int
+    valid_group_count: int
+    latest_position: dict|str|None=None
+    geo_status: str
+    geo_reason: str|None=None
+    ellipse: dict|None=None
+    coordinate_config_id: UUID|None=None
+    appearance: dict|None=None
+    judgement: dict|None=None
+    tracking: dict|None=None
+    latest_observation_id: UUID|None=None
+    row_version: Counter
+
+class ReobservationRequest(Reply):
+    request_id: UUID
+    candidate_id: UUID
+    mission_id: UUID
+    requester_kind: str
+    requested_by: UUID|None=None
+    requested_at: datetime
+    status: str
+    queue_order: int|None=None
+    plan_id: UUID|None=None
+    hypothesis: dict
+    desired_view: dict
+    limits: dict
+    usage: dict
+    result_evidence: dict|None=None
+    deferred_reason: str|None=None
+
+class Alert(Reply):
+    alert_id: UUID
+    mission_id: UUID|None=None
+    source_event_id: UUID
+    dedup_key: str
+    type: str
+    priority: int
+    raised_at: datetime
+    evidence_refs: list
+    ack_user_id: UUID|None=None
+    acknowledged_at: datetime|None=None
+
+class SearchRegion(Reply):
+    region_id: UUID
+    mission_id: UUID
+    mission_revision: int
+    grid_version: str
+    region_type: str
+    source_features: dict
+    region_geom: dict|str
+    representative_point: dict|str
+    total_area_m2: float
+    remaining_area_m2: float
+    state: str
+    pass_index: int
+    service_estimate_s: float|None=None
+    reason: str|None=None
+    row_version: Counter
+
+class SearchPlan(Reply):
+    plan_id: UUID
+    mission_id: UUID
+    mission_revision: int
+    plan_version: int
+    plan_kind: str
+    parent_plan_id: UUID|None=None
+    supersedes_plan_id: UUID|None=None
+    region_id: UUID|None=None
+    input_versions: dict
+    objective_mode: str
+    visit_order: list
+    task: dict
+    candidates: list
+    route: dict
+    status: str
+    generated_at: datetime
+    expires_at: datetime|None=None
+    summary: dict
+    decision_log: dict
+
+class ObservationCell(Reply):
+    mission_id: UUID
+    grid_version: str
+    cell_id: str
+    region_id: UUID|None=None
+    region_allocations: list
+    spatial_config_id: UUID
+    cell_geom: dict|str
+    cell_area_m2: float
+    state: str
+    valid_union_geom: dict|str|None=None
+    valid_area_m2: float
+    valid_count: int
+    valid_group_count: int
+    valid_duration_s: float
+    last_valid_at: datetime|None=None
+    excluded_reasons: list
+    priority: float
+    belief: float|None=None
+    belief_detail: dict
+    row_version: Counter
+
+class Permission(Reply):
+    drone_id: str
+    scopes: list[str]
+class LoginReply(Reply):
+    session_id: UUID
+    expires_at: datetime
+    csrf_token: str
+    permissions: list[Permission]
+class Me(UserSession):
+    permissions: list[Permission]
+    required_scope: str
+    csrf_token: str
+class Readiness(Reply):
+    business_api_ready: bool
+    environment: Literal['SIM']
+    model_loaded: bool
+    flight_enabled: Literal[False]
+    real_device_enabled: Literal[False]
+    schema_migrations: int
+class Alive(Reply):
+    alive: bool
+class Revoked(Reply):
+    revoked: bool
+class Duplicate(Reply):
+    duplicate: bool
+class Stored(Reply):
+    stored: bool
+    duplicate: bool
+    sample_id: UUID|None=None
+    asset_id: UUID|None=None
+class Persisted(Reply):
+    bundle_id: UUID
+    persistence_status: Literal['PERSISTED']
+    manifest_hash: Hash
+    files: list[Asset]
+class Completed(Reply):
+    completed: bool
+    duplicate: bool
+    result_hash: Hash
+    detection_count: int|None=None
+class Failed(Reply):
+    failed: bool
+    duplicate: bool
+class RecordedEvidence(Reply):
+    recorded: bool
+    duplicate: bool
+    command_id: UUID
+    reconciled: Literal[False]
+class Job(Reply):
+    analysis_run_id: UUID
+    frame_id: UUID
+    input_asset_id: UUID
+    model_config_id: UUID
+    coordinate_config_id: UUID|None=None
+    analysis_mode: str
+    input_hash: Hash
+    environment: Literal['SIM']
+    pipeline_version: str
+    analysis_revision: int
+    job_hash: Hash
+class Claim(Job):
+    attempt_no: int
+    worker_id: str
+    claim_id: UUID
+    expires_at: datetime
+class NoJob(Reply):
+    job: None
+class JobStatus(Reply):
+    job: Job
+    claim: Claim
+    terminal: MissionEvent|None=None
+class DroneStatus(Reply):
+    drone: Drone
+    latest_telemetry: TelemetrySample|None=None
+    flight_enabled: Literal[False]
+class MissionStatus(Reply):
+    mission: Mission
+    revisions: list[MissionRevision]
+class Snapshot(Reply):
+    mission: Mission
+    drone: Drone
+    candidates: list[PersonCandidate]
+    commands: list[FlightCommand]
+    alerts: list[Alert]
+    event_cursor: Counter
+class Replay(Reply):
+    events: list[MissionEvent]
+    next_cursor: Counter
+    has_more: bool
+class Config(Reply):
+    config_id: UUID
+    kind: str
+    version: str
+    status: str
+    payload: dict
+    content_hash: Hash
+class ErrorDetail(Reply):
+    code: str
+    request_id: UUID|None=None
+    fields: list[list[str|int]]|None=None
+class Error(Reply):
+    error: ErrorDetail

@@ -1,0 +1,8 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>서버 통신 모니터</title>
+<style>body{font:15px system-ui;background:#101827;color:#e6edf7;margin:24px}input,button,select{padding:8px;margin:4px;background:#20304a;color:inherit;border:1px solid #50617c}table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:8px;border-bottom:1px solid #344258;text-align:left;word-break:break-all}a{color:#9dcdff}pre{white-space:pre-wrap}section{margin-top:24px}.bad{color:#ffa6a6}</style>
+<h1>서버 통신 모니터</h1><p>5초마다 갱신 · 최근 1시간 · 서버 관측과 연결기 보고를 구분합니다. 요청 ID를 선택하면 경유 서비스 기록을 함께 봅니다.</p>
+<form id="login"><label>계정 <input id="username" autocomplete="username" required></label><label>비밀번호 <input id="password" type="password" autocomplete="current-password" required></label><button>로그인</button></form>
+<p id="state" role="status"></p><a href="/simulation-lab">시뮬레이션 실행 화면</a>
+<section><label>연결기 <input id="peer" placeholder="sim-worker-01"></label><label>실행 ID <input id="run"></label><label>요청 ID <input id="request"></label><label>최소 지연(ms) <input id="min" type="number" value="0" min="0"></label><label><input id="errors" type="checkbox">실패만</label><button id="refresh">조회</button><button id="reset">필터 초기화</button></section>
+<h2>구간별 처리 시간</h2><div id="summary"></div><h2>연결기 최근 통신</h2><div id="peers"></div><h2>요청 기록</h2><div id="logs"></div><button id="older">이전 기록</button>
+<p>서버에 도착하지 못한 요청은 연결기가 재접속해 기록을 업로드한 뒤 나타납니다. 연결기 시각은 PC 시계 오차의 영향을 받습니다. HTTP/WS 기록만으로 RF·SSH·TLS 이전 구간을 모두 판별할 수는 없습니다.</p><script src="/communication-monitor.js"></script></html>

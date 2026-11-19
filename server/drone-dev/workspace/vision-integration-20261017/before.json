@@ -1,0 +1,99 @@
+{
+  "files": {
+    "/home/se/sandboxes/drone-dev/backend/drone_backend/contracts.py": "efef2a3a87ad70cebbd8065ee576f631c6023fe5fc8916c7691da615e00de6ed",
+    "/home/se/sandboxes/drone-dev/secrets/backend/business.json": "dbbea87812cc2803e56cc7a80e3fe7ba09d8ecb00fdb117c069b0a03b9aeca44",
+    "/home/se/sandboxes/drone-dev/compose.vision.json": "1ac744b37162c6a056a8ee27bbe3552354e6ba4ec296220fdcb4141daa2cc936"
+  },
+  "containers": {
+    "/drone-services-20261005-vision-1": {
+      "id": "d2023bd55be759272f193d48cd3f4ffb45ce02daab1d1e60e48008841f18a849",
+      "started": "2026-10-17T07:44:22.948441517Z"
+    },
+    "/drone-services-20261005-gateway-1": {
+      "id": "f6c899353d55e1c4786ad195cae5b9789316589cb0bba6e12cd10199cc129ad7",
+      "started": "2026-10-17T06:35:00.402981471Z"
+    },
+    "/drone-services-20261005-backend-1": {
+      "id": "c6007d4758ae49bafe1520868f0549ae06a91120366a898bf8adbe298a7e4063",
+      "started": "2026-10-17T06:41:13.058388505Z"
+    },
+    "/drone-real-20261006-vision-1": {
+      "id": "93631983f2056e84fad27f79e0a20d95da9d2346a4b7816ac84ce2f68ca8aa11",
+      "started": "2026-10-14T13:06:38.012373971Z"
+    },
+    "/drone-services-20261005-database-1": {
+      "id": "738bf681746c38b1ae856f21643c2e217a4cca141ef7416ab26f87a18ed686e9",
+      "started": "2026-10-09T12:55:41.397678091Z"
+    },
+    "/drone-real-20261006-database-1": {
+      "id": "91e0dd1c75429e6fda03d3b992732ddc6d89ad503dde1ccf5177a8440872a678",
+      "started": "2026-10-09T12:55:42.286006856Z"
+    },
+    "/drone-real-20261006-gateway-1": {
+      "id": "6edeb81c0d535a7064cd422fd5c329d155e1b03f48c87a1a929db0dc1ccc8277",
+      "started": "2026-10-09T12:55:45.529586289Z"
+    },
+    "/drone-real-20261006-backend-1": {
+      "id": "f9c992f8d05813bd5b7833c399db1991a9b18112a57c64e39f52562627f3590f",
+      "started": "2026-10-14T12:43:06.39500764Z"
+    },
+    "/drone-services-20261005-egress-1": {
+      "id": "428705be82c2b67e26feb242b2c9368ef285779f138c8c44f0cca0eb934552f5",
+      "started": "2026-10-09T12:55:46.645924794Z"
+    },
+    "/drone-services-20261005-map-1": {
+      "id": "097952be29abd0fd145d4a72f5a8967d3b7d18393ebf039bb1e07d6f3ecb87c0",
+      "started": "2026-10-09T12:55:47.187502221Z"
+    },
+    "/drone-services-20261005-device-tunnel-1": {
+      "id": "d006747fe692ef6f627f59c22153203b00105c294474a568c0e53802d2a6a19d",
+      "started": "2026-10-09T12:55:47.887370652Z"
+    },
+    "/drone-services-20261005-web-1": {
+      "id": "52bb12440dbc7d8d2c59228647721c4434d9efc71135ef397443c221420cce3a",
+      "started": "2026-10-09T12:55:48.470494573Z"
+    },
+    "/drone-sandbox-20261003-vision-1": {
+      "id": "4e7aef4ddc49f4c2edd5f65398b7e6d5300f7c57faafb03dc8baa7bc94e765ff",
+      "started": "2026-10-09T12:55:49.994758699Z"
+    },
+    "/drone-sandbox-20261003-jupyter-1": {
+      "id": "ab7b86331bec0607d0c0221b27be9a3397a7a2145670cb89a0988da8f055a660",
+      "started": "2026-10-09T12:55:50.777919602Z"
+    },
+    "/vigorous_jang": {
+      "id": "d10b5ecd664f1c80301cc9fcf2f3aa7a360f57f133e8e6c28cf636630c5aef79",
+      "started": "2026-10-07T00:05:27.300131614Z"
+    },
+    "/eloquent_haslett": {
+      "id": "7531d96fd2d045f7d9955bdd844519f8c30887590cfecc50d9ec2ebebb0ef8d4",
+      "started": "2026-10-06T23:59:46.83319194Z"
+    },
+    "/drone-sandbox-20261003-api-1": {
+      "id": "56d6e90b51416b449c6f9c6ad4ed4d918d5e2e360d03b3e0ea5b7a96142c6231",
+      "started": "2026-10-09T12:55:51.586353224Z"
+    },
+    "/drone-sandbox-20261003-database-1": {
+      "id": "b9bce1bca3b64acbba6aebf5d10fbd033faefe3cf6bb2163852055767dc6b7de",
+      "started": "2026-10-09T12:55:43.085932315Z"
+    },
+    "/drone-sandbox-20261003-media-1": {
+      "id": "040b4d7a6f13d4b2b6da6445bfaafc108a5c36390f0bd5ddad0403f2296c2caa",
+      "started": "2026-10-09T12:55:52.169234425Z"
+    }
+  },
+  "real": {
+    "/home/se/sandboxes/drone-real/app/vision_core/ingest.py": "ca6fbe81722f45ad198ed055bb99ff2adcae3865e2fb17a16c2a9ae9c1f69d94",
+    "/home/se/sandboxes/drone-real/app/vision_core/state.py": "758e88eebd285ca7cc8b3936484bd642101ba8f599390dba36a6fa8cb79dc047",
+    "/home/se/sandboxes/drone-real/app/vision_core/registry.py": "25dbdd444e9e5e4294c43d7de0ce7777a35189965382a688a1eec02179eb9544",
+    "/home/se/sandboxes/drone-real/app/vision_core/color.py": "e8a1980198880ec188978c3d45b7b3ab865ae1052e107a84d4e9d94a01159b3a",
+    "/home/se/sandboxes/drone-real/app/vision_core/__init__.py": "dc8a9d9c4181842a7bdd7c85573560a10dc07b3065ac1e9bc47cd3ef5d8e7a00",
+    "/home/se/sandboxes/drone-real/app/vision_core/sources.py": "182b9c10dc97d8312843b0e10ef8c73ba3ceb19a446616d9bc619cc02207bebd",
+    "/home/se/sandboxes/drone-real/app/vision_core/detector.py": "5a7643d8a72d8f52080a0ce16d52a07cfe4a63ac90054f989cb94c07e4228120",
+    "/home/se/sandboxes/drone-real/app/vision_core/geo.py": "dd00faf29e6f745945aa0eef6c34c65f1599a85e24df02e37de655b413cb1ea8",
+    "/home/se/sandboxes/drone-real/app/vision_core/appearance.py": "16b1bf7968dad4dd2c1ab6fd4d3fed55268de59e695a7b77e48de92c8baa1286",
+    "/home/se/sandboxes/drone-real/app/vision_core/coord_transform.py": "0c1447dc93a328c6aaf83fdea0c716b1e4a4652cd96c360c5c0319e1c7515115",
+    "/home/se/sandboxes/drone-real/app/vision_core/pose.py": "eae7dcea78bee13a09a96e06f9128cec6b32de89c7e731a8228b555012ac60e3",
+    "/home/se/sandboxes/drone-real/app/vision_core/telemetry.py": "435e2735b0e0ddbca6998104f71610508dd2f4d79db25d4cfe6458d30f34553d"
+  }
+}

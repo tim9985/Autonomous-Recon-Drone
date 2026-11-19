@@ -1,0 +1,78 @@
+{
+  "_buildingInfo-C5vvFT3m.css": {
+    "file": "assets/buildingInfo-C5vvFT3m.css",
+    "src": "_buildingInfo-C5vvFT3m.css"
+  },
+  "_buildingInfo-DjAvi_Gw-height4-5448a9cd47.js": {
+    "file": "assets/buildingInfo-DjAvi_Gw-height4-5448a9cd47.js",
+    "name": "buildingInfo",
+    "css": [
+      "assets/buildingInfo-C5vvFT3m.css"
+    ]
+  },
+  "_frame-CFZYaPYb-height4-b09fe01c88.js": {
+    "file": "assets/frame-CFZYaPYb-height4-b09fe01c88.js",
+    "name": "frame",
+    "imports": [
+      "_buildingInfo-DjAvi_Gw-height4-5448a9cd47.js"
+    ],
+    "css": [
+      "assets/frame-pxvUM1TM.css"
+    ],
+    "assets": [
+      "assets/PretendardVariable-CJuje-Rk.woff2"
+    ]
+  },
+  "_frame-pxvUM1TM.css": {
+    "file": "assets/frame-pxvUM1TM.css",
+    "src": "_frame-pxvUM1TM.css"
+  },
+  "_selection-tTDZfLZM.js": {
+    "file": "assets/selection-tTDZfLZM.js",
+    "name": "selection"
+  },
+  "index.html": {
+    "file": "assets/app-eOwxtsA3-height4-1b7018a8cf.js",
+    "name": "app",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_buildingInfo-DjAvi_Gw-height4-5448a9cd47.js",
+      "_selection-tTDZfLZM.js"
+    ],
+    "css": [
+      "assets/app-0NPDiEtS.css"
+    ],
+    "assets": [
+      "assets/PretendardVariable-CJuje-Rk.woff2"
+    ]
+  },
+  "node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2": {
+    "file": "assets/PretendardVariable-CJuje-Rk.woff2",
+    "src": "node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2"
+  },
+  "src/map/vworld3d/cityFrame.ts": {
+    "file": "assets/city3d-B5NGr2xk-height4-64281a5735.js",
+    "name": "city3d",
+    "src": "src/map/vworld3d/cityFrame.ts",
+    "isEntry": true,
+    "imports": [
+      "_frame-CFZYaPYb-height4-b09fe01c88.js",
+      "_buildingInfo-DjAvi_Gw-height4-5448a9cd47.js",
+      "_selection-tTDZfLZM.js"
+    ],
+    "css": [
+      "assets/city3d-BSlnaRbN.css"
+    ]
+  },
+  "src/map/vworld3d/frame.ts": {
+    "file": "assets/vworld3d-Bj2Iooc4-height4-b3706e6872.js",
+    "name": "vworld3d",
+    "src": "src/map/vworld3d/frame.ts",
+    "isEntry": true,
+    "imports": [
+      "_frame-CFZYaPYb-height4-b09fe01c88.js",
+      "_buildingInfo-DjAvi_Gw-height4-5448a9cd47.js"
+    ]
+  }
+}

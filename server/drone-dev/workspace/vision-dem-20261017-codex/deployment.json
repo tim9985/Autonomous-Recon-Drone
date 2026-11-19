@@ -1,0 +1,72 @@
+{
+  "environment": "SIM",
+  "backup": "/home/se/sandboxes/drone-dev/backups/vision-dem-20261017T074420Z",
+  "terrain": {
+    "path": "/home/se/sandboxes/drone-dev/data/spatial/campus-04e1b46514574d45/terrain",
+    "png_count": 74,
+    "sha256": "de40dcdac226fa8addcf89a2de7c0ad38831d96828bba21d31d8ddb6b4664d05"
+  },
+  "patch_sha256": {
+    "pose.py": "93069ec09fef8854fa4790ea11049f16b842bcfa575ca0407b177c4309e319c3",
+    "ingest.py": "22e6e1d3c6ab267a68356fc89b8c0e4ad2cccc22468e02839288f18b9c48da52"
+  },
+  "status": "PASS",
+  "vision_container_id": "d2023bd55be759272f193d48cd3f4ffb45ce02daab1d1e60e48008841f18a849",
+  "vision_started_at": "2026-10-17T07:44:22.948441517Z",
+  "worker_status": {
+    "state": "running",
+    "model_loaded": true,
+    "flight_enabled": false,
+    "updated_at": "2026-10-17T07:44:48Z",
+    "model": "v12_f91_swa",
+    "model_config_id": "9e223e9c-bff2-5775-84bf-05b7e93818e2",
+    "backend": "tensorrt",
+    "sender": "leased-analysis-api",
+    "producer_session_id": "65d951b3-e1db-4039-b4ae-0e358b747689",
+    "error": null,
+    "frames": 0,
+    "observations": 0,
+    "dropped": 0,
+    "uploads": 0,
+    "upload_fail": 0,
+    "sequence": 0,
+    "engine_sha256": "40b442b529eb29caa49e478ed8064a2debd834b2a57bad57f6799d72b5ff673c",
+    "posture_sha256": "c750b56345f8429880fbb743c092dae37c75fbdb5aaf0884c53b0b091a0c235f",
+    "dem_loaded": true,
+    "min_agl_m": 10.0,
+    "agl_unknown_frames": 0,
+    "low_altitude_frames": 0,
+    "low_altitude_dets": 0
+  },
+  "dem_mount": {
+    "Type": "bind",
+    "Source": "/home/se/sandboxes/drone-dev/data/spatial/campus-04e1b46514574d45/terrain",
+    "Destination": "/dem",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+  },
+  "other_containers_preserved": [
+    "/drone-services-20261005-gateway-1",
+    "/drone-services-20261005-backend-1",
+    "/drone-real-20261006-vision-1",
+    "/drone-services-20261005-database-1",
+    "/drone-real-20261006-database-1",
+    "/drone-real-20261006-gateway-1",
+    "/drone-real-20261006-backend-1",
+    "/drone-services-20261005-egress-1",
+    "/drone-services-20261005-map-1",
+    "/drone-services-20261005-device-tunnel-1",
+    "/drone-services-20261005-web-1",
+    "/drone-sandbox-20261003-vision-1",
+    "/drone-sandbox-20261003-jupyter-1",
+    "/vigorous_jang",
+    "/eloquent_haslett",
+    "/drone-sandbox-20261003-api-1",
+    "/drone-sandbox-20261003-database-1",
+    "/drone-sandbox-20261003-media-1"
+  ],
+  "real_files_unchanged": true,
+  "geo_calculation_enabled": false,
+  "route_test": "NOT_RUN"
+}

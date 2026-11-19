@@ -1,0 +1,10 @@
+{
+  "anonymous_status": true,
+  "login": true,
+  "live_status": true,
+  "status_advancing": true,
+  "duration_rejected": true,
+  "csrf_rejected": true,
+  "foreign_origin_rejected": true,
+  "gateway_fc_status": true
+}

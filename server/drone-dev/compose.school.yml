@@ -1,0 +1,82 @@
+services:
+  device-tunnel:
+    image: sha256:27ee4624dfcf7dc99934cf94e3db6e40f86a9bda0d414137ab20540a0a3dda4d
+    pull_policy: never
+    network_mode: host
+    user: "2108:2108"
+    group_add: ["2400"]
+    read_only: true
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 1
+    mem_limit: 128m
+    pids_limit: 32
+    working_dir: /workspace
+    environment: {PYTHONDONTWRITEBYTECODE: "1", PYTHONUNBUFFERED: "1"}
+    command: [python, -m, school.device_tunnel]
+    volumes:
+      - ./school:/workspace/school:ro
+      - ./sockets/backend:/run/backend-socket:ro
+    logging: {driver: json-file, options: {max-size: "5m", max-file: "3"}}
+  backend:
+    environment:
+      SCHOOL_QUICK_LOGIN: "1"
+    group_add: ["2410"]
+    volumes:
+      - ./school:/workspace/school:ro
+      - ./secrets/school/backend:/run/school-identity:ro
+      - ./sockets/map:/run/map-socket:ro
+  gateway:
+    volumes:
+      - ./web-allowlist.json:/run/web-allowlist.json:ro
+  map:
+    image: drone-school-map:20261007
+    pull_policy: never
+    network_mode: none
+    user: "2106:2106"
+    group_add: ["2410", "2411"]
+    read_only: true
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 2
+    mem_limit: 1g
+    pids_limit: 96
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=64m"]
+    working_dir: /workspace
+    environment: {PYTHONDONTWRITEBYTECODE: "1", PYTHONUNBUFFERED: "1", GDAL_CACHEMAX: "64"}
+    command: [python, -m, school.launch, map]
+    volumes:
+      - ./school:/workspace/school:ro
+      - ./app/tls_identity.py:/workspace/app/tls_identity.py:ro
+      - ./secrets/school/map:/run/school-identity:ro
+      - ./sockets/map:/run/map-socket
+      - ./sockets/egress:/run/egress-socket:ro
+      - ./data/spatial:/spatial:ro
+      - ./web:/web:ro
+    logging: {driver: json-file, options: {max-size: "5m", max-file: "3"}}
+  egress:
+    image: sha256:27ee4624dfcf7dc99934cf94e3db6e40f86a9bda0d414137ab20540a0a3dda4d
+    pull_policy: never
+    # Only this new, least-privilege relay needs outbound HTTPS. It binds no TCP port.
+    network_mode: host
+    user: "2107:2107"
+    group_add: ["2411"]
+    read_only: true
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 1
+    mem_limit: 256m
+    pids_limit: 64
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=16m"]
+    working_dir: /workspace
+    environment: {PYTHONDONTWRITEBYTECODE: "1", PYTHONUNBUFFERED: "1"}
+    command: [python, -m, school.launch, egress]
+    volumes:
+      - ./school:/workspace/school:ro
+      - ./app/tls_identity.py:/workspace/app/tls_identity.py:ro
+      - ./secrets/school/egress:/run/school-identity:ro
+      - ./sockets/egress:/run/egress-socket
+    logging: {driver: json-file, options: {max-size: "5m", max-file: "3"}}

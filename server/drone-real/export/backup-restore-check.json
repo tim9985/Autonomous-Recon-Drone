@@ -1,0 +1,7 @@
+{
+  "backup": "/home/se/sandboxes/drone-real-20261006/backups/verified-20261006T135802Z",
+  "restore": "passed",
+  "migration_count": 9,
+  "temporary_restore_removed": true,
+  "secrets_in_dump": "protected admin backup includes credential hashes"
+}

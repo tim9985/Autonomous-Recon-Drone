@@ -1,0 +1,6 @@
+# 서버 환경 (2026-11-19)
+Ubuntu 24.04.4 LTS
+6.8.0-149-generic
+NVIDIA GeForce RTX 3090, 580.178.04, 24576 MiB
+python 3.10.21 torch 2.13.0+cu130 cuda 13.0 ultralytics 8.4.102
+tensorrt 11.3.0.99

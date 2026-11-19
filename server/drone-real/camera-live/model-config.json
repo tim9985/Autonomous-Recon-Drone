@@ -1,0 +1,9 @@
+{
+  "config_id": "58ef57ea-21ef-55af-97f0-8bbc08c3d1cb",
+  "version": "v12_f91_swa_REAL_TRT_native4k_v13",
+  "artifact_sha256": "d2a4edc92931401e68e029e7ac193041eb9c45f852b596ab8c698611fd323772",
+  "pipeline_version": "vision-worker/1.3-native4k",
+  "environment": "REAL",
+  "engine_sha256": "40b442b529eb29caa49e478ed8064a2debd834b2a57bad57f6799d72b5ff673c",
+  "posture_sha256": "c750b56345f8429880fbb743c092dae37c75fbdb5aaf0884c53b0b091a0c235f"
+}

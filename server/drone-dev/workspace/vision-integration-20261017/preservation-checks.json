@@ -1,0 +1,12 @@
+{
+  "changed_containers": [
+    "/drone-services-20261005-vision-1",
+    "/drone-services-20261005-backend-1"
+  ],
+  "only_sim_backend_and_vision_changed": true,
+  "real_vision_source_unchanged": true,
+  "business_file_mode": "0o400",
+  "business_file_uid": 2101,
+  "business_file_gid": 2101,
+  "physical_disk_free_bytes": 4028480274432
+}

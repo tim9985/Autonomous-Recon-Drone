@@ -1,0 +1,60 @@
+{
+  "services": {
+    "vision": {
+      "image": "drone-vision:v12-20261014",
+      "command": [
+        "python",
+        "-m",
+        "app.vision_ingest"
+      ],
+      "cpus": 2,
+      "mem_limit": "4g",
+      "pids_limit": 256,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=512m"
+      ],
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUNBUFFERED": "1",
+        "DRONE_COOKIE": "drone_real_session",
+        "LD_LIBRARY_PATH": "/opt/nvidia",
+        "YOLO_CONFIG_DIR": "/tmp/Ultralytics",
+        "XDG_CACHE_HOME": "/tmp/cache",
+        "TORCH_HOME": "/tmp/torch",
+        "HOME": "/tmp",
+        "INGEST_ENVIRONMENT": "SIM",
+        "VISION_TRT": "1",
+        "VISION_GEO_CLAIMS": "0",
+        "VISION_GEO_GROUPING": "0",
+        "VISION_GEO_AGL_FLAT": "0",
+        "SIM_RICH_FIELDS": "1",
+        "YOLO_AUTOINSTALL": "false",
+        "VISION_DEM_DIR": "/dem",
+        "VISION_MIN_AGL_M": "10"
+      },
+      "volumes": [
+        "/lib/x86_64-linux-gnu/libcuda.so.1:/opt/nvidia/libcuda.so.1:ro",
+        "/lib/x86_64-linux-gnu/libcuda.so.580.178.04:/opt/nvidia/libcuda.so.580.178.04:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-gpucomp.so.580.178.04:/opt/nvidia/libnvidia-gpucomp.so.580.178.04:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-ml.so.1:/opt/nvidia/libnvidia-ml.so.1:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-ml.so.580.178.04:/opt/nvidia/libnvidia-ml.so.580.178.04:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-nvvm.so.4:/opt/nvidia/libnvidia-nvvm.so.4:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-nvvm.so.580.178.04:/opt/nvidia/libnvidia-nvvm.so.580.178.04:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1:/opt/nvidia/libnvidia-ptxjitcompiler.so.1:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.580.178.04:/opt/nvidia/libnvidia-ptxjitcompiler.so.580.178.04:ro",
+        "/usr/bin/nvidia-smi:/usr/local/bin/nvidia-smi:ro",
+        "/home/se/sandboxes/drone-dev/data/spatial/campus-04e1b46514574d45/terrain:/dem:ro"
+      ],
+      "devices": [
+        "/dev/nvidia0:/dev/nvidia0",
+        "/dev/nvidiactl:/dev/nvidiactl",
+        "/dev/nvidia-uvm:/dev/nvidia-uvm",
+        "/dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools"
+      ]
+    },
+    "backend": {
+      "cpus": 2,
+      "mem_limit": "1g"
+    }
+  }
+}

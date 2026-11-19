@@ -1,0 +1,25 @@
+{
+  "status": "DEPLOYED",
+  "backup": "/home/se/sandboxes/drone-dev/backups/test-regional-20261022T230646Z",
+  "adapterHash": "400813f9534d4d3f8afbfc10413cc271fbc4436e669fe1af0205e790a54c0cd9",
+  "packageId": "46e34ac42e086fa58f0f492574a0d0ea1ee85a861fd5a3014bd380e7f15fb2f8",
+  "before": {
+    "active": 0,
+    "legacyActive": 0,
+    "planning": 0,
+    "captures": 0,
+    "completions": 0,
+    "observations": 0
+  },
+  "after": {
+    "active": 0,
+    "legacyActive": 0,
+    "planning": 0,
+    "captures": 0,
+    "completions": 0,
+    "observations": 0
+  },
+  "adminMainUnchanged": true,
+  "realAndVisionServicesUnchanged": true,
+  "simulationStarted": false
+}

@@ -1,0 +1,14 @@
+{
+  "expired": {
+    "rejected": true,
+    "error": "Expired request or invalid deadline"
+  },
+  "duration_21": {
+    "rejected": true,
+    "error": "Duration must be 1..20 seconds"
+  },
+  "duplicate": {
+    "rejected": true,
+    "error": "[Errno 17] File exists: '/var/lib/drone-gateway/server-bench/53d204e0-be29-40f4-a0cf-732073eb96ad.json'"
+  }
+}

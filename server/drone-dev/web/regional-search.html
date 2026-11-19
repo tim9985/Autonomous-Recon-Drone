@@ -1,0 +1,12 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>지역수색 · 학교 SIM</title><link rel="stylesheet" href="/regional-search.css"><script defer src="/regional-search.js"></script></head>
+<body><header><a href="/test-patrol.html">← SIM 관제</a><strong>지역수색</strong><span>학교 PC · 가상 기체</span></header>
+<main><section id="login" hidden><h1>학교 계정으로 로그인</h1><form id="login-form"><label>아이디<input id="username" autocomplete="username" required></label><label>비밀번호<input id="password" type="password" autocomplete="current-password" required></label><button>로그인</button></form></section>
+<section id="workspace" hidden><div class="columns"><aside><h1>계획부터 실제 관측까지</h1><p>기본 3m/s · 조건부 직선 4m/s<br>실제 유효 프레임 3개 이상 + 연속 1초 · 목표 95%</p>
+<label>서버 임무<select id="mission"><option value="">새 캠퍼스 임무</option></select></label>
+<label>수색 구역<select id="region"><option value="zone-106c8e3a7e32">생활구역</option><option value="zone-0bb1b42ef9e7">강의·연구구역</option><option value="zone-633e575ab1ca-c-89106-799958">지원구역</option></select></label>
+<button id="prepare">경로 준비</button><label>학교 PC<select id="worker"><option value="sim-pi-01">기존 학교 PC 연결기</option></select></label>
+<div class="metrics"><div><small>출발 전 계산</small><strong id="compute">—</strong></div><div><small>예상 95% 도달</small><strong id="forecast-time">—</strong></div><div><small>예상 최종 관측</small><strong id="forecast">—</strong></div><div class="actual"><small>실제 누적 관측</small><strong id="actual">0.00%</strong></div></div>
+<p id="readiness">경로를 준비하면 실행 조건을 확인합니다.</p><label class="confirm"><input type="checkbox" id="confirm">선택한 계획으로 SIM 이륙·수색·복귀·착륙</label>
+<button id="start" disabled>지역수색 시작</button><button id="stop" disabled>중지 · 현재 위치 착륙</button><p id="run-state">실행 전</p>
+<details><summary>기준과 증거</summary><p>회색은 수색 대상, 파랑은 계획 경로, 초록은 실제 영상으로 완료된 면적입니다. 건물·수목 제외와 사전 지도 가림 검사를 유지합니다. 실제 관측은 지도 기반 판정이며 사람 검출률이나 미등록 장애물 확인을 뜻하지 않습니다.</p><p id="record">실제 RGB 원본은 PC의 drone_record, 해시·자세·완료 증거는 학교 DB에 보관합니다.</p></details></aside>
+<article><h2>계획 경로와 실제 관측 영역</h2><canvas id="map" width="1000" height="850" aria-label="계획 경로 및 실제 완료 영역 지도"></canvas><p id="legend">회색 수색 대상 · 파랑 계획 · 초록 실제 완료 · 주황 기체</p></article></div></section><p id="message" role="status">서버 세션 확인 중</p></main></body></html>

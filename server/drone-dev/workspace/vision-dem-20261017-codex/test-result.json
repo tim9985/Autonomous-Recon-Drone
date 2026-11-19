@@ -1,0 +1,6 @@
+{
+  "exit": 0,
+  "stdout": "{\"status\": \"PASS\", \"checks\": [\"MSL minus actual DEM: 0m and 9.99m suppressed; 10m and 15m retained; geo calculation disabled\", \"Missing pose and out-of-coverage DEM do not suppress candidates; unknown counter increases\", \"SIM source clock, explicit empty appearance query and tracking reset across a gap preserved\", \"Low AGL result records SKIPPED and a reason without observations\", \"No DEM does not falsely suppress MSL frames\"], \"terrain_at_launch_m\": 69.7729963329416}\n",
+  "stderr": "",
+  "gpu_requested": false
+}

@@ -1,0 +1,73 @@
+{
+  "services": {
+    "backend": {
+      "environment": {
+        "SCHOOL_COORDINATE_CONFIG_ID": "ab9ab37f-70d4-5bc9-bf55-4d250a2d67cd",
+        "SCHOOL_RELEASE_VERSION": "20261106-PC-SIM-v4",
+        "SCHOOL_QUICK_LOGIN": "0"
+      },
+      "group_add": [
+        "2102"
+      ],
+      "volumes": [
+        "./data/models:/server-models:ro",
+        "./secrets/school-pc-identities:/run/pc-identities:ro"
+      ]
+    },
+    "vision": {
+      "image": "drone-vision:v12-school-pc-20261104",
+      "environment": {
+        "SCHOOL_REMOTE_SIM": "1",
+        "SCHOOL_COORDINATE_CONFIG_ID": "ab9ab37f-70d4-5bc9-bf55-4d250a2d67cd",
+        "SCHOOL_SIM_DEM_FILE": "/school-sim/terrain.tif",
+        "VISION_SOURCE_WORLD_VERSION": "990bee4527600963"
+      },
+      "volumes": [
+        "/home/se/sandboxes/drone-dev/data/regional-search-packages/5de065568ae8705da11a787e939af65ac11af5068e65e2677cafb4d17f8e9372/world/terrain.tif:/school-sim/terrain.tif:ro"
+      ]
+    },
+    "city-planner": {
+      "image": "drone-regional-planner:20261022",
+      "user": "2101:2101",
+      "working_dir": "/planner",
+      "entrypoint": [
+        "python",
+        "-B",
+        "-u",
+        "/worker.py"
+      ],
+      "command": [],
+      "restart": "unless-stopped",
+      "network_mode": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "pids_limit": 128,
+      "cpus": 2,
+      "mem_limit": "4g",
+      "tmpfs": [
+        "/tmp:size=256m,mode=1777"
+      ],
+      "environment": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMBA_CACHE_DIR": "/tmp/numba",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUNBUFFERED": "1"
+      },
+      "volumes": [
+        "./deployment/releases/20261106-pc-sim-v4/inputs:/planner:ro",
+        "./deployment/releases/20261106-pc-sim-v4/worker.py:/worker.py:ro",
+        "./data/backend/pc-workspaces:/workspaces",
+        "./data/backend/city-planner-status:/status",
+        "./data/city-planner-cache/packages:/planner/국토정보데이터/city_world/47190/offline_search/releases/8f070c9373679fb4/packages",
+        "./data/city-planner-cache/activity:/planner/국토정보데이터/city_world/47190/offline_search/activity_scopes"
+      ]
+    }
+  }
+}

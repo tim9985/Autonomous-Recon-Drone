@@ -1,0 +1,253 @@
+{
+  "name": "drone-real-20261006",
+  "services": {
+    "database": {
+      "image": "postgis/postgis:16-3.5@sha256:94146ac37bc61e2322f88016056c5920729cb8c64c8542ed590af8fc2abdac07",
+      "pull_policy": "never",
+      "network_mode": "none",
+      "read_only": true,
+      "restart": "unless-stopped",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "group_add": [
+        "2400"
+      ],
+      "cpus": 1,
+      "mem_limit": "1g",
+      "pids_limit": 96,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=64m"
+      ],
+      "working_dir": "/workspace",
+      "environment": {
+        "POSTGRES_DB": "drone_real",
+        "POSTGRES_USER": "drone_owner",
+        "POSTGRES_PASSWORD_FILE": "/run/identity/db-owner-password",
+        "POSTGRES_INITDB_ARGS": "--auth-local=scram-sha-256 --auth-host=scram-sha-256"
+      },
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-size": "5m",
+          "max-file": "3"
+        }
+      },
+      "user": "999:999",
+      "command": [
+        "postgres",
+        "-c",
+        "listen_addresses=",
+        "-c",
+        "unix_socket_directories=/var/run/postgresql",
+        "-c",
+        "unix_socket_permissions=0770",
+        "-c",
+        "max_connections=20",
+        "-c",
+        "shared_buffers=128MB"
+      ],
+      "volumes": [
+        "./data/postgres:/var/lib/postgresql/data",
+        "./sockets/database:/var/run/postgresql",
+        "./secrets/database:/run/identity:ro",
+        "./db/init-real.sh:/docker-entrypoint-initdb.d/01-init.sh:ro"
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "pg_isready",
+          "-U",
+          "drone_owner",
+          "-d",
+          "drone_real"
+        ],
+        "interval": "10s",
+        "timeout": "3s",
+        "retries": 15
+      }
+    },
+    "backend": {
+      "image": "sha256:27ee4624dfcf7dc99934cf94e3db6e40f86a9bda0d414137ab20540a0a3dda4d",
+      "pull_policy": "never",
+      "network_mode": "none",
+      "read_only": true,
+      "restart": "unless-stopped",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "group_add": [
+        "2500",
+        "999"
+      ],
+      "cpus": 1,
+      "mem_limit": "512m",
+      "pids_limit": 96,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=64m"
+      ],
+      "working_dir": "/workspace",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUNBUFFERED": "1",
+        "DRONE_COOKIE": "drone_real_session"
+      },
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-size": "5m",
+          "max-file": "3"
+        }
+      },
+      "user": "2201:2201",
+      "command": [
+        "python",
+        "-m",
+        "app.real_launch",
+        "backend"
+      ],
+      "volumes": [
+        "./app:/workspace/app:ro",
+        "./drone_backend:/workspace/drone_backend:ro",
+        "./sockets/backend:/run/backend-socket",
+        "./sockets/database:/run/db-socket:ro",
+        "./secrets/backend:/run/identity:ro",
+        "./data/backend:/data"
+      ]
+    },
+    "gateway": {
+      "image": "sha256:27ee4624dfcf7dc99934cf94e3db6e40f86a9bda0d414137ab20540a0a3dda4d",
+      "pull_policy": "never",
+      "network_mode": "none",
+      "read_only": true,
+      "restart": "unless-stopped",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "group_add": [
+        "2500"
+      ],
+      "cpus": 1,
+      "mem_limit": "512m",
+      "pids_limit": 96,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=64m"
+      ],
+      "working_dir": "/workspace",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUNBUFFERED": "1",
+        "DRONE_COOKIE": "drone_real_session"
+      },
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-size": "5m",
+          "max-file": "3"
+        }
+      },
+      "user": "2204:2204",
+      "command": [
+        "python",
+        "-m",
+        "app.real_launch",
+        "gateway"
+      ],
+      "volumes": [
+        "./app:/workspace/app:ro",
+        "./sockets/gateway:/run/gateway-socket",
+        "./sockets/backend:/run/backend-socket:ro",
+        "./secrets/gateway:/run/identity:ro"
+      ]
+    },
+    "vision": {
+      "image": "drone-vision:v12-20261014",
+      "pull_policy": "never",
+      "network_mode": "none",
+      "read_only": true,
+      "restart": "unless-stopped",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "group_add": [
+        "2500"
+      ],
+      "cpus": 6,
+      "mem_limit": "8g",
+      "pids_limit": 512,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=1g"
+      ],
+      "working_dir": "/workspace",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUNBUFFERED": "1",
+        "DRONE_COOKIE": "drone_real_session",
+        "LD_LIBRARY_PATH": "/opt/nvidia",
+        "YOLO_CONFIG_DIR": "/tmp/Ultralytics",
+        "XDG_CACHE_HOME": "/tmp/cache",
+        "TORCH_HOME": "/tmp/torch",
+        "HOME": "/tmp",
+        "INGEST_ENVIRONMENT": "REAL",
+        "VISION_TRT": "1",
+        "VISION_GEO_CLAIMS": "1",
+        "VISION_GEO_GROUPING": "1",
+        "VISION_GEO_AGL_FLAT": "1",
+        "SIM_RICH_FIELDS": "0",
+        "YOLO_AUTOINSTALL": "false",
+        "VISION_RECORD_DIR": "/scratch/record",
+        "VISION_RECORD_MAX_MB": "3000",
+        "VISION_VERIFY": "shadow",
+        "VISION_VERIFY_DIR": "/scratch/verify"
+      },
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-size": "5m",
+          "max-file": "3"
+        }
+      },
+      "user": "2202:2202",
+      "command": [
+        "python",
+        "-m",
+        "app.vision_ingest"
+      ],
+      "volumes": [
+        "./app:/workspace/app:ro",
+        "./sockets/backend:/run/backend-socket:ro",
+        "./secrets/vision:/run/identity:ro",
+        "./data/vision:/scratch",
+        "./data/models:/models:ro",
+        "/lib/x86_64-linux-gnu/libcuda.so.1:/opt/nvidia/libcuda.so.1:ro",
+        "/lib/x86_64-linux-gnu/libcuda.so.580.178.04:/opt/nvidia/libcuda.so.580.178.04:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-gpucomp.so.580.178.04:/opt/nvidia/libnvidia-gpucomp.so.580.178.04:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-ml.so.1:/opt/nvidia/libnvidia-ml.so.1:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-ml.so.580.178.04:/opt/nvidia/libnvidia-ml.so.580.178.04:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-nvvm.so.4:/opt/nvidia/libnvidia-nvvm.so.4:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-nvvm.so.580.178.04:/opt/nvidia/libnvidia-nvvm.so.580.178.04:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1:/opt/nvidia/libnvidia-ptxjitcompiler.so.1:ro",
+        "/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.580.178.04:/opt/nvidia/libnvidia-ptxjitcompiler.so.580.178.04:ro",
+        "/usr/bin/nvidia-smi:/usr/local/bin/nvidia-smi:ro"
+      ],
+      "devices": [
+        "/dev/nvidia0:/dev/nvidia0",
+        "/dev/nvidiactl:/dev/nvidiactl",
+        "/dev/nvidia-uvm:/dev/nvidia-uvm",
+        "/dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools"
+      ]
+    }
+  }
+}

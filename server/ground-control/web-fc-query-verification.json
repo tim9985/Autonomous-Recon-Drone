@@ -1,0 +1,16 @@
+{
+  "dev_operator_login_http": 200,
+  "web_status_http": 200,
+  "live_state": "LIVE",
+  "web_command_http": 202,
+  "job_id": "d842caba-3560-4ea0-9d26-90909ac49f72",
+  "job_state": "COMPLETED",
+  "fc_command_ack": [
+    0
+  ],
+  "fc_version_response": true,
+  "motor_command_sent": false,
+  "final_disarmed": true,
+  "publisher_restored": true,
+  "error": null
+}

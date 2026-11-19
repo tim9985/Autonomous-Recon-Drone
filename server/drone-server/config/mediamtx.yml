@@ -1,0 +1,28 @@
+logLevel: info
+api: yes
+apiAddress: 127.0.0.1:18497
+metrics: yes
+metricsAddress: 127.0.0.1:18498
+rtsp: yes
+rtspAddress: 127.0.0.1:18554
+rtspTransports: [tcp]
+rtmp: no
+webrtc: no
+moq: no
+hls: yes
+hlsAddress: 127.0.0.1:18888
+hlsAllowOrigins: []
+srt: yes
+srtAddress: 127.0.0.1:18890
+playback: yes
+playbackAddress: 127.0.0.1:18999
+pathDefaults:
+  record: yes
+  recordPath: /data/missions/%path/video/%Y-%m-%d_%H-%M-%S-%f
+  recordFormat: fmp4
+  recordPartDuration: 1s
+  recordSegmentDuration: 1m
+  recordDeleteAfter: 0s
+paths:
+  sample:
+    source: publisher

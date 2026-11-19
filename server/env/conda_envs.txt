@@ -1,0 +1,10 @@
+
+# conda environments:
+#
+# * -> active
+# + -> frozen
+base                 *   /home/se/miniconda3
+drone                    /home/se/miniconda3/envs/drone
+mappo                    /home/se/miniconda3/envs/mappo
+trt                      /home/se/miniconda3/envs/trt
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -v ON_ERROR_STOP=1 --set=api_password="$(cat /run/identity/db-api-password)" <<'SQL'
+CREATE EXTENSION IF NOT EXISTS postgis;
+REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON DATABASE drone_real FROM PUBLIC;
+REVOKE CONNECT ON DATABASE postgres FROM PUBLIC;
+CREATE ROLE drone_api LOGIN PASSWORD :'api_password' NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION;
+GRANT CONNECT ON DATABASE drone_real TO drone_api;
+SQL

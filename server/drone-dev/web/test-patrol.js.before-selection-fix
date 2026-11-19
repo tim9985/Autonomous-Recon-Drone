@@ -1,0 +1,171 @@
+'use strict';
+const $ = id => document.getElementById(id);
+const terminal = new Set(['COMPLETED', 'CANCELLED', 'FAILED']);
+const labels = { QUEUED: '연결기 처리 대기', RUNNING: 'Unreal 실행 중', COMPLETED: '정찰·귀환·착륙 완료', CANCELLED: '중지 완료', FAILED: '실행 실패 — 기록 확인' };
+let csrf = '', config, map, mapReady = false, first, bounds, selecting = false, run, requestId, stopId, sending = false, polling = false;
+let vehicle;
+let profile = 'LOCAL', displayedFrame;
+const empty = { type: 'FeatureCollection', features: [] };
+function message(text) { $('message').textContent = text; }
+async function api(path, method = 'GET', body) {
+  const response = await fetch('/api/v1/' + path, {
+    method, credentials: 'same-origin', cache: 'no-store',
+    headers: { 'Content-Type': 'application/json', ...(method === 'GET' ? {} : { 'X-CSRF-Token': csrf }) },
+    ...(body === undefined ? {} : { body: JSON.stringify(body) })
+  });
+  const value = await response.json();
+  if (!response.ok) throw new Error(value.error?.code || value.detail || `HTTP ${response.status}`);
+  return value;
+}
+function controls() {
+  const active = run && !terminal.has(run.state);
+  $('select').disabled = !mapReady || active || sending;
+  $('building').disabled = !mapReady || active || sending;
+  $('start').disabled = !bounds || active || sending || !config?.worker_registered;
+  $('stop').disabled = !active || sending;
+}
+function setArea(value) {
+  bounds = value; requestId = undefined;
+  if (!value) { map.getSource('area').setData(empty); $('area').textContent = '첫 모서리를 선택하세요.'; return; }
+  const [w, s, e, n] = value;
+  map.getSource('area').setData({ type: 'Feature', properties: {}, geometry: {
+    type: 'Polygon', coordinates: [[[w, s], [e, s], [e, n], [w, n], [w, s]]]
+  }});
+  $('area').textContent = `선택 구역: ${(e - w) * 111320 * Math.cos(s * Math.PI / 180) * (n - s) * 111320 | 0}m²`;
+  $('settings').textContent = profile === 'CAMPUS_BUILDING' ? '디지털관 · 이륙점 기준 45m · 3m/s · 간격 15m' : '이륙점 기준 15m · 1.5m/s · 간격 5m';
+  controls();
+}
+async function refresh() {
+  if (!run || polling) return;
+  polling = true;
+  const rid = run.run_id;
+  try {
+    const result = await api('simulations/patrols/' + rid);
+    if (run?.run_id !== rid) return;
+    run = result.run;
+    showVision(result.vision, rid);
+    $('run-id').textContent = run.run_id;
+    $('state').textContent = labels[run.state] || run.state;
+    $('ending').textContent = result.ending ? JSON.stringify({ ...result.ending, flight_result: result.flight_result, reason: result.failure_reason }, null, 2) : '';
+    if (result.route.length) map.getSource('route').setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: result.route } });
+    const telemetry = result.telemetry;
+    if (telemetry) {
+      const age = Math.max(0, Math.floor((Date.now() - Date.parse(result.telemetry_at)) / 1000));
+      $('vehicle').textContent = result.flight_result?.landed_disarmed ? '착륙·무장 해제 확인' :
+        `마지막 측정 ${age}초 전 · ${telemetry.landed_state === 1 ? '공중' : '지상'} · N ${telemetry.position.north_m.toFixed(1)}m / E ${telemetry.position.east_m.toFixed(1)}m`;
+      if (telemetry.geographic_position) vehicle.setLngLat(telemetry.geographic_position).addTo(map);
+    }
+    if (terminal.has(run.state)) {
+      message(labels[run.state] + (result.failure_reason ? '\n' + result.failure_reason : ''));
+    } else message(run.state === 'QUEUED' ? '요청이 저장됐습니다. Unreal 연결기 처리를 기다립니다.' :
+      stopId ? '정지·착륙 요청의 실제 종료 확인을 기다립니다.' : 'Unreal에서 선택 경로를 실행 중입니다. 귀환·착륙 결과를 기다립니다.');
+  } catch (error) { message('상태 수신 지연: ' + error.message + '\n새 정찰을 중복 요청하지 마세요.'); }
+  finally { polling = false; controls(); }
+}
+$('select').onclick = () => {
+  profile = 'LOCAL'; selecting = true; first = undefined; setArea(undefined); controls();
+  map.getSource('route').setData(empty);
+  map.getCanvas().style.cursor = 'crosshair'; message('지도에서 구역의 첫 모서리와 맞은편 모서리를 차례로 선택하세요.');
+};
+$('building').onclick = () => {
+  profile = 'CAMPUS_BUILDING'; selecting = false; first = undefined;
+  map.getCanvas().style.cursor = ''; map.getSource('route').setData(empty);
+  setArea(config.building.bounds);
+  map.fitBounds([[bounds[0], bounds[1]], [bounds[2], bounds[3]]], { padding: {top:70,bottom:70,left:80,right:420}, maxZoom:19.5 });
+  message('디지털관 전체와 주변 5m를 선택했습니다. 먼저 수직 상승한 뒤 건물 위 정찰 경로를 실행합니다.');
+};
+$('launch').onclick = () => map?.flyTo({ center: config.launch, zoom: 19.5, pitch: 0 });
+$('start').onclick = async () => {
+  if (sending || !bounds || (run && !terminal.has(run.state))) return;
+  sending = true; selecting = false; map.getCanvas().style.cursor = ''; controls();
+  if (run && terminal.has(run.state) && requestId === run.run_id) requestId = undefined;
+  requestId ??= crypto.randomUUID(); stopId = undefined;
+  try {
+    run = await api('simulations/patrols', 'POST', { run_id: requestId, bounds, profile });
+    message('요청을 저장했습니다. Unreal 연결기가 수락할 때까지 대기합니다.');
+    await refresh();
+  } catch (error) { message('정찰 요청: ' + error.message + '\n응답이 끊겼다면 같은 구역으로 재시도하면 중복 실행을 방지합니다.'); }
+  finally { sending = false; controls(); }
+};
+$('stop').onclick = async () => {
+  if (!run || sending) return;
+  sending = true; controls(); stopId ??= crypto.randomUUID();
+  try {
+    await api('simulations/patrols/' + run.run_id + '/stop', 'POST', { command_id: stopId });
+    message('정지·착륙을 요청했습니다. 연결기의 실제 종료 확인을 기다립니다.'); await refresh();
+  } catch (error) { message('중지 요청: ' + error.message); }
+  finally { sending = false; controls(); }
+};
+$('logout').onclick = async () => {
+  if (run && !terminal.has(run.state)) { message('먼저 정지·착륙을 요청하고 종료를 확인하세요.'); return; }
+  try { await api('auth/logout', 'POST', {}); location.assign('/'); }
+  catch (error) { message(error.message); }
+};
+async function initialize() {
+  const me = await api('auth/me'); csrf = me.csrf_token;
+  config = await api('simulations/patrol-config');
+  const environments = await fetch('/api/environments', { credentials: 'same-origin' }).then(r => r.json());
+  const environment = environments.environments.find(e => e.environmentId === 'kumoh-campus-sim');
+  if (!environment) throw new Error('캠퍼스 SIM 지도가 없습니다.');
+  const world = await fetch(`/api/environments/${environment.environmentId}/manifest`, { credentials: 'same-origin' }).then(r => r.json());
+  if (world.worldVersion !== config.world_version) throw new Error('웹 지도와 Unreal 환경 버전이 다릅니다.');
+  map = new maplibregl.Map({ container: 'map', center: config.launch, zoom: 19.5, pitch: 0,
+    style: { version: 8, sources: {}, layers: [{ id: 'background', type: 'background', paint: { 'background-color': '#173334' } }] } });
+  map.addControl(new maplibregl.NavigationControl(), 'top-left');
+  map.on('error', event => message('지도 자료 수신 오류: ' + event.error.message));
+  map.on('load', async () => {
+    try {
+      map.addSource('terrain', { type: 'raster-dem', tiles: [location.origin + world.web.terrainUrl], tileSize: 256,
+        encoding: 'terrarium', minzoom: world.web.minzoom, maxzoom: world.web.maxzoom, bounds: world.bounds });
+      map.setTerrain({ source: 'terrain', exaggeration: 1 });
+      map.addLayer({ id: 'hillshade', type: 'hillshade', source: 'terrain', paint: { 'hillshade-exaggeration': .5 } });
+      if (world.web.facilitiesUrl) {
+        map.addSource('facilities', { type: 'geojson', data: world.web.facilitiesUrl });
+        map.addLayer({ id: 'facilities', type: 'fill', source: 'facilities', filter: ['==', ['geometry-type'], 'Polygon'], paint: { 'fill-color': '#6d9271', 'fill-opacity': .5 } });
+      }
+      map.addSource('buildings', { type: 'geojson', data: world.web.buildingsUrl });
+      map.addLayer({ id: 'buildings', type: 'fill', source: 'buildings', paint: { 'fill-color': '#c1a17b', 'fill-opacity': .7 } });
+      for (const source of ['area', 'route']) map.addSource(source, { type: 'geojson', data: empty });
+      map.addLayer({ id: 'area-fill', type: 'fill', source: 'area', paint: { 'fill-color': '#43e0ca', 'fill-opacity': .25 } });
+      map.addLayer({ id: 'area-line', type: 'line', source: 'area', paint: { 'line-color': '#43e0ca', 'line-width': 3 } });
+      map.addLayer({ id: 'route-line', type: 'line', source: 'route', paint: { 'line-color': '#ffcf6b', 'line-width': 2 } });
+      mapReady = true;
+      const launch = document.createElement('div'); launch.className = 'launch-marker';
+      new maplibregl.Marker({ element: launch }).setLngLat(config.launch).setPopup(new maplibregl.Popup().setText('Unreal 이륙·귀환 지점')).addTo(map);
+      const marker = document.createElement('div'); marker.className = 'vehicle-marker'; vehicle = new maplibregl.Marker({ element: marker });
+      const history = await api('simulations/patrols');
+      run = history.find(r => !terminal.has(r.state)) || history[0];
+      if (run) { profile = run.request.patrol.profile || 'LOCAL'; setArea(run.request.patrol.bounds); await refresh(); }
+      else message('Unreal 이륙점 주변의 구역을 선택하세요. 대기열 등록과 실제 비행 시작은 구분됩니다.');
+      controls();
+    } catch (error) { message(error.message); }
+  });
+  map.on('click', event => {
+    if (!selecting || sending || (run && !terminal.has(run.state))) return;
+    const point = [event.lngLat.lng, event.lngLat.lat];
+    if (!first) { first = point; message('맞은편 모서리를 선택하세요.'); return; }
+    setArea([Math.min(first[0], point[0]), Math.min(first[1], point[1]), Math.max(first[0], point[0]), Math.max(first[1], point[1])]);
+    selecting = false; map.getCanvas().style.cursor = ''; message('선택 구역을 확인한 뒤 정찰 시작을 누르세요.');
+  });
+  setInterval(() => { if (run) refresh(); }, 2500);
+}
+function showVision(v, rid) {
+  if (!v) { $('vision-status').textContent = '이전 실행은 비행만 포함합니다. 새 정찰부터 사진 분석을 함께 실행합니다.'; return; }
+  $('vision-status').textContent = `서버 사진 ${v.frames}장 · 분석 완료 ${v.analysis_completed || 0} / ${v.frames} · 실패 ${v.analysis_failed || 0}\n후보 ${v.candidates}개 · 관측 ${v.observations}건`;
+  $('candidates').textContent = v.items.slice(0, 5).map(c => `${c.candidate_id.slice(0,8)} · ${c.evidence_count}회 · ${c.geo_status}`).join('\n');
+  if (!v.frame) { $('frame').hidden = true; $('boxes').replaceChildren(); displayedFrame = undefined; return; }
+  const key = rid + '/' + v.frame.frame_id;
+  if (displayedFrame !== key) {
+    $('frame').src = `/api/v1/simulations/patrols/${rid}/frames/${v.frame.frame_id}/image`;
+    $('frame').hidden = false; displayedFrame = key;
+  }
+  $('boxes').replaceChildren();
+  for (const box of v.boxes) {
+    const {x1:x, y1:y, x2, y2} = box.bbox;
+    const el = document.createElement('span'); el.className = 'detection';
+    Object.assign(el.style, { left: `${100*x/v.frame.width}%`, top: `${100*y/v.frame.height}%`, width: `${100*(x2-x)/v.frame.width}%`, height: `${100*(y2-y)/v.frame.height}%` });
+    el.title = `${box.candidate_id} · ${(box.confidence*100).toFixed(0)}% · ${box.geo_status}`;
+    $('boxes').append(el);
+  }
+}
+initialize().catch(error => message(error.message + '\n관제 첫 화면에서 test 계정으로 로그인하세요.'));

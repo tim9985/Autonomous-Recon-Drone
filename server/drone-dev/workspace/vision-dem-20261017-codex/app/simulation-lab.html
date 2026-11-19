@@ -1,0 +1,12 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NET_SITL 시뮬레이션</title>
+<style>body{font:16px system-ui;margin:32px auto;max-width:850px;padding:0 16px;background:#101820;color:#e8edf2}label{display:block;margin:16px 0}button,select,textarea{font:inherit;padding:8px}textarea,pre{box-sizing:border-box;width:100%;background:#182530;color:#e8edf2;border:1px solid #506070}pre{padding:16px;overflow:auto;max-height:380px}button{margin-right:12px}a{color:#9bd4ff}</style>
+<h1>NET_SITL 시뮬레이션</h1><p>관제 로그인 후 사용합니다. 로컬 PC의 연결기가 실행 중이어야 요청이 처리됩니다. 실제 드론 명령은 보내지 않습니다.</p>
+<p><a href="/">관제 화면</a></p>
+<form id="form"><label>시나리오 <select id="scenario"><option value="CAPTURE">측정만 — 5초</option><option value="ROUTE">입력 경로 가상 비행 후 착륙</option></select></label>
+<label>맵 <select id="world"><option>TestField</option><option>Kumoh</option></select></label>
+<label>대상 PC <select id="worker"><option value="">연결기 목록 확인 중</option></select></label>
+<label>NED 경로 — 이륙점 기준 북/동 거리(m), 고도(m)<textarea id="route" rows="6">[{"north_m":8,"east_m":0,"altitude_m":15},{"north_m":8,"east_m":8,"altitude_m":15},{"north_m":0,"east_m":8,"altitude_m":15},{"north_m":0,"east_m":0,"altitude_m":15}]</textarea></label>
+<button type="submit">새 실행 요청</button><button type="button" id="retry">동일 요청 재전송</button><button type="button" id="stop">중지 요청</button></form>
+<p id="message" role="status">관제 세션을 확인합니다.</p><h2>실행 상태</h2><pre id="state"></pre><h2>누적 결과 — 최근 30건</h2><pre id="samples"></pre>
+<script src="/simulation-lab.js" defer></script></html>

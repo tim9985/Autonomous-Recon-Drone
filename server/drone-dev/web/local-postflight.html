@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>정찰 기록 · 자율정찰 관제</title>
+  <link rel="icon" href="/assets/app-icon-192.png">
+  <link rel="stylesheet" href="/local-maplibre.css"><link rel="stylesheet" href="/local-dashboard.css"><link rel="stylesheet" href="/local-postflight.css">
+  <script defer="" src="/local-maplibre.js"></script><script type="module" src="/local-postflight.js"></script>
+</head>
+<body class="record-page">
+  <header class="appbar"><a class="brand" href="/"><span class="brand-mark" data-icon="Drone" aria-hidden="true"></span>자율정찰 관제</a><span class="environment-tag">학교 SIM</span><nav class="app-actions"><a class="records-link" href="/">관제 지도로</a></nav><span id="session-state" class="record-session" role="status">연결 확인 중</span></header>
+  <main>
+    <div class="page-heading"><div><h1>정찰 기록</h1><p>저장 영상과 탐지 관측을 검토합니다.</p></div><span class="policy">저장 기록</span></div>
+    <section id="auth-needed" class="notice" hidden=""><h2>로그인이 필요합니다</h2><p>관제 계정으로 로그인한 후 기록을 볼 수 있습니다.</p><a class="button" href="/">관제에서 로그인</a></section>
+    <div id="workspace" hidden="">
+      <section class="run-picker" aria-label="정찰 기록 선택"><label for="run-select">기록 선택</label><div class="picker-row"><select id="run-select"><option value="">기록 불러오는 중…</option></select><button id="refresh" type="button">새로고침</button></div><div class="record-shortcuts"><button id="current-capture" type="button" disabled="">최근 수집</button><button id="previous-results" type="button" disabled="">이전 분석</button><span id="status" role="status">기록을 선택하세요.</span></div></section>
+      <p id="error" class="error" role="alert" hidden=""></p>
+      <div class="record-overview"><p id="result-provenance" class="provenance" role="status" hidden=""></p><dl class="record-metrics"><div><dt>저장 프레임</dt><dd id="frames-count">—</dd></div><div><dt>카메라 자세</dt><dd id="pose-count">—</dd></div><div><dt>탐지 관측</dt><dd id="results-count">—</dd></div></dl></div>
+      <div class="overview">
+        <section class="panel record-blackbox" id="record-blackbox" hidden><div class="panel-heading"><div><h2>전체 비행 영상</h2><p id="record-drive-status"></p></div></div><video id="record-video" controls playsinline preload="metadata" aria-label="선택한 정찰의 전체 블랙박스 영상"></video></section>
+        <section class="panel map-panel"><div class="panel-heading"><div><h2>경로와 탐지 위치</h2><p id="map-caption">지도를 준비합니다.</p></div><button id="fit-map" type="button">전체 보기</button></div><div id="map" role="region" aria-label="정찰 결과 지도"></div><div class="map-legend"><span class="route-key">실제 경로</span><span class="estimate-key">SIM 추정 위치</span></div><p id="map-error" class="hint" hidden=""></p></section>
+        <section class="panel preview-panel" id="preview-panel" tabindex="-1"><div class="panel-heading"><div><h2 id="preview-title">저장 영상</h2><p id="preview-caption">저장된 프레임을 선택하세요.</p></div><button id="latest-preview" type="button" hidden="">최신 영상</button></div><div class="preview"><div id="preview-empty">영상 불러오는 중…</div><div id="image-wrap" hidden=""><img id="preview-image" alt="저장된 정찰 프레임"><svg id="bbox" aria-label="검출 영역" preserveAspectRatio="xMidYMid meet"></svg></div></div><div class="preview-actions"><span id="capture-time">—</span><button id="expand-preview" type="button" disabled=""><span data-icon="FocusCentered" aria-hidden="true"></span>원본 확대</button></div><p id="observation-detail" class="observation-detail" hidden=""></p><dl class="preview-meta"><div><dt>실행 상태</dt><dd id="run-state">—</dd></div><div><dt>카메라 자세</dt><dd id="pose-state">—</dd></div></dl><button id="back-observations" type="button" class="back-observations" hidden=""><span data-icon="ArrowLeft" aria-hidden="true"></span>관측 목록으로</button></section>
+      </div>
+      <section class="panel results-panel"><div class="panel-heading"><div><h2>탐지 관측 <span id="result-total" class="count">—</span></h2><p>같은 사람이 여러 번 관측될 수 있습니다.</p></div><span id="result-window" class="muted"></span></div><div class="record-filters"><label class="sr-only" for="result-search">상의색 또는 자세 검색</label><input id="result-search" type="search" disabled placeholder="상의색·자세 검색"><label class="sr-only" for="result-location">위치 필터</label><select id="result-location" disabled><option value="all">모든 관측</option><option value="located">위치 있음</option><option value="unlocated">위치 없음</option></select></div><div id="results" class="results"><p class="empty">기록을 선택하세요.</p></div></section>
+      <div class="record-followup"><a class="button" href="/?view=case-summary">사건 요약·후속 처리</a><span>관제에서 선택한 사건의 검토·종료 상태를 확인합니다.</span></div><details class="technical"><summary>상세 기록</summary><dl><div><dt>실행 ID</dt><dd id="info-run">—</dd></div><div><dt>임무 ID</dt><dd id="info-mission">—</dd></div><div><dt>마지막 조회</dt><dd id="info-update">—</dd></div><div><dt>마지막 위치 수신</dt><dd id="track-time">—</dd></div><div><dt>분석 완료 / 대기·진행 / 실패</dt><dd id="analysis-summary">—</dd></div><div><dt>좌표 해석</dt><dd>SIM 추정 · 지형 수직 기준 미검증</dd></div></dl><form id="run-form"><label for="run-id">실행 ID로 조회</label><div><input id="run-id" autocomplete="off" spellcheck="false"><button>조회</button></div></form><div class="local-track"><h3>로컬 좌표 경로</h3><p>북쪽이 위, 동쪽이 오른쪽입니다.</p><svg id="ned-track" viewBox="0 0 600 220" aria-label="시뮬 로컬 좌표 경로"></svg></div></details>
+    </div>
+  </main>
+  <dialog id="media-dialog" class="media-dialog" aria-labelledby="media-title"><header><div><h2 id="media-title">기록 원본</h2><p id="media-description"></p></div><button id="close-media" type="button" aria-label="원본 닫기"><span data-icon="X" aria-hidden="true"></span></button></header><div class="full-frame"><img id="full-image" alt="저장된 정찰 원본"><svg id="full-bbox" preserveAspectRatio="xMidYMid meet" aria-label="검출 영역"></svg></div></dialog>
+
+
+</body></html>

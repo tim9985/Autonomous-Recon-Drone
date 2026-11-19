@@ -1,0 +1,25 @@
+:root { color-scheme: light; font: 17px/1.55 system-ui, sans-serif; color: #17232b; background: #edf4f1; }
+main { max-width: 50rem; margin: 2rem auto; padding: clamp(1rem, 4vw, 3rem); background: white; border: 1px solid #b5cfc3; border-radius: 12px; }
+.label { color: #17644d; font-weight: 700; letter-spacing: .06em; }
+h1, h2 { line-height: 1.2; }
+form, section { margin-top: 1.5rem; }
+label { display: block; margin: .55rem 0; }
+input, select, button { font: inherit; padding: .4rem .65rem; }
+input, select { display: block; max-width: 100%; box-sizing: border-box; }
+button { margin-top: .6rem; color: white; background: #175844; border: 1px solid #175844; border-radius: 6px; cursor: pointer; }
+button:disabled { color: #34433b; background: #d6e4de; cursor: default; }
+fieldset { border: 1px solid #b5cfc3; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+#message { color: #8c2929; }
+
+#live-map-panel{margin:18px 0;padding:16px;border:1px solid #afc3c6;border-radius:10px;background:#f4f9f8;color:#163235}
+#live-map-panel .live-map-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+#live-map-panel .live-map-heading h2{margin:0}
+#live-map-panel [data-live-field=link]{padding:4px 8px;border-radius:6px;color:#573d14;background:#f2dfbd}
+#live-map-panel[data-status=LIVE] [data-live-field=link]{color:#174938;background:#d3eee0}
+#live-map-panel canvas{display:block;width:100%;height:300px;border-radius:6px;background:#14252c}
+#live-map-panel p{margin:6px 0;font-size:13px}
+#live-map-panel .live-map-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));gap:10px;margin-bottom:0}
+#live-map-panel dt{color:#486366;font-size:12px}
+#live-map-panel dd{margin:4px 0 0;font-weight:600;font-variant-numeric:tabular-nums}

@@ -1,0 +1,7 @@
+runtime/
+data/
+secrets/
+.env
+logs/
+workspace/
+*.tar
