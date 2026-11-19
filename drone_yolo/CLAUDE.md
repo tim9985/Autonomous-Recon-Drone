@@ -90,7 +90,7 @@
 
 ## 6. 기록 (볼트)
 
-- 작업이 끝나면 볼트 갱신 → commit · push (저장소 하나: `tim9985/Capstone` · 서버 push 는 deploy key `github-capstone`)
+- 작업이 끝나면 볼트 갱신 → commit · push (저장소 하나: **`tim9985/Autonomous-Recon-Drone`** · 공개 · 11-19 이전 · 서버 push 는 `GIT_SSH_COMMAND="ssh -i ~/.ssh/ard_deploy -o IdentitiesOnly=yes" git push ard main` (deploy key · 이 저장소 전용) · 옛 `tim9985/Capstone` 은 비공개 · 이전 안내 `MIGRATION.md`)
 - **장(폴더)별 + 날짜별**(`09 기록/일자별/`) · `타임라인` 한 줄 추가
 - **개조식 · 짧게 · 설정값과 수량**을 적는다 · %·%p·지표 이름 → `obsidian/10 성능 요구사항/수치 표기 규칙.md`
 - 지난 판은 지우지 않는다 — `지난 …` 하위 폴더로 옮기고 맨 위에 대체 링크
