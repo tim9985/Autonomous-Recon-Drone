@@ -11,6 +11,7 @@
 ## 폴더 지도
 
 > **2026-11-19 서버 이전** — 학교 서버를 떠나 동료 PC 로 옮긴다 → [`MIGRATION.md`](MIGRATION.md) (GitHub 과 전송 꾸러미에 무엇이 있나 · 받는 법 · 다시 세우기)
+> **2026-11-20** — 팀원 PC 중앙서버 스크립트 [`server/local-pc/`](server/local-pc/README.md) · 지상 Pi → 실지도 게이트웨이 [`server/real-map-gateway/`](server/real-map-gateway/README.md)
 
 | 폴더 | 내용 | 저장소 |
 | --- | --- | --- |

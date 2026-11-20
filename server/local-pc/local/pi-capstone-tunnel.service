@@ -1,0 +1,17 @@
+[Unit]
+Description=Capstone gateway tunnel over Tailscale
+Wants=network-online.target
+After=network-online.target tailscaled.service
+Requires=tailscaled.service
+
+[Service]
+Type=simple
+User=gateway
+ExecStart=/usr/bin/ssh -N -T -p 7540 -i /etc/drone-gateway/tailnet-ssh-key -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=/etc/drone-gateway/tailnet_known_hosts -o HostKeyAlias=capstone-local-server -o "ProxyCommand=/usr/bin/tailscale nc %%h %%p" -o ExitOnForwardFailure=yes -o ConnectTimeout=8 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -L 127.0.0.1:18443:127.0.0.1:18443 -L 127.0.0.1:19444:127.0.0.1:19444 -L 127.0.0.1:19560:127.0.0.1:19560 drone-gw-tunnel@capstone-local-server
+Restart=always
+RestartSec=5
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

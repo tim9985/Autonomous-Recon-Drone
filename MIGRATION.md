@@ -73,7 +73,14 @@ cd transfer && sha256sum -c SHA256SUMS && (cd 00_root && sha256sum -c SHA256SUMS
 rsync -avP --partial -e "ssh -p 7540" se@<서버 주소>:JupyterLAB/Capstone/data/det_v12 ./data/
 ```
 
-## 5. 저장소
+## 5. 11-20 이후 — 팀원 PC 중앙서버
+
+- 학교 서버는 11-20 차단 → 팀원 PC(WSL2 Ubuntu 24.04 · RTX 4080 SUPER)에 새 관제 웹(18443)과 옛 REAL 스택(19443 · 19444 · 19560)을 다시 세웠다 → [`server/local-pc/`](server/local-pc/README.md)
+- DB는 빈 상태로 시작했다. 관제 웹 계정은 `real-admin` 하나이며, 실지도 게이트웨이도 이 계정에 등록했다.
+- 지상 Pi ↔ 서버는 Tailscale + SSH 터널. Pi 텔레메트리 브리지와 영상 송출 → [`server/real-map-gateway/`](server/real-map-gateway/README.md)
+- REAL 비전은 `v12_f91_swa15` + worker 1.4(shadow), PyTorch FP16 (TensorRT 엔진은 이 GPU용으로 아직 만들지 않음) — test_v2 AP50 0.6461
+
+## 6. 저장소
 
 - 새 저장소 `tim9985/Autonomous-Recon-Drone` (**공개**) — 옛 `tim9985/Capstone` 이력 375 커밋을 그대로 옮겼다
 - 비밀 · 내부 주소 · 개인 연락처 · 데이터셋 파생 이미지는 올리지 않는다 — 올리기 전 `python3 migration/scan_secrets.py <폴더>`
