@@ -1,0 +1,26 @@
+[Unit]
+Description=Real-map telemetry bridge (receive-only MAVLink to the control web)
+Wants=network-online.target pi-capstone-tunnel.service
+After=network-online.target pi-capstone-tunnel.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=gateway
+Group=gateway
+SupplementaryGroups=dialout
+Environment=PYTHONPYCACHEPREFIX=/var/lib/real-map-gateway/pycache
+ExecStart=/usr/bin/python3 -u /opt/real-map-gateway/real_map_gateway.py --config /etc/drone-gateway/real-map.json
+Restart=always
+RestartSec=5
+StateDirectory=real-map-gateway
+StateDirectoryMode=0750
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+MemoryMax=160M
+
+[Install]
+WantedBy=multi-user.target

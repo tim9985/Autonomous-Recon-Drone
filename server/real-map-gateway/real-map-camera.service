@@ -1,0 +1,23 @@
+[Unit]
+Description=Real-map camera publisher (WFB RTP copy on 5606 to the control web)
+Wants=drone-camera-relay.service pi-capstone-tunnel.service
+After=drone-camera-relay.service pi-capstone-tunnel.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=gateway
+Group=gateway
+EnvironmentFile=/etc/drone-gateway/real-map-camera.env
+ExecStart=/usr/bin/python3 -u /opt/real-map-gateway/ground_camera_publish.py --device ${DEVICE_URL} --key-file /etc/drone-gateway/real-map-key --ca /etc/drone-gateway/local-school-web-ca.crt --port 5606 $CAMERA_ARGS
+Restart=always
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+MemoryMax=320M
+
+[Install]
+WantedBy=multi-user.target
