@@ -1,7 +1,6 @@
 """Fresh REAL storage deployment. Never modify the existing SIM stack or training folders."""
 import datetime,hashlib,json,os,pathlib,secrets,shutil,subprocess,sys,time,uuid
 ROOT=pathlib.Path('/home/se/sandboxes/drone-real')
-STAGE=pathlib.Path(sys.argv[1]).resolve()
 OLD=pathlib.Path('/home/se/sandboxes/drone-dev')
 ENGINE='/home/se/sandboxes/drone-server/runtime'
 DOCKER=[ENGINE+'/docker/docker','-H','unix://'+ENGINE+'/docker.sock']
@@ -14,14 +13,15 @@ def write(path,value,uid=0,gid=None,mode=0o644):
     path.write_text(value);os.chown(path,uid,uid if gid is None else gid);os.chmod(path,mode)
 def openssl(*args):return subprocess.check_output(['openssl',*map(str,args)],stderr=subprocess.DEVNULL)
 
-def provision():
-    assert os.geteuid()==0 and STAGE.is_relative_to(OLD) and STAGE!=OLD
+def provision(stage, *, identity_only=False):
+    stage=pathlib.Path(stage).resolve()
+    assert os.geteuid()==0 and stage.is_relative_to(OLD) and stage!=OLD
     if ROOT.exists():raise RuntimeError('Existing REAL root: inspect and resume explicitly, never overwrite')
     ROOT.mkdir(mode=0o755)
     for name in ('app','drone_backend','tests','db'):
-        shutil.copytree(STAGE/name,ROOT/name,ignore=shutil.ignore_patterns('__pycache__'))
+        shutil.copytree(stage/name,ROOT/name,ignore=shutil.ignore_patterns('__pycache__'))
         for path in (ROOT/name).rglob('*'):os.chmod(path,0o755 if path.is_dir() or path.suffix=='.sh' else 0o644)
-    shutil.copyfile(STAGE/'tools/deploy_real.py',ROOT/'deploy_real.py')
+    shutil.copyfile(stage/'tools/deploy_real.py',ROOT/'deploy_real.py')
     private=ROOT/'secrets';private.mkdir(mode=0o700);os.chown(private,1001,1001)
     openssl('req','-x509','-newkey','rsa:3072','-nodes','-keyout',private/'ca.key','-out',private/'ca.crt','-days','90',
             '-subj','/CN=Drone REAL service CA','-addext','basicConstraints=critical,CA:TRUE','-addext','keyUsage=critical,keyCertSign,cRLSign')
@@ -63,6 +63,7 @@ def provision():
     for rel,owner,gid,mode in [('data/postgres',999,999,0o700),('data/backend',2201,2201,0o700),('data/vision',2202,2202,0o700),('data/models',2202,2202,0o500),
         ('sockets/database',999,999,0o770),('sockets/backend',2201,2400,0o2770),('sockets/gateway',2204,1001,0o2770)]:
         p=ROOT/rel;p.mkdir(parents=True);os.chown(p,owner,gid);os.chmod(p,mode)
+    if identity_only:return
     write(ROOT/'db/init-real.sh','''#!/bin/bash
 set -euo pipefail
 psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -v ON_ERROR_STOP=1 --set=api_password="$(cat /run/identity/db-api-password)" <<'SQL'
@@ -117,4 +118,4 @@ uvicorn.run('drone_backend.real:app' if role=='backend' else 'app.gateway:app',u
     perms=json.dumps([{'drone_id':'real-drone-01','scopes':['read','edit','control']}])
     migrations.psql(f"INSERT INTO drone.user_account(user_id,login_id,credential_hash,permissions,status) VALUES ('{uid}','real-operator',{q(encoded)},{q(perms)},'ACTIVE'); INSERT INTO drone.drone(drone_id,name,gateway_id,gateway_state,link_state) VALUES ('real-drone-01','REAL intake device - hardware not connected','real-gateway-01','{{\"environment\":\"REAL\",\"flight_enabled\":false}}','{{}}');",'drone_real')
     print(json.dumps({'database_prepared':True,'runtime_started':False,'root':str(ROOT),'next':'isolated verification, then start services'}))
-if __name__=='__main__':provision()
+if __name__=='__main__':provision(sys.argv[1])

@@ -6,7 +6,7 @@ import ssl
 from threading import BoundedSemaphore
 from pathlib import Path
 from fastapi import Depends, FastAPI, HTTPException, Request, Response, WebSocket, WebSocketDisconnect
-from fastapi.responses import Response, StreamingResponse
+from fastapi.responses import RedirectResponse, Response, StreamingResponse
 from starlette.background import BackgroundTask
 from starlette.concurrency import run_in_threadpool
 from starlette.websockets import WebSocketState
@@ -105,9 +105,13 @@ async def business_ws(ws:WebSocket):
 
 @app.get('/{path:path}')
 def static(path:str):
+    if path in ('', 'index.html') and Path(__file__).with_name('school-web-enabled').is_file():
+        return RedirectResponse('https://localhost:18443/local-real-map.html', status_code=302,
+                                headers={'Cache-Control':'no-store'})
     entry={
         '':('real-console.html','text/html'),
         'index.html':('real-console.html','text/html'),
+        'real-console.html':('real-console.html','text/html'),
         'real-missions.html':('real-control.html','text/html'),
         'real-missions.js':('real-control.js','application/javascript'),
         'real-control.html':('real-control.html','text/html'),
