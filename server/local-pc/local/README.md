@@ -77,7 +77,8 @@ sudo tailscale up --hostname=capstone-drone-gateway --accept-dns=false --accept-
 - 자동 터널을 끈 상태에서 PC에서 Pi에 수동 터널을 열려면 `.\Connect-Gateway.ps1 -Tailnet`을 실행한다. Pi에서는 실지도 장치 API가 `https://localhost:18443`, 기존 REAL 장치 API가 `127.0.0.1:19444`, 기존 카메라 수신기가 `127.0.0.1:19560`으로 연결된다.
 - Pi가 부팅할 때 스스로 서버에 접속하게 하려면 [Pi 터널 서비스](pi-capstone-tunnel.service)를 사용한다. Pi에서 전용 Ed25519 키를 생성해 `/etc/drone-gateway/tailnet-ssh-key`에 두고 `gateway` 계정만 읽도록 설정한다. 서버의 `/etc/drone-real-ssh/authorized_keys`에는 Pi의 공개키를 등록한다. 서버 공개 호스트 키(작업 폴더의 `local/capstone-server-known-hosts`, 저장소에는 넣지 않음)를 Pi의 `/etc/drone-gateway/tailnet_known_hosts`에 설치한다. 기존 터널이 같은 포트를 사용하고 있으면 중지한 후 서비스를 `/etc/systemd/system`에 모드 `0644`로 설치하고 `sudo systemctl daemon-reload`와 `sudo systemctl enable --now pi-capstone-tunnel`을 실행한다.
 - 실지도 게이트웨이는 **`real-admin` 계정에 등록**되어 있다 (2026-11-20). 실지도에서 기체·영상을 보려면 `real-admin`으로 로그인한다. Pi는 장치 API 주소의 계정별 경로를 그대로 쓰고, SSH 터널 호스트는 `https://localhost:18443`이다. 이 서비스의 공개 CA는 `local/school-web-ca.crt`에 있다. [실지도 게이트웨이 연결 규격](https://github.com/won11794-bit/capstone1_project/blob/main/docs/실기체-게이트웨이.md)
-- Pi 쪽 텔레메트리 브리지와 영상 송출 서비스는 [`server/real-map-gateway`](../../real-map-gateway/README.md)에 있다. 설치 파일과 키는 Pi의 `~/real-map-gateway-install`에 올려 두었고, Pi 셸에서 `sudo bash ~/real-map-gateway-install/install.sh`로 설치한다. 키를 다시 받아야 하면 실지도의 **연결 정보**에서 같은 키를 조회할 수 있다.
+- Pi 쪽 텔레메트리 브리지와 영상 송출 서비스는 [`server/real-map-gateway`](../../real-map-gateway/README.md)에 있다. 11-20 Pi에 설치했다 (`real-map-gateway` · `real-map-camera`, 부팅 자동 시작). 키를 다시 받아야 하면 실지도의 **연결 정보**에서 같은 키를 조회할 수 있다.
+- 11-20 현재 Pi 설정: FC 텔레메트리 포트의 송신 주기가 0이라 브리지가 2 Hz 주기 요청을 보낸다 (`/etc/drone-gateway/real-map.json`의 `request_streams_hz` 2 · FC `MAV2_*`·`MAV3_*` 적용 뒤 0으로). 영상 송출은 H.265 · RTP 97 (`/etc/drone-gateway/real-map-camera.env`).
 
 ### 같은 네트워크에서 접속
 

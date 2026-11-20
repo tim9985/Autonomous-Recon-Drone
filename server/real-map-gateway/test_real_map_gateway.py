@@ -69,6 +69,25 @@ class TelemetryTest(unittest.TestCase):
         self.assertNotIn('position', gw.telemetry(latest, (now, wall), wall, now))
 
 
+class DiagnosticsTest(unittest.TestCase):
+    def test_statustext_gps_and_voltage_are_kept_for_status_file(self):
+        link = gw.FcLink('/dev/null', 57600, None, 1, 1)
+
+        def mav(kind, source=(1, 1), **fields):
+            m = msg(**fields)
+            m.get_type, m.get_srcSystem, m.get_srcComponent = (lambda: kind), (lambda: source[0]), (lambda: source[1])
+            return m
+
+        link._store(mav('GPS_RAW_INT', fix_type=1, satellites_visible=0, eph=9999))
+        link._store(mav('SYS_STATUS', voltage_battery=12150, battery_remaining=-1))
+        link._store(mav('STATUSTEXT', severity=3, text='PreArm: GPS 1: Bad fix'))
+        link._store(mav('STATUSTEXT', source=(255, 190), severity=6, text='from a ground station'))
+        d = link.diagnostics()
+        self.assertEqual((d['gps_fix_type'], d['satellites'], d['hdop'], d['battery_voltage_v'], d['battery_remaining']),
+                         (1, 0, 99.99, 12.15, -1))
+        self.assertEqual([t['text'] for t in d['statustext']], ['PreArm: GPS 1: Bad fix'])
+
+
 class CommandTest(unittest.TestCase):
     def bridge(self, replies, state_dir):
         now, wall = time.monotonic(), time.time()

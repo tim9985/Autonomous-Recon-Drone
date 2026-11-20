@@ -23,7 +23,7 @@
 1. 관제 웹 **실지도 → 실기체 상태 → 게이트웨이 등록**으로 장치 주소와 키를 받는다. 서버와 Pi가 SSH 터널(`pi-capstone-tunnel`)로 이어져 있으면 장치 주소의 호스트는 `https://localhost:18443`이다.
 2. 설치 폴더(`~/real-map-gateway-install`)에 이 폴더의 파일, `ground_camera_publish.py`, 아래 두 설정 파일, 키 파일 `real-map-key`(0600)를 둔다.
    - `real-map.json` — `device_url` · `ca_file` · `key_file` · `serial` · `baud` · `mavlink_module` · `request_streams_hz`
-   - `real-map-camera.env` — `DEVICE_URL=<장치 주소>` · `CAMERA_ARGS=--copy-hevc`
+   - `real-map-camera.env` — `DEVICE_URL=<장치 주소>` · `CAMERA_ARGS=--copy-hevc --payload-type 97` (RunCam WiFiLink 2 · OpenIPC = H.265 · RTP 97 · 11-11 수신 기록)
 3. `sudo bash ~/real-map-gateway-install/install.sh` → 마지막의 `--check`가 `OK`이고 두 서비스가 `active (running)`이면 끝.
 
 ## 운영
@@ -37,8 +37,10 @@ python3 /opt/real-map-gateway/real_map_gateway.py --config /etc/drone-gateway/re
 ```
 
 - 실지도에서 **게이트웨이 대기** = Pi→서버 교환 끊김, **기체 신호 대기** = Pi는 살아 있는데 FC HEARTBEAT가 3초 넘게 없음.
-- 위치가 안 나오고 `--probe`에 `HEARTBEAT`만 보이면 FC가 그 무선 포트로 데이터를 안 보내는 것 — FC의 `MAVn_*` 송신 주기(11-20 판독값 전부 0)를 올리거나, 임시로 `real-map.json`의 `request_streams_hz`를 `2`로.
-- 영상: 카메라 RTP(H.265)를 변환 없이 보낸다(`--copy-hevc`, Pi 4는 4K 변환 불가). H.264로 보내는 카메라면 `CAMERA_ARGS=--rtp-codec H264`. 1080p 송출을 권장한다.
+- `status.json`의 `fc`: GPS 고정 종류 · 위성 수 · HDOP · 배터리 전압 · FC 경고 문구(STATUSTEXT, 예: `PreArm: GPS 1: Bad fix`) — 지도에 위치·배터리가 안 나올 때 먼저 본다 (전류 센서가 없어 잔량 %는 FC가 −1로 보냄 → 지도에는 빈칸).
+- 위치가 안 나오고 `messages`에 `HEARTBEAT`만 보이면 FC가 그 무선 포트로 데이터를 안 보내는 것 — FC의 `MAVn_*` 송신 주기(11-20 판독값 전부 0)를 올리거나, `real-map.json`의 `request_streams_hz`를 `2`로 (11-20 현재 Pi는 `2`로 켜 둠 · FC 파라미터 적용 뒤 `0`으로).
+- 영상: 카메라 RTP(H.265 · 4K · 페이로드 97)를 변환 없이 보낸다(`--copy-hevc`, Pi 4는 4K 변환 불가). 페이로드 번호가 다르면 ffmpeg가 `dimensions not set`으로 계속 재시작한다. 1080p 송출을 권장한다.
+- 영상이 없을 때 순서: `journalctl -u drone-camera-rx`의 `PKT` 값이 0이면 공중 수신이 없음(카메라 송신 확인) → 카메라는 유선(eth0, NetworkManager 프로필 `drone-camera-wired` ↔ 카메라 OpenIPC 기본 주소)으로 핑·RTSP 554·`/image.jpg`를 확인할 수 있다. RTSP가 닫혀 있고 스냅샷이 비면 카메라의 영상 프로그램이 멈춘 것이다.
 - 되돌리기: `sudo systemctl disable --now real-map-gateway real-map-camera` · 분배기는 `/opt/drone-camera/pi_camera_relay.py.orig-real-map`으로 복원.
 
 ## 기체 없이 시험·리허설

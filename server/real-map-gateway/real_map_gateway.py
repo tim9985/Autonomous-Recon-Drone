@@ -116,12 +116,32 @@ class FcLink(threading.Thread):
         self.latest = {}                    # type -> (monotonic, wall, message)
         self.counts = collections.Counter()  # "sys/comp TYPE" -> count
         self.last_fc = None                 # (monotonic, wall) of the newest FC message
+        self.texts = collections.deque(maxlen=8)   # recent FC STATUSTEXT (pre-arm checks etc.)
         self.error = 'starting'
         self.stopping = threading.Event()
 
     def snapshot(self):
         with self.lock:
             return dict(self.latest), self.last_fc, dict(self.counts), self.error
+
+    def diagnostics(self):
+        """Field-check values that the protocol sample does not carry (status.json only)."""
+        with self.lock:
+            gps, status = self.latest.get('GPS_RAW_INT'), self.latest.get('SYS_STATUS')
+            out = {}
+            if gps:
+                g = gps[2]
+                out.update(gps_fix_type=g.fix_type,
+                           satellites=None if g.satellites_visible == 255 else g.satellites_visible,
+                           hdop=None if g.eph == 65535 else round(g.eph / 100, 2),
+                           gps_age_s=round(time.monotonic() - gps[0], 1))
+            if status:
+                s = status[2]
+                out.update(battery_voltage_v=None if s.voltage_battery == 65535 else round(s.voltage_battery / 1000, 2),
+                           battery_remaining=s.battery_remaining)
+            out['statustext'] = [{'at': round(at, 1), 'severity': sev, 'text': text}
+                                 for at, sev, text in self.texts]
+            return out
 
     def stop(self):
         self.stopping.set()
@@ -178,7 +198,8 @@ class FcLink(threading.Thread):
         self._set_error(None)
         next_request = 0.0
         while not self.stopping.is_set():
-            if sender and time.monotonic() >= next_request:
+            # Ask only once the FC is heard (requests sent before that were lost on the radio).
+            if sender and self.last_fc and time.monotonic() >= next_request:
                 self._request_streams(sender)
                 next_request = time.monotonic() + 30
             if not select.select([fd], [], [], 0.2)[0]:
@@ -197,6 +218,7 @@ class FcLink(threading.Thread):
         for msg_id in STREAM_IDS.values():
             sender.command_long_send(self.source[0], self.source[1], MAV_CMD_SET_MESSAGE_INTERVAL,
                                      0, msg_id, interval, 0, 0, 0, 0, 0)
+            time.sleep(0.05)   # do not burst the half-duplex telemetry radio
 
     def _store(self, msg):
         kind = msg.get_type()
@@ -213,6 +235,9 @@ class FcLink(threading.Thread):
             self.last_fc = now
             if kind in WATCHED:
                 self.latest[kind] = (now[0], now[1], msg)
+            elif kind == 'STATUSTEXT':
+                text = msg.text.decode(errors='replace') if isinstance(msg.text, bytes) else str(msg.text)
+                self.texts.append((now[1], msg.severity, text.rstrip('\x00').strip()))
 
 
 def telemetry(latest, last_fc, boot_wall, now_mono):
@@ -429,10 +454,11 @@ class Bridge:
 
     def status(self, error):
         latest, last_fc, counts, radio_error = self.link.snapshot()
+        fc = self.link.diagnostics() if hasattr(self.link, 'diagnostics') else None
         return {'updated_at': time.time(), 'boot_id': self.boot_id, 'session_open': bool(self.session_id),
                 'sequence': self.sequence, 'last_exchange_ok_at': self.last_ok, 'error': error,
                 'radio_error': radio_error, 'last_fc_message_at': last_fc[1] if last_fc else None,
-                'sample': self.last_sample, 'messages': counts}
+                'sample': self.last_sample, 'fc': fc, 'messages': counts}
 
 
 def run(cfg):
