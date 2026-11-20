@@ -49,6 +49,8 @@ wsl -d Capstone-Pipeline -- docker compose -f /home/se/sandboxes/drone-real/comp
 
 `setup-real.py`는 기존 로컬 DB와 발급한 신원을 재사용한다. `register-model.py`는 가중치 해시를 확인하고 관제 API에서 동일 모델 등록을 재시도할 수 있다. 학교의 별도 4K 실시간 분석기는 기존 TensorRT 엔진에 의존한다. 로컬에서 기동하는 카메라 수신기와 REAL 비전 worker의 임무 프레임 분석은 별도 경로다.
 
+REAL 비전 녹화 상한(`VISION_RECORD_MAX_MB`)은 원본 설정 3,000 MB를 그대로 쓴다(11-20 팀 결정). 4K 영상이면 약 8분, 1080p면 약 20분 뒤 녹화가 멈추므로 비행 전에 녹화 폴더를 비우고 비행 중 `worker-status.json`의 `record_frames`가 늘어나는지 확인한다.
+
 지도 및 PC SIM 입력은 `/home/se/sandboxes/drone-dev`에, 인수 평가셋은 `/home/se/drone_yolo/data/test_v2`에 배치했다. 구역 계산기를 재현하려면 백업에 빠진 `drone-regional-base:20261022` 원본 이미지가 필요하다.
 
 ## Raspberry Pi 인수
@@ -103,7 +105,6 @@ wsl -d Capstone-Pipeline -- bash local/backup-local.sh
 
 - 결과는 WSL의 `~/capstone-backups/<날짜-시각>/` (모드 0700): 새 관제 웹 DB · REAL DB 덤프 · 게이트웨이 등록·임무·비행 기록과 키 시드 묶음 · `SHA256SUMS` · 복구 방법 `RESTORE.txt`
 - 묶음에는 게이트웨이 키를 만드는 시드가 들어 있다. 공유하거나 저장소에 올리지 않는다.
-- REAL 비전 녹화 상한은 `setup-real.py`가 compose를 만들 때 30,000 MB로 넣는다 (기존 3,000 MB면 4K 기준 약 8분 뒤 녹화가 멈춤). 이미 띄운 서버에 반영하려면 compose의 `VISION_RECORD_MAX_MB`를 고친 뒤 `vision`만 다시 만든다.
 
 ## 로컬 검증 결과
 

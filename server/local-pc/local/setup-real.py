@@ -69,8 +69,6 @@ def prepare_runtime(operator_uid, operator_gid):
     vision["devices"] = ["nvidia.com/gpu=all"]
     vision["environment"].pop("LD_LIBRARY_PATH", None)
     vision["environment"]["VISION_TRT"] = "0"
-    # 3,000 MB stops recording after about 8 minutes of 4K frames (11-17 check).
-    vision["environment"]["VISION_RECORD_MAX_MB"] = "30000"
     (ROOT / "compose.json").write_text(json.dumps(compose, indent=2) + "\n")
 
 
